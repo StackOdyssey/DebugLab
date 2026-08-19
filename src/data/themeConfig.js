@@ -1,0 +1,62 @@
+export const THEMES = {
+  'neo-volt': {
+    id: 'neo-volt',
+    name: 'Neo-Volt (Default)',
+    badgeColor: 'bg-brutal-yellow',
+    bgClass: 'bg-[#FDFBF7]',
+    dark: false,
+    primaryColor: '#FFE600',
+    accentColor: '#06B6D4',
+    secondaryColor: '#F43F5E',
+    borderColor: '#000000',
+    cardBg: '#FFFFFF',
+    textMain: '#121212',
+    navBg: '#FFFFFF',
+    highlight: 'bg-brutal-yellow text-black'
+  },
+  'cyber-dark': {
+    id: 'cyber-dark',
+    name: 'Cyberpunk Dark',
+    badgeColor: 'bg-brutal-lime',
+    bgClass: 'bg-[#0E1015] text-[#F3F4F6] dark',
+    dark: true,
+    primaryColor: '#A3E635',
+    accentColor: '#38BDF8',
+    secondaryColor: '#F43F5E',
+    borderColor: '#000000',
+    cardBg: '#181B22',
+    textMain: '#F9FAFB',
+    navBg: '#181B22',
+    highlight: 'bg-brutal-lime text-black'
+  },
+  'candy-pop': {
+    id: 'candy-pop',
+    name: 'Candy Brutal',
+    badgeColor: 'bg-pink-300',
+    bgClass: 'bg-[#FFF5F7]',
+    dark: false,
+    primaryColor: '#F472B6',
+    accentColor: '#67E8F9',
+    secondaryColor: '#FBBF24',
+    borderColor: '#000000',
+    cardBg: '#FFFFFF',
+    textMain: '#18181B',
+    navBg: '#FFFFFF',
+    highlight: 'bg-pink-300 text-black'
+  },
+  'matrix-terminal': {
+    id: 'matrix-terminal',
+    name: 'Matrix Terminal',
+    badgeColor: 'bg-emerald-400',
+    bgClass: 'bg-[#050B07] text-[#34D399] dark',
+    dark: true,
+    primaryColor: '#10B981',
+    accentColor: '#A3E635',
+    secondaryColor: '#06B6D4',
+    borderColor: '#10B981',
+    cardBg: '#09150E',
+    textMain: '#6EE7B7',
+    navBg: '#09150E',
+    highlight: 'bg-emerald-400 text-black'
+  }
+};
