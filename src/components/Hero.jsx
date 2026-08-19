@@ -68,7 +68,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
 
           <div className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-gray-200 leading-relaxed">
             <p className="bg-white dark:bg-brutal-darkCard border-3 border-black p-3.5 sm:p-4 shadow-brutal">
-              🚀 <span className="bg-brutal-lime/60 px-1">Full-Stack Digital Developer</span> in training at <span className="font-black underline">ISTA</span> & <span className="font-black underline">FreeCodeCamp</span>. Certified in <span className="bg-brutal-cyan/60 px-1 font-black">Cisco Switching & IP</span>, <span className="bg-brutal-pink/40 px-1 font-black">C++ Basics</span>, and <span className="bg-brutal-yellow/80 px-1 font-black">ALX Africa Front-End</span>.
+              🚀 <span className="bg-brutal-lime/60 px-1">Full-Stack Digital Developer</span> in training at <span className="font-black underline">ISTA</span> & <span className="font-black underline">FreeCodeCamp</span>. Experienced in <span className="bg-orange-300/80 px-1 font-black text-black">Google Ads Management</span>, and certified in <span className="bg-brutal-cyan/60 px-1 font-black">Cisco Switching & IP</span>, <span className="bg-brutal-pink/40 px-1 font-black">C++ Basics</span>, and <span className="bg-brutal-yellow/80 px-1 font-black">ALX Africa Front-End</span>.
             </p>
           </div>
 
