@@ -148,7 +148,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
               </div>
 
               <div className="relative z-10 font-sans font-black text-lg uppercase tracking-tight text-black dark:text-white">
-                Mohammed Simon
+                Mohammed (StackOdyssey)
               </div>
               <div className="relative z-10 font-mono text-xs font-bold text-gray-700 dark:text-gray-300">
                 github.com/StackOdyssey

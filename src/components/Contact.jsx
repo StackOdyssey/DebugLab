@@ -78,7 +78,7 @@ export function Contact({ onShowToast }) {
           </h2>
         </div>
         <p className="text-sm font-mono font-bold text-gray-700 dark:text-gray-300 max-w-md">
-          Interested in hiring Mohammed (Simon) for an internship, junior full-stack developer role, or freelance web build? Get in touch below!
+          Interested in hiring Mohammed (StackOdyssey) for an internship, junior full-stack developer role, or freelance web build? Get in touch below!
         </p>
       </div>
 
@@ -177,7 +177,7 @@ export function Contact({ onShowToast }) {
                   Message Transmitted!
                 </h3>
                 <p className="text-xs font-bold text-gray-700 max-w-sm mx-auto">
-                  Thank you for reaching out! Your message has been logged. Mohammed (Simon) will get back to you as soon as possible.
+                  Thank you for reaching out! Your message has been logged. Mohammed (StackOdyssey) will get back to you as soon as possible.
                 </p>
                 <Button
                   variant="yellow"

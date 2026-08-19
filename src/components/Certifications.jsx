@@ -164,7 +164,7 @@ export function Certifications() {
             {/* Verification Footer */}
             <div className="pt-2 flex items-center justify-between gap-3 border-t-2 border-black">
               <span className="text-[11px] font-mono text-gray-600">
-                Holder: <strong>Mohammed (Simon)</strong> &bull; StackOdyssey
+                Holder: <strong>Mohammed (StackOdyssey)</strong>
               </span>
               <Button
                 as="a"

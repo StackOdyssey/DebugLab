@@ -1,6 +1,6 @@
 export const PORTFOLIO = {
   name: "Mohammed",
-  nickname: "Simon",
+  nickname: "StackOdyssey",
   handle: "StackOdyssey",
   role: "Full-Stack Web Developer & Digital Craftsman",
   status: "Available for Internships & Projects",
@@ -320,12 +320,12 @@ export const PORTFOLIO = {
   ],
 
   terminalCommands: {
-    help: "Available commands:\n  • about      - Learn more about Mohammed (Simon)\n  • skills     - Display full tech stack breakdown\n  • certs      - View verified certifications (Cisco, ALX, C++, ISTA)\n  • projects   - List GitHub repositories and live tools\n  • ipcalc     - Quick subnet calculation demo\n  • contact    - Get email, socials, and contact links\n  • whoami     - Check who you are connected to\n  • matrix     - Enter the hacker matrix rain effect\n  • theme      - List available brutalist themes\n  • clear      - Clear terminal screen",
-    about: "MOHAMMED (SIMON)\nRole: Full-Stack Web Developer & Digital Craftsman\nEducation: ISTA Full-Stack + ALX Africa + FreeCodeCamp\nFocus: High-performance React apps, Django backends, and rock-solid network logic.\nGitHub: https://github.com/StackOdyssey",
+    help: "Available commands:\n  • about      - Learn more about Mohammed (StackOdyssey)\n  • skills     - Display full tech stack breakdown\n  • certs      - View verified certifications (Cisco, ALX, C++, ISTA)\n  • projects   - List GitHub repositories and live tools\n  • ipcalc     - Quick subnet calculation demo\n  • contact    - Get email, socials, and contact links\n  • whoami     - Check who you are connected to\n  • matrix     - Enter the hacker matrix rain effect\n  • theme      - List available brutalist themes\n  • clear      - Clear terminal screen",
+    about: "MOHAMMED (STACKODYSSEY)\nRole: Full-Stack Web Developer & Digital Craftsman\nEducation: ISTA Full-Stack + ALX Africa + FreeCodeCamp\nFocus: High-performance React apps, Django backends, and rock-solid network logic.\nGitHub: https://github.com/StackOdyssey",
     certs: "VERIFIED CERTIFICATIONS:\n1. [CISCO] Switching & IP Addressing / Network Architecture (2025)\n2. [ALX AFRICA] Front-End Web Development Specialization (2025/2026)\n3. [C++] Fundamentals & Algorithmic Foundations (2024)\n4. [ISTA] Développement Digital Full Stack (In Progress)\n5. [FREECODECAMP] Responsive Design & JS Algorithms",
     skills: "CORE TECH STACK:\n• Frontend: React.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Next.js basics\n• Backend: Python, Django, C++, RESTful APIs, JSON\n• Networking: Cisco Switching, IPv4 Subnetting, CIDR, TCP/IP Protocols\n• Tools: Git/GitHub, WordPress, Linux CLI, Vite, npm",
     projects: "FEATURED PROJECTS & REPOSITORIES:\n1. Safe Hands Logistics   -> Next.js Enterprise CRM & Freight Platform (Client Case Study)\n2. alx-fe-reactjs        -> React Odyssey modular component ecosystem\n3. Alx_DjangoLearnLab    -> Django backend & REST API engine\n4. dynamic-to-do-list-js -> Pure JS productivity manager\n5. ALX_Simple_Quiz       -> Timed JS knowledge quiz\n6. cisco-subnet-toolkit  -> Interactive IPv4 bitwise calculator",
-    contact: "CONNECT WITH MOHAMMED (SIMON):\n• GitHub: https://github.com/StackOdyssey\n• Email:  contact.stackodyssey@gmail.com\n• Status: Open for Internships, Freelance, & Full-Time Junior roles!",
+    contact: "CONNECT WITH MOHAMMED (STACKODYSSEY):\n• GitHub: https://github.com/StackOdyssey\n• Email:  contact.stackodyssey@gmail.com\n• Status: Open for Internships, Freelance, & Full-Time Junior roles!",
     whoami: "guest@debuglab-terminal (Visitor looking at Mohammed's Portfolio 🚀)"
   }
 };

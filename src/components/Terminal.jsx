@@ -14,7 +14,7 @@ const ASCII_BANNER = `
 export function TerminalModal({ isOpen, onClose, onShowToast }) {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([
-    { type: 'system', text: 'Mohammed (Simon) Terminal OS v2.6.0 [ISTA / ALX / CISCO Edition]' },
+    { type: 'system', text: 'Mohammed (StackOdyssey) Terminal OS v2.6.0 [ISTA / ALX / CISCO Edition]' },
     { type: 'system', text: 'Type "help" or click one of the quick commands below to explore.' },
   ]);
   const [cmdHistory, setCmdHistory] = useState([]);
@@ -152,7 +152,7 @@ export function TerminalModal({ isOpen, onClose, onShowToast }) {
             <span className="w-3 h-3 rounded-full bg-red-500 border border-black inline-block cursor-pointer hover:opacity-80" onClick={onClose}></span>
             <span className="w-3 h-3 rounded-full bg-yellow-400 border border-black inline-block"></span>
             <span className="w-3 h-3 rounded-full bg-green-500 border border-black inline-block"></span>
-            <span className="ml-2 font-mono uppercase text-brutal-yellow">simon@debuglab:~ (Interactive Shell)</span>
+            <span className="ml-2 font-mono uppercase text-brutal-yellow">stackodyssey@debuglab:~ (Interactive Shell)</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -207,7 +207,7 @@ export function TerminalModal({ isOpen, onClose, onShowToast }) {
 
         {/* Command Line Input Bar */}
         <div className="p-3 bg-black border-t-3 border-gray-800 flex items-center gap-2 font-mono text-xs sm:text-sm">
-          <span className="text-brutal-lime font-black shrink-0">guest@simon:~$</span>
+          <span className="text-brutal-lime font-black shrink-0">guest@stackodyssey:~$</span>
           <input
             ref={inputRef}
             type="text"

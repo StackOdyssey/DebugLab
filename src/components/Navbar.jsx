@@ -48,7 +48,7 @@ export function Navbar({
           >
             <Command className="w-3 h-3" /> Quick Nav <kbd className="bg-gray-800 px-1 text-[9px] rounded-xs border border-gray-600">Ctrl+K</kbd>
           </button>
-          <span>MOHAMMED // SIMON</span>
+          <span>MOHAMMED // STACKODYSSEY</span>
         </div>
       </div>
 
@@ -68,7 +68,7 @@ export function Navbar({
               MOHAMMED
             </span>
             <span className="text-[10px] font-mono font-bold text-gray-600 dark:text-gray-400 leading-none mt-0.5">
-              @StackOdyssey (Simon)
+              @StackOdyssey
             </span>
           </div>
         </a>

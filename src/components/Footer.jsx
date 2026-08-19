@@ -31,7 +31,7 @@ export function Footer({ onOpenTerminal }) {
         bg="bg-brutal-yellow"
         text="text-black"
         items={[
-          "MOHAMMED (SIMON)",
+          "MOHAMMED (STACKODYSSEY)",
           "ISTA FULL STACK DEVELOPER",
           "ALX AFRICA GRADUATE",
           "CISCO CERTIFIED NETWORKING",
@@ -53,7 +53,7 @@ export function Footer({ onOpenTerminal }) {
                 M//S
               </div>
               <span className="font-sans font-black text-xl text-black dark:text-white uppercase">
-                MOHAMMED (SIMON)
+                MOHAMMED (STACKODYSSEY)
               </span>
             </div>
             <p className="text-xs font-bold text-gray-700 dark:text-gray-300 max-w-md leading-relaxed">
@@ -133,7 +133,7 @@ export function Footer({ onOpenTerminal }) {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-gray-700 dark:text-gray-400">
           <div className="flex items-center gap-2">
-            <span>&copy; {new Date().getFullYear()} Mohammed (Simon)</span>
+            <span>&copy; {new Date().getFullYear()} Mohammed (StackOdyssey)</span>
             <span>&bull;</span>
             <span className="bg-brutal-yellow text-black px-1.5 py-0.5 border border-black font-black text-[10px]">
               NEO-BRUTALISM
