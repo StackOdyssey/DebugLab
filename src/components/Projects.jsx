@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Code2, Layers, CheckCircle, Sparkles, FolderGit2, Building2, Terminal, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Code2, Layers, CheckCircle, Sparkles, FolderGit2, Building2, Terminal, ArrowUpRight, Globe } from 'lucide-react';
 import { Github } from './ui/GithubIcon';
 import { Card } from './ui/Card';
 import { Badge } from './ui/Badge';
@@ -14,7 +14,7 @@ export function Projects() {
 
   const filterTabs = [
     { id: 'All', label: 'All Works', count: PORTFOLIO.projects.length },
-    { id: 'real-project', label: '🏢 Real Commercial Project', count: PORTFOLIO.projects.filter(p => p.projectType === 'real-project').length },
+    { id: 'real-project', label: '🏢 Real Commercial Projects', count: PORTFOLIO.projects.filter(p => p.projectType === 'real-project').length },
     { id: 'github-personal', label: '💻 GitHub Personal Works', count: PORTFOLIO.projects.filter(p => p.projectType === 'github-personal').length },
   ];
 
@@ -43,7 +43,7 @@ export function Projects() {
         </div>
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <p className="text-xs font-mono font-bold text-gray-700 dark:text-gray-300 max-w-xs">
-            Distinguishing <strong>Safe Hands</strong> (real client production build) from <strong>GitHub personal works</strong>.
+            Distinguishing <strong>Commercial Production Projects</strong> (Safe Hands, Excellence Warehouse) from <strong>GitHub personal works</strong>.
           </p>
           <Button
             as="a"
@@ -117,7 +117,7 @@ export function Projects() {
               }
               headerBg={project.color}
               shadow={isRealProject ? 'shadow-brutal-xl' : 'shadow-brutal-md'}
-              className={`group ${isRealProject ? 'border-4 border-black ring-3 ring-amber-400/80' : ''}`}
+              className={`group flex flex-col ${isRealProject ? 'border-4 border-black ring-3 ring-amber-400/80' : ''}`}
             >
               {/* Distinct Classification Strip */}
               <div className={`-mx-4 -mt-4 mb-3 px-3.5 py-1.5 border-b-2 border-black flex items-center justify-between text-[10px] font-mono font-black uppercase ${
@@ -140,6 +140,25 @@ export function Projects() {
                   {isRealProject ? 'DEPLOYED' : 'OPEN SOURCE'}
                 </span>
               </div>
+
+              {/* Project Visual Image / Preview (if available) */}
+              {project.image && (
+                <div 
+                  className="relative border-2 border-black mb-3 overflow-hidden bg-gray-900 aspect-video group-hover:scale-[1.01] transition-transform cursor-pointer"
+                  onClick={() => handleInspect(project)}
+                >
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-2 right-2 bg-black text-white text-[9px] font-mono font-bold px-2 py-0.5 border border-white/40 shadow-sm flex items-center gap-1">
+                    <Globe className="w-3 h-3 text-green-400" />
+                    <span>LIVE PORTAL</span>
+                  </div>
+                </div>
+              )}
 
               <div className="mb-2">
                 <span className="text-[10px] font-mono font-black uppercase text-gray-500 tracking-wider">
@@ -192,15 +211,19 @@ export function Projects() {
                   <span>{isRealProject ? 'Case Study' : 'Details'}</span>
                 </Button>
 
-                {isRealProject ? (
+                {isRealProject && project.liveUrl ? (
                   <Button
+                    as="a"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant="yellow"
                     size="sm"
-                    onClick={() => handleInspect(project)}
                     className="w-full text-xs"
                   >
-                    <span>Architecture</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
+                    <Globe className="w-3.5 h-3.5" />
+                    <span>Live Site</span>
+                    <ArrowUpRight className="w-3 h-3" />
                   </Button>
                 ) : (
                   <Button
@@ -233,13 +256,13 @@ export function Projects() {
         {selectedProject && (
           <div className="space-y-5 font-mono">
             {selectedProject.projectType === 'real-project' ? (
-              <div className="p-3.5 bg-amber-100 border-3 border-black shadow-brutal-sm flex items-center justify-between text-xs font-black text-black">
+              <div className="p-3.5 bg-amber-100 border-3 border-black shadow-brutal-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-black text-black">
                 <div className="flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-amber-900" />
-                  <span>CLIENT: {selectedProject.clientName || 'Safe Hands Shipping Line'}</span>
+                  <Building2 className="w-4 h-4 text-amber-900 shrink-0" />
+                  <span>CLIENT: {selectedProject.clientName}</span>
                 </div>
-                <span className="bg-black text-amber-300 px-2 py-0.5 text-[10px] uppercase font-mono">
-                  LIVE COMMERCIAL SYSTEM
+                <span className="bg-black text-amber-300 px-2 py-0.5 text-[10px] uppercase font-mono self-start sm:self-auto">
+                  LIVE COMMERCIAL PRODUCTION BUILD
                 </span>
               </div>
             ) : (
@@ -251,6 +274,17 @@ export function Projects() {
                 <span className="bg-black text-white px-2 py-0.5 text-[10px] uppercase font-mono">
                   OPEN SOURCE LAB
                 </span>
+              </div>
+            )}
+
+            {/* Modal Image Preview */}
+            {selectedProject.image && (
+              <div className="border-3 border-black shadow-brutal-sm overflow-hidden bg-black">
+                <img 
+                  src={selectedProject.image} 
+                  alt={selectedProject.title} 
+                  className="w-full max-h-72 object-cover object-top"
+                />
               </div>
             )}
 
@@ -284,19 +318,36 @@ export function Projects() {
               </div>
             </div>
 
-            <div className="pt-3 border-t-2 border-black flex items-center justify-between gap-3">
+            <div className="pt-3 border-t-2 border-black flex flex-col sm:flex-row items-center justify-between gap-3">
               {selectedProject.projectType === 'real-project' ? (
-                <Button
-                  as="a"
-                  href="#contact"
-                  onClick={() => setSelectedProject(null)}
-                  variant="yellow"
-                  size="md"
-                  className="w-full"
-                >
-                  <Sparkles className="w-4 h-4" />
-                  <span>Discuss Commercial Build / Hire Mohammed</span>
-                </Button>
+                <>
+                  {selectedProject.liveUrl && (
+                    <Button
+                      as="a"
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="yellow"
+                      size="md"
+                      className="w-full sm:w-auto flex-1"
+                    >
+                      <Globe className="w-4 h-4" />
+                      <span>Visit Live Website</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </Button>
+                  )}
+                  <Button
+                    as="a"
+                    href="#contact"
+                    onClick={() => setSelectedProject(null)}
+                    variant="black"
+                    size="md"
+                    className="w-full sm:w-auto flex-1"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                    <span>Discuss Commercial Build</span>
+                  </Button>
+                </>
               ) : (
                 <Button
                   as="a"
