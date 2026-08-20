@@ -89,32 +89,42 @@ export function Footer({ onOpenTerminal }) {
             </div>
             <ul className="space-y-1 text-xs font-bold">
               <li>
-                <a href="#skills" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                <a href="#/" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                  &rarr; Home
+                </a>
+              </li>
+              <li>
+                <a href="#/projects" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                  &rarr; Projects (All 8 Works)
+                </a>
+              </li>
+              <li>
+                <a href="#/google-ads" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                  &rarr; Google Ads Specialization
+                </a>
+              </li>
+              <li>
+                <a href="#/skills" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
                   &rarr; Skills Matrix
                 </a>
               </li>
               <li>
-                <a href="#projects" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
-                  &rarr; Featured Projects
-                </a>
-              </li>
-              <li>
-                <a href="#cisco-tool" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                <a href="#/cisco-tool" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
                   &rarr; Cisco IP Subnet Tool
                 </a>
               </li>
               <li>
-                <a href="#timeline" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                <a href="#/timeline" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
                   &rarr; Journey & Milestones
                 </a>
               </li>
               <li>
-                <a href="#certifications" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                <a href="#/certifications" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
                   &rarr; Verified Certifications
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                <a href="#/contact" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
                   &rarr; Contact / Direct Line
                 </a>
               </li>

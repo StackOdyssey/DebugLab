@@ -28,27 +28,27 @@ export function Navbar({
   soundEnabled,
   setSoundEnabled,
   onOpenCommandPalette,
-  onOpenTerminal
+  onOpenTerminal,
+  currentPage = 'home',
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [themeDropdownOpen, setThemeDropdownOpen] = useState(false);
   const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
-  const [mobileMoreOpen, setMobileMoreOpen] = useState(true);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
 
-  const moreDropdownRef = useRef(null);
   const themeDropdownRef = useRef(null);
+  const moreDropdownRef = useRef(null);
 
   // Close dropdowns on outside click
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target)) {
-        setMoreDropdownOpen(false);
-      }
+    function handleClickOutside(event) {
       if (themeDropdownRef.current && !themeDropdownRef.current.contains(event.target)) {
         setThemeDropdownOpen(false);
       }
-    };
-
+      if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target)) {
+        setMoreDropdownOpen(false);
+      }
+    }
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
@@ -62,34 +62,40 @@ export function Navbar({
 
   const moreItems = [
     { 
+      id: 'skills',
       label: 'Skills', 
-      href: '#skills', 
+      href: '#/skills', 
       icon: Sparkles, 
       desc: 'Tech Stack & Competencies',
       color: 'text-black dark:text-white'
     },
     { 
+      id: 'cisco-tool',
       label: 'Cisco tool', 
-      href: '#cisco-tool', 
+      href: '#/cisco-tool', 
       icon: Network, 
       desc: 'IPv4 & CIDR Subnet Inspector',
       color: 'text-black dark:text-white'
     },
     { 
+      id: 'timeline',
       label: 'Timeline', 
-      href: '#timeline', 
+      href: '#/timeline', 
       icon: Clock, 
       desc: 'Academic & Dev Milestones',
       color: 'text-black dark:text-white'
     },
     { 
+      id: 'certifications',
       label: 'Certifications', 
-      href: '#certifications', 
+      href: '#/certifications', 
       icon: Award, 
       desc: 'Cisco, ALX Honors, C++, ISTA',
       color: 'text-black dark:text-white'
     },
   ];
+
+  const isMoreActive = ['skills', 'cisco-tool', 'timeline', 'certifications'].includes(currentPage);
 
   return (
     <header className="sticky top-0 z-40 bg-white dark:bg-brutal-darkCard border-b-4 border-black transition-colors">
@@ -114,7 +120,7 @@ export function Navbar({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo */}
         <a 
-          href="#"
+          href="#/"
           className="flex items-center gap-2.5 group"
           onClick={() => sounds.playClick()}
         >
@@ -137,13 +143,43 @@ export function Navbar({
 
         {/* Desktop Nav Links */}
         <nav className="hidden lg:flex items-center gap-1.5 font-mono text-xs font-bold uppercase">
+          {/* Home Link */}
+          <a
+            href="#/"
+            onClick={() => sounds.playClick()}
+            className={`px-3 py-2 border-2 transition-all ${
+              currentPage === 'home'
+                ? 'bg-brutal-yellow text-black border-black shadow-brutal-sm font-black'
+                : 'text-black dark:text-white border-transparent hover:bg-brutal-yellow hover:text-black hover:border-black'
+            }`}
+          >
+            Home
+          </a>
+
           {/* Projects Link */}
           <a
-            href="#projects"
+            href="#/projects"
             onClick={() => sounds.playClick()}
-            className="px-3 py-2 text-black dark:text-white hover:bg-brutal-yellow hover:text-black border-2 border-transparent hover:border-black transition-all"
+            className={`px-3 py-2 border-2 transition-all ${
+              currentPage === 'projects'
+                ? 'bg-brutal-yellow text-black border-black shadow-brutal-sm font-black'
+                : 'text-black dark:text-white border-transparent hover:bg-brutal-yellow hover:text-black hover:border-black'
+            }`}
           >
             Projects
+          </a>
+
+          {/* Google Ads Link */}
+          <a
+            href="#/google-ads"
+            onClick={() => sounds.playClick()}
+            className={`px-3 py-2 border-2 transition-all ${
+              currentPage === 'google-ads'
+                ? 'bg-brutal-yellow text-black border-black shadow-brutal-sm font-black'
+                : 'text-black dark:text-white border-transparent hover:bg-brutal-yellow hover:text-black hover:border-black'
+            }`}
+          >
+            Google Ads
           </a>
 
           {/* 'More' Dropdown Trigger */}
@@ -154,8 +190,8 @@ export function Navbar({
                 setMoreDropdownOpen(!moreDropdownOpen);
               }}
               className={`px-3 py-2 text-black dark:text-white hover:bg-brutal-yellow hover:text-black border-2 transition-all flex items-center gap-1 cursor-pointer ${
-                moreDropdownOpen 
-                  ? 'bg-brutal-yellow text-black border-black shadow-brutal-sm' 
+                moreDropdownOpen || isMoreActive
+                  ? 'bg-brutal-yellow text-black border-black shadow-brutal-sm font-black' 
                   : 'border-transparent hover:border-black'
               }`}
               aria-expanded={moreDropdownOpen}
@@ -168,12 +204,13 @@ export function Navbar({
             {moreDropdownOpen && (
               <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-brutal-darkCard border-3 border-black shadow-brutal-lg z-50 p-2 space-y-1 animate-in fade-in zoom-in-95 font-mono">
                 <div className="text-[10px] font-black uppercase text-gray-500 dark:text-gray-400 px-2 py-1 border-b border-black/20 flex items-center justify-between">
-                  <span>Explore Sections</span>
+                  <span>Explore Pages</span>
                   <span className="bg-brutal-yellow text-black px-1 text-[9px] font-black">4 PAGES</span>
                 </div>
 
                 {moreItems.map((item) => {
                   const IconComp = item.icon;
+                  const isCurrent = currentPage === item.id;
                   return (
                     <a
                       key={item.href}
@@ -182,7 +219,11 @@ export function Navbar({
                         sounds.playClick();
                         setMoreDropdownOpen(false);
                       }}
-                      className="block p-2 text-black dark:text-white hover:bg-brutal-yellow hover:text-black border border-transparent hover:border-black transition-all group"
+                      className={`block p-2 border transition-all group ${
+                        isCurrent 
+                          ? 'bg-brutal-yellow text-black border-black shadow-brutal-sm font-black' 
+                          : 'text-black dark:text-white hover:bg-brutal-yellow hover:text-black border-transparent hover:border-black'
+                      }`}
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
@@ -207,9 +248,13 @@ export function Navbar({
 
           {/* Contact Link */}
           <a
-            href="#contact"
+            href="#/contact"
             onClick={() => sounds.playClick()}
-            className="px-3 py-2 text-black dark:text-white hover:bg-brutal-yellow hover:text-black border-2 border-transparent hover:border-black transition-all"
+            className={`px-3 py-2 border-2 transition-all ${
+              currentPage === 'contact'
+                ? 'bg-brutal-yellow text-black border-black shadow-brutal-sm font-black'
+                : 'text-black dark:text-white border-transparent hover:bg-brutal-yellow hover:text-black hover:border-black'
+            }`}
           >
             Contact
           </a>
@@ -315,16 +360,46 @@ export function Navbar({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t-3 border-black bg-brutal-yellow p-4 space-y-3 font-mono text-sm font-black animate-in slide-in-from-top-2">
-          {/* Projects */}
+          {/* Home */}
           <a
-            href="#projects"
+            href="#/"
             onClick={() => {
               sounds.playClick();
               setMobileMenuOpen(false);
             }}
-            className="block p-2 bg-white text-black border-2 border-black shadow-brutal-sm hover:bg-black hover:text-white transition-all uppercase"
+            className={`block p-2 border-2 border-black shadow-brutal-sm uppercase transition-all ${
+              currentPage === 'home' ? 'bg-black text-white' : 'bg-white text-black hover:bg-black hover:text-white'
+            }`}
+          >
+            Home
+          </a>
+
+          {/* Projects */}
+          <a
+            href="#/projects"
+            onClick={() => {
+              sounds.playClick();
+              setMobileMenuOpen(false);
+            }}
+            className={`block p-2 border-2 border-black shadow-brutal-sm uppercase transition-all ${
+              currentPage === 'projects' ? 'bg-black text-white' : 'bg-white text-black hover:bg-black hover:text-white'
+            }`}
           >
             Projects
+          </a>
+
+          {/* Google Ads */}
+          <a
+            href="#/google-ads"
+            onClick={() => {
+              sounds.playClick();
+              setMobileMenuOpen(false);
+            }}
+            className={`block p-2 border-2 border-black shadow-brutal-sm uppercase transition-all ${
+              currentPage === 'google-ads' ? 'bg-black text-white' : 'bg-white text-black hover:bg-black hover:text-white'
+            }`}
+          >
+            Google Ads
           </a>
 
           {/* More Section in Mobile */}
@@ -333,7 +408,7 @@ export function Navbar({
               onClick={() => setMobileMoreOpen(!mobileMoreOpen)}
               className="w-full flex items-center justify-between text-xs font-black uppercase text-gray-700 cursor-pointer"
             >
-              <span>More Sections ({moreItems.length})</span>
+              <span>More Pages ({moreItems.length})</span>
               <ChevronDown className={`w-4 h-4 transition-transform ${mobileMoreOpen ? 'rotate-180' : ''}`} />
             </button>
 
@@ -341,6 +416,7 @@ export function Navbar({
               <div className="space-y-1.5 pt-1 border-t border-black/20">
                 {moreItems.map((item) => {
                   const IconComp = item.icon;
+                  const isCurrent = currentPage === item.id;
                   return (
                     <a
                       key={item.href}
@@ -349,7 +425,9 @@ export function Navbar({
                         sounds.playClick();
                         setMobileMenuOpen(false);
                       }}
-                      className="p-2 bg-gray-50 hover:bg-brutal-yellow text-black border border-black flex items-center justify-between text-xs font-bold uppercase transition-colors"
+                      className={`p-2 border border-black flex items-center justify-between text-xs font-bold uppercase transition-colors ${
+                        isCurrent ? 'bg-brutal-yellow text-black font-black' : 'bg-gray-50 hover:bg-brutal-yellow text-black'
+                      }`}
                     >
                       <span className="flex items-center gap-2">
                         <IconComp className="w-4 h-4" />
@@ -365,12 +443,14 @@ export function Navbar({
 
           {/* Contact */}
           <a
-            href="#contact"
+            href="#/contact"
             onClick={() => {
               sounds.playClick();
               setMobileMenuOpen(false);
             }}
-            className="block p-2 bg-white text-black border-2 border-black shadow-brutal-sm hover:bg-black hover:text-white transition-all uppercase"
+            className={`block p-2 border-2 border-black shadow-brutal-sm uppercase transition-all ${
+              currentPage === 'contact' ? 'bg-black text-white' : 'bg-white text-black hover:bg-black hover:text-white'
+            }`}
           >
             Contact / Direct Line
           </a>

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { HomeGoogleAds } from './components/HomeGoogleAds';
+import { HomeCommercialProjects } from './components/HomeCommercialProjects';
 import { Certifications } from './components/Certifications';
 import { NetworkTool } from './components/NetworkTool';
 import { SkillsMatrix } from './components/SkillsMatrix';
@@ -16,6 +18,16 @@ import { THEMES } from './data/themeConfig';
 import { PORTFOLIO } from './data/portfolioData';
 import { sounds } from './utils/soundEffects';
 import confetti from 'canvas-confetti';
+import { ArrowLeft, Home } from 'lucide-react';
+
+function getRouteFromHash() {
+  const hash = window.location.hash.replace(/^#\/?/, '').split('?')[0].split('/')[0].trim().toLowerCase();
+  const validRoutes = ['projects', 'google-ads', 'skills', 'cisco-tool', 'timeline', 'certifications', 'contact'];
+  if (validRoutes.includes(hash)) {
+    return hash;
+  }
+  return 'home';
+}
 
 export function App() {
   const [currentTheme, setCurrentTheme] = useState('neo-volt');
@@ -23,8 +35,21 @@ export function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isCommandMenuOpen, setIsCommandMenuOpen] = useState(false);
   const [toast, setToast] = useState(null);
+  const [currentPage, setCurrentPage] = useState(getRouteFromHash());
 
   const themeObj = THEMES[currentTheme] || THEMES['neo-volt'];
+
+  // Listen to hash change for zero-latency multi-page routing
+  useEffect(() => {
+    const handleHashChange = () => {
+      const newRoute = getRouteFromHash();
+      setCurrentPage(newRoute);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   useEffect(() => {
     // Apply dark mode class to html document element if theme is dark
@@ -91,48 +116,98 @@ export function App() {
         setSoundEnabled={setSoundEnabled}
         onOpenCommandPalette={() => setIsCommandMenuOpen(true)}
         onOpenTerminal={() => setIsTerminalOpen(true)}
+        currentPage={currentPage}
       />
 
-      {/* Hero Section */}
-      <main>
-        <Hero
-          onOpenTerminal={() => setIsTerminalOpen(true)}
-        />
+      {/* Breadcrumb Navigation on Dedicated Subpages */}
+      {currentPage !== 'home' && (
+        <div className="bg-gray-100 dark:bg-gray-800 border-b-3 border-black py-2.5 px-4 sm:px-6 lg:px-8 font-mono text-xs">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <a 
+                href="#/" 
+                className="font-black text-black dark:text-white hover:bg-brutal-yellow hover:text-black px-2 py-0.5 border border-black inline-flex items-center gap-1 shadow-brutal-sm transition-colors"
+              >
+                <Home className="w-3.5 h-3.5" />
+                <span>Home</span>
+              </a>
+              <span className="text-gray-500 dark:text-gray-400 font-black">/</span>
+              <span className="bg-brutal-yellow text-black font-black px-2 py-0.5 border border-black uppercase shadow-brutal-sm">
+                {currentPage === 'cisco-tool' ? 'Cisco Subnet Tool' : currentPage.replace('-', ' ')}
+              </span>
+            </div>
+            <a 
+              href="#/"
+              className="text-black dark:text-gray-200 hover:bg-brutal-yellow hover:text-black px-2 py-0.5 font-black flex items-center gap-1 text-xs border border-transparent hover:border-black transition-all"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Back to Homepage</span>
+            </a>
+          </div>
+        </div>
+      )}
 
-        {/* Highlight Marquee */}
-        <Marquee
-          bg="bg-black"
-          text="text-brutal-yellow"
-          items={[
-            "OPEN FOR FULL-STACK INTERNSHIPS",
-            "REACT.JS",
-            "NEXT.JS BASICS",
-            "CISCO SWITCHING & IP",
-            "ISTA DÉVELOPPEMENT DIGITAL",
-            "ALX AFRICA HONORS",
-            "C++ BASICS",
-            "DJANGO REST APIs",
-            "GITHUB: @StackOdyssey"
-          ]}
-        />
+      {/* Main Routed Content */}
+      <main className="min-h-[60vh]">
+        {currentPage === 'home' && (
+          <>
+            {/* 1. Hero Section */}
+            <Hero
+              onOpenTerminal={() => setIsTerminalOpen(true)}
+            />
 
-        {/* Skills & Tech Matrix */}
-        <SkillsMatrix />
+            {/* 2. Highlight Marquee */}
+            <Marquee
+              bg="bg-black"
+              text="text-brutal-yellow"
+              items={[
+                "OPEN FOR FULL-STACK INTERNSHIPS",
+                "REACT.JS",
+                "NEXT.JS BASICS",
+                "CISCO SWITCHING & IP",
+                "ISTA DÉVELOPPEMENT DIGITAL",
+                "ALX AFRICA HONORS",
+                "GOOGLE ADS MANAGER",
+                "DJANGO REST APIs",
+                "GITHUB: @StackOdyssey"
+              ]}
+            />
 
-        {/* Featured Projects Showcase */}
-        <Projects />
+            {/* 3. Google Ads Management Section */}
+            <HomeGoogleAds />
 
-        {/* Cisco IPv4 Subnet & CIDR Inspector (Interactive Tool) */}
-        <NetworkTool onShowToast={showToast} />
+            {/* 4. Real Commercial Production Projects */}
+            <HomeCommercialProjects />
+          </>
+        )}
 
-        {/* Learning Journey & Academic Progression Timeline */}
-        <Timeline />
+        {currentPage === 'projects' && (
+          <Projects />
+        )}
 
-        {/* Verified Certifications Hub */}
-        <Certifications />
+        {currentPage === 'google-ads' && (
+          <HomeGoogleAds />
+        )}
 
-        {/* Contact & Dispatch Message Zone */}
-        <Contact onShowToast={showToast} />
+        {currentPage === 'skills' && (
+          <SkillsMatrix />
+        )}
+
+        {currentPage === 'cisco-tool' && (
+          <NetworkTool onShowToast={showToast} />
+        )}
+
+        {currentPage === 'timeline' && (
+          <Timeline />
+        )}
+
+        {currentPage === 'certifications' && (
+          <Certifications />
+        )}
+
+        {currentPage === 'contact' && (
+          <Contact onShowToast={showToast} />
+        )}
       </main>
 
       {/* Footer */}
@@ -140,27 +215,25 @@ export function App() {
         onOpenTerminal={() => setIsTerminalOpen(true)}
       />
 
-      {/* Interactive CLI Terminal Emulator Modal */}
+      {/* Global Interactive CLI Terminal Sandbox */}
       <TerminalModal
         isOpen={isTerminalOpen}
         onClose={() => setIsTerminalOpen(false)}
+        onSetTheme={setCurrentTheme}
         onShowToast={showToast}
       />
 
-      {/* Ctrl+K Quick Command Menu */}
+      {/* Global Command Palette Menu (Ctrl+K) */}
       <CommandMenu
         isOpen={isCommandMenuOpen}
         onClose={() => setIsCommandMenuOpen(false)}
-        onOpenTerminal={() => {
-          setIsCommandMenuOpen(false);
-          setIsTerminalOpen(true);
-        }}
-        onSetTheme={(t) => setCurrentTheme(t)}
+        onOpenTerminal={() => setIsTerminalOpen(true)}
+        onSetTheme={setCurrentTheme}
         onCopyEmail={handleCopyEmail}
         onCopyPhone={handleCopyPhone}
       />
 
-      {/* Floating Toast Notification */}
+      {/* Toast Notification Container */}
       <Toast
         toast={toast}
         onClose={() => setToast(null)}

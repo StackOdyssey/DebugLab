@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Terminal, Award, FolderGit2, Mail, Sparkles, Network, X, Command, Phone } from 'lucide-react';
+import { Search, Terminal, Award, FolderGit2, Mail, Sparkles, Network, X, Command, Phone, Target, Home } from 'lucide-react';
 import { Github } from './ui/GithubIcon';
 import { WhatsApp } from './ui/WhatsAppIcon';
 import { PORTFOLIO } from '../data/portfolioData';
@@ -38,16 +38,18 @@ export function CommandMenu({
   if (!isOpen) return null;
 
   const actions = [
-    { label: 'Jump to Featured Projects', section: '#projects', icon: FolderGit2, tag: 'Navigation' },
-    { label: 'Explore Google Ads Management & SEM Strategy', section: '#google-ads', icon: Target, tag: 'Spotlight' },
-    { label: 'Chat with Mohammed on WhatsApp (+212 672-779391)', action: 'whatsapp', icon: WhatsApp, tag: 'Direct Chat' },
+    { label: 'Go to Homepage', route: '#/', icon: Home, tag: 'Page' },
+    { label: 'View All Projects & GitHub Works', route: '#/projects', icon: FolderGit2, tag: 'Page' },
+    { label: 'Explore Google Ads Management & SEM Strategy', route: '#/google-ads', icon: Target, tag: 'Page' },
+    { label: 'Explore Skills Matrix & Tech Stack', route: '#/skills', icon: Sparkles, tag: 'Page' },
+    { label: 'Open Cisco IPv4 Subnet Tool', route: '#/cisco-tool', icon: Network, tag: 'Tool' },
+    { label: 'View Verified Certifications (Cisco, ALX, C++, ISTA)', route: '#/certifications', icon: Award, tag: 'Credentials' },
+    { label: 'View Learning Journey & Timeline', route: '#/timeline', icon: Award, tag: 'History' },
+    { label: 'Contact Mohammed / Dispatch Message', route: '#/contact', icon: Mail, tag: 'Contact' },
+    { label: 'Chat on WhatsApp (+212 672-779391)', action: 'whatsapp', icon: WhatsApp, tag: 'Direct Chat' },
     { label: 'Copy WhatsApp Number (+212 672-779391)', action: 'copy-phone', icon: Phone, tag: 'WhatsApp' },
-    { label: 'View Verified Certifications (Cisco, ALX, C++, ISTA)', section: '#certifications', icon: Award, tag: 'Credentials' },
-    { label: 'Open Cisco IPv4 Subnet Tool', section: '#cisco-tool', icon: Network, tag: 'Interactive' },
-    { label: 'Explore Skills Matrix & Tech Stack', section: '#skills', icon: Sparkles, tag: 'Skills' },
-    { label: 'View Learning Journey & Timeline', section: '#timeline', icon: Award, tag: 'History' },
+    { label: 'Copy Official Email (davidsmithny01@gmail.com)', action: 'copy-email', icon: Mail, tag: 'Contact' },
     { label: 'Open Interactive CLI Sandbox', action: 'terminal', icon: Terminal, tag: 'CLI App' },
-    { label: 'Copy Mohammed\'s Email (davidsmithny01@gmail.com)', action: 'copy-email', icon: Mail, tag: 'Contact' },
     { label: 'Visit GitHub Profile (@StackOdyssey)', action: 'github', icon: Github, tag: 'External' },
   ];
 
@@ -60,9 +62,9 @@ export function CommandMenu({
     sounds.playClick();
     onClose();
 
-    if (item.section) {
-      const el = document.querySelector(item.section);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (item.route) {
+      window.location.hash = item.route;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (item.action === 'terminal') {
       onOpenTerminal();
     } else if (item.action === 'whatsapp') {

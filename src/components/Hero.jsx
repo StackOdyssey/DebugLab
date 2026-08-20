@@ -40,7 +40,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
           <span className="uppercase text-black dark:text-white">STATUS: {PORTFOLIO.status}</span>
         </div>
 
-        <a href="#google-ads" className="cursor-pointer">
+        <a href="#/google-ads" className="cursor-pointer">
           <Badge variant="yellow" rotate="right-1" className="inline-flex">
             🎯 GOOGLE ADS MANAGER
           </Badge>
@@ -96,7 +96,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
               </div>
             </div>
             <a
-              href="#google-ads"
+              href="#/google-ads"
               className="inline-flex items-center gap-1.5 bg-black text-white hover:bg-gray-900 text-xs font-black px-4 py-2 border-2 border-black shadow-brutal-sm uppercase shrink-0 transition-transform active:translate-x-0.5"
             >
               <span>Explore Strategy</span>
@@ -121,7 +121,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
             <Button
               as="a"
-              href="#projects"
+              href="#/projects"
               variant="yellow"
               size="lg"
             >
@@ -144,7 +144,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
 
             <Button
               as="a"
-              href="#certifications"
+              href="#/certifications"
               variant="white"
               size="lg"
             >
@@ -154,7 +154,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
 
             <Button
               as="a"
-              href="#contact"
+              href="#/contact"
               variant="white"
               size="lg"
             >
