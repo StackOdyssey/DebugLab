@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Terminal, Award, Network, Sparkles, Download, CheckCircle, Flame, ExternalLink, Code2, Mail } from 'lucide-react';
+import { ArrowRight, Terminal, Award, Network, Sparkles, Download, CheckCircle, Flame, ExternalLink, Code2, Mail, Target } from 'lucide-react';
 import { WhatsApp } from './ui/WhatsAppIcon';
 import { Button } from './ui/Button';
 import { Badge } from './ui/Badge';
@@ -74,8 +74,35 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
 
           <div className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-gray-200 leading-relaxed">
             <p className="bg-white dark:bg-brutal-darkCard border-3 border-black p-3.5 sm:p-4 shadow-brutal">
-              🚀 <span className="bg-brutal-lime/60 px-1">Full-Stack Digital Developer</span> in training at <span className="font-black underline">ISTA</span> & <span className="font-black underline">FreeCodeCamp</span>. Experienced in <span className="bg-orange-300/80 px-1 font-black text-black">Google Ads Management</span>, and certified in <span className="bg-brutal-cyan/60 px-1 font-black">Cisco Switching & IP</span>, <span className="bg-brutal-pink/40 px-1 font-black">C++ Basics</span>, and <span className="bg-brutal-yellow/80 px-1 font-black">ALX Africa Front-End</span>.
+              🚀 <span className="bg-brutal-lime/60 px-1">Full-Stack Digital Developer</span> in training at <span className="font-black underline">ISTA</span> & <span className="font-black underline">FreeCodeCamp</span>. Experienced in <span className="bg-amber-300 font-black text-black px-1 border border-black inline-block">🎯 Google Ads Management</span>, and certified in <span className="bg-brutal-cyan/60 px-1 font-black">Cisco Switching & IP</span>, <span className="bg-brutal-pink/40 px-1 font-black">C++ Basics</span>, and <span className="bg-brutal-yellow/80 px-1 font-black">ALX Africa Front-End</span>.
             </p>
+          </div>
+
+          {/* Featured Google Ads & Paid Growth Highlight Callout */}
+          <div className="bg-amber-300 dark:bg-amber-400 text-black border-3 border-black p-3.5 shadow-brutal font-mono flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5">
+              <div className="p-2 bg-black text-amber-300 border-2 border-black shrink-0 shadow-brutal-sm">
+                <Target className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="text-[10px] font-black uppercase bg-black text-amber-300 px-1.5 py-0.2 inline-block mb-0.5">
+                  CORE SPECIALIZATION
+                </div>
+                <div className="text-xs sm:text-sm font-black uppercase tracking-tight text-black">
+                  Google Ads Account Management & ROI Scaling
+                </div>
+                <div className="text-[11px] font-bold text-gray-800">
+                  Search & PMax Strategy &bull; GTM Tracking &bull; Target ROAS/CPA Optimization
+                </div>
+              </div>
+            </div>
+            <a
+              href="#google-ads"
+              className="inline-flex items-center gap-1 bg-black text-amber-300 hover:bg-gray-800 text-xs font-black px-3 py-2 border-2 border-black shadow-brutal-sm uppercase shrink-0 transition-transform active:translate-x-0.5"
+            >
+              <span>Explore Strategy</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
           </div>
 
           {/* Interactive Tagline cycler */}

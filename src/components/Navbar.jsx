@@ -141,22 +141,6 @@ export function Navbar({
             Projects
           </a>
 
-          {/* Highlighted Google Ads Management Link */}
-          <a
-            href="#google-ads"
-            onClick={() => sounds.playClick()}
-            className="group relative px-3 py-1.5 bg-amber-300 hover:bg-amber-400 text-black border-2 border-black shadow-brutal-sm hover:shadow-brutal hover:-translate-y-0.5 transition-all flex items-center gap-1.5 font-black"
-            title="Google Ads Account Management & ROI Growth"
-          >
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-            <span className="w-2 h-2 rounded-full bg-red-600 -ml-3.5"></span>
-            <Target className="w-3.5 h-3.5 text-black" />
-            <span>Google Ads Management</span>
-            <span className="bg-black text-amber-300 text-[9px] px-1 py-0.2 uppercase ml-0.5 font-mono">
-              HOT
-            </span>
-          </a>
-
           {/* 'More' Dropdown Trigger */}
           <div className="relative" ref={moreDropdownRef}>
             <button
@@ -336,24 +320,6 @@ export function Navbar({
             className="block p-2 bg-white text-black border-2 border-black shadow-brutal-sm hover:bg-black hover:text-white transition-all uppercase"
           >
             Projects
-          </a>
-
-          {/* Highlighted Google Ads in Mobile */}
-          <a
-            href="#google-ads"
-            onClick={() => {
-              sounds.playClick();
-              setMobileMenuOpen(false);
-            }}
-            className="block p-2.5 bg-amber-400 text-black border-3 border-black shadow-brutal hover:bg-amber-300 transition-all uppercase"
-          >
-            <div className="flex items-center justify-between">
-              <span className="flex items-center gap-2">
-                <Target className="w-4 h-4 text-black" />
-                <span>🎯 Google Ads Management</span>
-              </span>
-              <span className="bg-black text-amber-300 text-[10px] px-1.5 py-0.5">FEATURED</span>
-            </div>
           </a>
 
           {/* More Section in Mobile */}
