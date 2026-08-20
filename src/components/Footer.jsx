@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp, Heart, Terminal, ShieldCheck, Mail, Phone, Code2 } from 'lucide-react';
+import { ArrowUp, Heart, Terminal, ShieldCheck, Mail, Phone, Code2, ArrowUpRight } from 'lucide-react';
 import { Github } from './ui/GithubIcon';
+import { WhatsApp } from './ui/WhatsAppIcon';
 import { Marquee } from './ui/Marquee';
 import { Button } from './ui/Button';
 import { PORTFOLIO } from '../data/portfolioData';
@@ -32,6 +33,7 @@ export function Footer({ onOpenTerminal }) {
         text="text-black"
         items={[
           "MOHAMMED (STACKODYSSEY)",
+          "WHATSAPP: +212 672-779391",
           "ISTA FULL STACK DEVELOPER",
           "ALX AFRICA GRADUATE",
           "CISCO CERTIFIED NETWORKING",
@@ -59,9 +61,20 @@ export function Footer({ onOpenTerminal }) {
             <p className="text-xs font-bold text-gray-700 dark:text-gray-300 max-w-md leading-relaxed">
               Full-Stack Developer in training at ISTA & FreeCodeCamp. Building fast, resilient web systems from React components down to Cisco networking layers.
             </p>
-            <div className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800 border-2 border-black px-2.5 py-1 text-xs font-black text-black dark:text-white shadow-brutal-sm">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
-              <span>LOCAL SYS TIME: {timeStr || 'LIVE'}</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800 border-2 border-black px-2.5 py-1 text-xs font-black text-black dark:text-white shadow-brutal-sm">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-ping"></span>
+                <span>LOCAL SYS TIME: {timeStr || 'LIVE'}</span>
+              </div>
+              <a
+                href={PORTFOLIO.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-green-100 hover:bg-green-200 text-green-900 border-2 border-black px-2.5 py-1 text-xs font-black shadow-brutal-sm transition-colors"
+              >
+                <WhatsApp className="w-3.5 h-3.5 text-green-700" />
+                <span>+212 672-779391</span>
+              </a>
             </div>
           </div>
 
@@ -92,8 +105,8 @@ export function Footer({ onOpenTerminal }) {
                 </a>
               </li>
               <li>
-                <a href="#timeline" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
-                  &rarr; Academic Timeline
+                <a href="#contact" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                  &rarr; Contact / Direct Line
                 </a>
               </li>
             </ul>
@@ -102,9 +115,39 @@ export function Footer({ onOpenTerminal }) {
           {/* Col 3: Repos & Interactive */}
           <div className="space-y-2">
             <div className="text-xs font-black uppercase text-black dark:text-white border-b-2 border-black pb-1">
-              INTERACTIVE
+              CONNECT & TERMINAL
             </div>
             <div className="space-y-2 pt-1">
+              <Button
+                as="a"
+                href={PORTFOLIO.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="lime"
+                size="sm"
+                className="w-full justify-between text-xs"
+              >
+                <span className="flex items-center gap-1.5">
+                  <WhatsApp className="w-4 h-4" /> WhatsApp (+212 672)
+                </span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Button>
+
+              <Button
+                as="a"
+                href={PORTFOLIO.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="black"
+                size="sm"
+                className="w-full justify-between text-xs"
+              >
+                <span className="flex items-center gap-1.5">
+                  <Github className="w-4 h-4" /> GitHub @StackOdyssey
+                </span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Button>
+
               <Button
                 variant="cyan"
                 size="sm"
@@ -112,19 +155,7 @@ export function Footer({ onOpenTerminal }) {
                 className="w-full justify-start text-xs"
               >
                 <Terminal className="w-4 h-4" />
-                <span>Open Terminal</span>
-              </Button>
-
-              <Button
-                as="a"
-                href={PORTFOLIO.githubUrl}
-                target="_blank"
-                variant="black"
-                size="sm"
-                className="w-full justify-start text-xs"
-              >
-                <Github className="w-4 h-4" />
-                <span>GitHub @StackOdyssey</span>
+                <span>Open CLI Sandbox</span>
               </Button>
             </div>
           </div>

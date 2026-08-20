@@ -43,6 +43,24 @@ export function App() {
     }, 4000);
   };
 
+  const handleCopyPhone = () => {
+    sounds.playSuccess();
+    navigator.clipboard.writeText(PORTFOLIO.phone || '+212672779391');
+    try {
+      confetti({
+        particleCount: 50,
+        spread: 60,
+        origin: { y: 0.7 },
+        colors: ['#22C55E', '#FFE600', '#06B6D4']
+      });
+    } catch (e) {}
+    showToast({
+      title: 'WhatsApp Number Copied!',
+      message: `${PORTFOLIO.phoneFormatted || '+212 672-779391'} copied to clipboard.`,
+      type: 'success'
+    });
+  };
+
   const handleCopyEmail = () => {
     sounds.playSuccess();
     navigator.clipboard.writeText(PORTFOLIO.email);
@@ -139,6 +157,7 @@ export function App() {
         }}
         onSetTheme={(t) => setCurrentTheme(t)}
         onCopyEmail={handleCopyEmail}
+        onCopyPhone={handleCopyPhone}
       />
 
       {/* Floating Toast Notification */}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowRight, Terminal, Award, Network, Sparkles, Download, CheckCircle, Flame, ExternalLink, Code2 } from 'lucide-react';
+import { ArrowRight, Terminal, Award, Network, Sparkles, Download, CheckCircle, Flame, ExternalLink, Code2, Mail } from 'lucide-react';
+import { WhatsApp } from './ui/WhatsAppIcon';
 import { Button } from './ui/Button';
 import { Badge } from './ui/Badge';
 import { PORTFOLIO } from '../data/portfolioData';
@@ -86,7 +87,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
           </div>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
             <Button
               as="a"
               href="#projects"
@@ -99,21 +100,25 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
 
             <Button
               as="a"
-              href="#certifications"
+              href={PORTFOLIO.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
               variant="lime"
+              size="lg"
+              className="border-3 border-black shadow-brutal"
+            >
+              <WhatsApp className="w-5 h-5" />
+              <span>WhatsApp (+212 672-779391)</span>
+            </Button>
+
+            <Button
+              as="a"
+              href="#certifications"
+              variant="cyan"
               size="lg"
             >
               <Award className="w-5 h-5" />
               <span>Certifications</span>
-            </Button>
-
-            <Button
-              variant="cyan"
-              size="lg"
-              onClick={onOpenTerminal}
-            >
-              <Terminal className="w-5 h-5" />
-              <span>Interactive CLI</span>
             </Button>
 
             <Button
@@ -122,6 +127,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
               variant="white"
               size="lg"
             >
+              <Mail className="w-5 h-5" />
               <span>Contact Me</span>
             </Button>
           </div>

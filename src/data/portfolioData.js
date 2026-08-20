@@ -16,7 +16,9 @@ export const PORTFOLIO = {
   githubUrl: "https://github.com/StackOdyssey",
   linkedinUrl: "https://linkedin.com/in/stackodyssey",
   email: "contact.stackodyssey@gmail.com",
-  whatsapp: "https://wa.me/212600000000",
+  whatsapp: "https://wa.me/212672779391",
+  phone: "+212672779391",
+  phoneFormatted: "+212 672-779391",
   
   stats: [
     { label: "Public Repos", value: "22+", tag: "GitHub" },
@@ -326,7 +328,7 @@ export const PORTFOLIO = {
     certs: "VERIFIED CERTIFICATIONS:\n1. [CISCO] Switching & IP Addressing / Network Architecture (2025)\n2. [ALX AFRICA] Front-End Web Development Specialization (2025/2026)\n3. [C++] Fundamentals & Algorithmic Foundations (2024)\n4. [ISTA] Développement Digital Full Stack (In Progress)\n5. [FREECODECAMP] Responsive Design & JS Algorithms",
     skills: "CORE TECH STACK:\n• Frontend: React.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Next.js basics\n• Backend: Python, Django, C++, RESTful APIs, JSON\n• Networking: Cisco Switching, IPv4 Subnetting, CIDR, TCP/IP Protocols\n• Marketing & Tools: Google Ads Account Management, Git/GitHub, WordPress, Linux CLI, Vite, npm",
     projects: "FEATURED PROJECTS & REPOSITORIES:\n1. Safe Hands Logistics   -> Next.js Enterprise CRM & Freight Platform (Client Case Study)\n2. alx-fe-reactjs        -> React Odyssey modular component ecosystem\n3. Alx_DjangoLearnLab    -> Django backend & REST API engine\n4. dynamic-to-do-list-js -> Pure JS productivity manager\n5. ALX_Simple_Quiz       -> Timed JS knowledge quiz\n6. cisco-subnet-toolkit  -> Interactive IPv4 bitwise calculator",
-    contact: "CONNECT WITH MOHAMMED (STACKODYSSEY):\n• GitHub: https://github.com/StackOdyssey\n• Email:  contact.stackodyssey@gmail.com\n• Status: Open for Internships, Freelance, & Full-Time Junior roles!",
+    contact: "CONNECT WITH MOHAMMED (STACKODYSSEY):\n• WhatsApp: https://wa.me/212672779391 (+212 672-779391)\n• Email:    contact.stackodyssey@gmail.com\n• GitHub:   https://github.com/StackOdyssey\n• Status:   Open for Internships, Freelance, & Full-Time Junior roles!",
     whoami: "guest@debuglab-terminal (Visitor looking at Mohammed's Portfolio 🚀)"
   }
 };

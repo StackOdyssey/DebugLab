@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Mail, MessageSquare, Copy, Check, Send, Sparkles, Phone, ArrowUpRight, ShieldCheck, Heart } from 'lucide-react';
+import { Mail, MessageSquare, Copy, Check, Send, Sparkles, Phone, ArrowUpRight, ShieldCheck, Heart, MessageCircle } from 'lucide-react';
 import { Github } from './ui/GithubIcon';
+import { WhatsApp } from './ui/WhatsAppIcon';
 import { Card } from './ui/Card';
 import { Badge } from './ui/Badge';
 import { Button } from './ui/Button';
@@ -9,7 +10,8 @@ import { sounds } from '../utils/soundEffects';
 import confetti from 'canvas-confetti';
 
 export function Contact({ onShowToast }) {
-  const [copied, setCopied] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -21,8 +23,8 @@ export function Contact({ onShowToast }) {
   const handleCopyEmail = () => {
     sounds.playSuccess();
     navigator.clipboard.writeText(PORTFOLIO.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 3000);
 
     try {
       confetti({
@@ -37,6 +39,30 @@ export function Contact({ onShowToast }) {
       onShowToast({
         title: 'Email Copied!',
         message: `${PORTFOLIO.email} has been copied to your clipboard.`,
+        type: 'success'
+      });
+    }
+  };
+
+  const handleCopyPhone = () => {
+    sounds.playSuccess();
+    navigator.clipboard.writeText(PORTFOLIO.phone || '+212672779391');
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 3000);
+
+    try {
+      confetti({
+        particleCount: 45,
+        spread: 60,
+        origin: { y: 0.8 },
+        colors: ['#22C55E', '#FFE600', '#06B6D4']
+      });
+    } catch (e) {}
+
+    if (onShowToast) {
+      onShowToast({
+        title: 'WhatsApp Number Copied!',
+        message: `${PORTFOLIO.phoneFormatted || '+212 672-779391'} copied to your clipboard.`,
         type: 'success'
       });
     }
@@ -91,6 +117,44 @@ export function Contact({ onShowToast }) {
             shadow="shadow-brutal-lg"
           >
             <div className="space-y-4">
+              {/* WhatsApp Direct Highlight Box */}
+              <div className="p-3.5 bg-green-100 border-3 border-black shadow-brutal-sm space-y-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono font-black uppercase text-green-900">
+                    <WhatsApp className="w-4 h-4 text-green-700" />
+                    <span>DIRECT WHATSAPP LINE:</span>
+                  </div>
+                  <span className="bg-green-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 uppercase">
+                    FASTEST RESPONSE
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-mono font-black text-sm sm:text-base text-black tracking-tight">
+                    {PORTFOLIO.phoneFormatted || '+212 672-779391'}
+                  </span>
+                  <div className="flex items-center gap-1 shrink-0">
+                    <button
+                      onClick={handleCopyPhone}
+                      className="px-2.5 py-1 bg-black text-white font-mono font-black text-xs uppercase border border-black hover:bg-gray-800 transition-colors flex items-center gap-1 cursor-pointer shadow-brutal-sm"
+                      title="Copy WhatsApp Phone Number"
+                    >
+                      {copiedPhone ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      <span>{copiedPhone ? 'Copied' : 'Copy'}</span>
+                    </button>
+                    <a
+                      href={PORTFOLIO.whatsapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-2.5 py-1 bg-brutal-lime text-black font-mono font-black text-xs uppercase border border-black hover:bg-green-300 transition-colors flex items-center gap-1 cursor-pointer shadow-brutal-sm"
+                    >
+                      <span>Chat</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               {/* Copy Email Box */}
               <div className="p-3.5 bg-yellow-100 border-3 border-black shadow-brutal-sm">
                 <div className="text-[10px] font-mono font-black uppercase text-gray-700 mb-1">
@@ -104,14 +168,14 @@ export function Contact({ onShowToast }) {
                     onClick={handleCopyEmail}
                     className="px-2.5 py-1 bg-black text-white font-mono font-black text-xs uppercase border border-black hover:bg-gray-800 transition-colors flex items-center gap-1 shrink-0 cursor-pointer shadow-brutal-sm"
                   >
-                    {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copied ? 'Copied' : 'Copy'}</span>
+                    {copiedEmail ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span>{copiedEmail ? 'Copied' : 'Copy'}</span>
                   </button>
                 </div>
               </div>
 
               {/* Status Box */}
-              <div className="p-3.5 bg-green-100 border-3 border-black shadow-brutal-sm space-y-2">
+              <div className="p-3.5 bg-cyan-100 border-3 border-black shadow-brutal-sm space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-green-600 animate-pulse"></span>
                   <span className="font-mono font-black text-xs text-black uppercase">CURRENT STATUS:</span>
@@ -130,28 +194,30 @@ export function Contact({ onShowToast }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <Button
                     as="a"
-                    href={PORTFOLIO.githubUrl}
+                    href={PORTFOLIO.whatsapp}
                     target="_blank"
-                    variant="black"
+                    rel="noopener noreferrer"
+                    variant="lime"
                     size="sm"
                     className="w-full justify-between"
                   >
                     <span className="flex items-center gap-1.5">
-                      <Github className="w-4 h-4" /> GitHub
+                      <WhatsApp className="w-4 h-4" /> WhatsApp
                     </span>
                     <ArrowUpRight className="w-4 h-4" />
                   </Button>
 
                   <Button
                     as="a"
-                    href={PORTFOLIO.whatsapp}
+                    href={PORTFOLIO.githubUrl}
                     target="_blank"
-                    variant="lime"
+                    rel="noopener noreferrer"
+                    variant="black"
                     size="sm"
                     className="w-full justify-between"
                   >
                     <span className="flex items-center gap-1.5">
-                      <Phone className="w-4 h-4" /> WhatsApp
+                      <Github className="w-4 h-4" /> GitHub
                     </span>
                     <ArrowUpRight className="w-4 h-4" />
                   </Button>
@@ -162,7 +228,32 @@ export function Contact({ onShowToast }) {
         </div>
 
         {/* Right: Message Form */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 space-y-4">
+          {/* Quick WhatsApp Callout Banner */}
+          <div className="bg-brutal-lime text-black border-3 border-black p-3.5 shadow-brutal flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono">
+            <div className="flex items-center gap-2.5">
+              <div className="p-2 bg-black text-brutal-lime border-2 border-black">
+                <WhatsApp className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="font-black text-xs uppercase tracking-tight">Need an immediate answer?</div>
+                <div className="text-xs font-bold text-gray-900">Message directly on WhatsApp: {PORTFOLIO.phoneFormatted || '+212 672-779391'}</div>
+              </div>
+            </div>
+            <Button
+              as="a"
+              href={PORTFOLIO.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="black"
+              size="sm"
+              className="shrink-0"
+            >
+              <span>Chat on WhatsApp</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </Button>
+          </div>
+
           <Card
             header="DISPATCH ENCRYPTED MESSAGE"
             headerBg="bg-brutal-yellow text-black"
@@ -179,16 +270,29 @@ export function Contact({ onShowToast }) {
                 <p className="text-xs font-bold text-gray-700 max-w-sm mx-auto">
                   Thank you for reaching out! Your message has been logged. Mohammed (StackOdyssey) will get back to you as soon as possible.
                 </p>
-                <Button
-                  variant="yellow"
-                  size="sm"
-                  onClick={() => {
-                    setSubmitted(false);
-                    setFormState({ name: '', email: '', subject: '', message: '' });
-                  }}
-                >
-                  Send Another Message
-                </Button>
+                <div className="flex flex-wrap justify-center gap-3 pt-2">
+                  <Button
+                    variant="yellow"
+                    size="sm"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormState({ name: '', email: '', subject: '', message: '' });
+                    }}
+                  >
+                    Send Another Message
+                  </Button>
+                  <Button
+                    as="a"
+                    href={PORTFOLIO.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="lime"
+                    size="sm"
+                  >
+                    <WhatsApp className="w-4 h-4" />
+                    <span>Chat on WhatsApp</span>
+                  </Button>
+                </div>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 font-mono">
@@ -249,15 +353,28 @@ export function Contact({ onShowToast }) {
                   />
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-2 flex flex-col sm:flex-row gap-2">
                   <Button
                     type="submit"
                     variant="yellow"
                     size="lg"
-                    className="w-full"
+                    className="flex-1"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Transmit Message to Mohammed</span>
+                    <span>Transmit Message</span>
+                  </Button>
+
+                  <Button
+                    as="a"
+                    href={PORTFOLIO.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="lime"
+                    size="lg"
+                    className="sm:w-auto"
+                  >
+                    <WhatsApp className="w-4 h-4" />
+                    <span>WhatsApp</span>
                   </Button>
                 </div>
               </form>
@@ -268,3 +385,4 @@ export function Contact({ onShowToast }) {
     </section>
   );
 }
+

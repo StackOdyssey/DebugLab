@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Terminal, Award, FolderGit2, Mail, Sparkles, Network, X, Command } from 'lucide-react';
+import { Search, Terminal, Award, FolderGit2, Mail, Sparkles, Network, X, Command, Phone } from 'lucide-react';
 import { Github } from './ui/GithubIcon';
+import { WhatsApp } from './ui/WhatsAppIcon';
+import { PORTFOLIO } from '../data/portfolioData';
 import { sounds } from '../utils/soundEffects';
 import { THEMES } from '../data/themeConfig';
 
@@ -9,7 +11,8 @@ export function CommandMenu({
   onClose,
   onOpenTerminal,
   onSetTheme,
-  onCopyEmail
+  onCopyEmail,
+  onCopyPhone
 }) {
   const [search, setSearch] = useState('');
 
@@ -36,6 +39,8 @@ export function CommandMenu({
 
   const actions = [
     { label: 'Jump to Featured Projects', section: '#projects', icon: FolderGit2, tag: 'Navigation' },
+    { label: 'Chat with Mohammed on WhatsApp (+212 672-779391)', action: 'whatsapp', icon: WhatsApp, tag: 'Direct Chat' },
+    { label: 'Copy WhatsApp Number (+212 672-779391)', action: 'copy-phone', icon: Phone, tag: 'WhatsApp' },
     { label: 'View Verified Certifications (Cisco, ALX, C++, ISTA)', section: '#certifications', icon: Award, tag: 'Credentials' },
     { label: 'Open Cisco IPv4 Subnet Tool', section: '#cisco-tool', icon: Network, tag: 'Interactive' },
     { label: 'Explore Skills Matrix & Tech Stack', section: '#skills', icon: Sparkles, tag: 'Skills' },
@@ -59,6 +64,10 @@ export function CommandMenu({
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else if (item.action === 'terminal') {
       onOpenTerminal();
+    } else if (item.action === 'whatsapp') {
+      window.open(PORTFOLIO.whatsapp, '_blank');
+    } else if (item.action === 'copy-phone') {
+      if (onCopyPhone) onCopyPhone();
     } else if (item.action === 'copy-email') {
       onCopyEmail();
     } else if (item.action === 'github') {
