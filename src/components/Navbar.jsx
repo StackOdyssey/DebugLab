@@ -66,28 +66,28 @@ export function Navbar({
       href: '#skills', 
       icon: Sparkles, 
       desc: 'Tech Stack & Competencies',
-      color: 'text-brutal-lime'
+      color: 'text-black dark:text-white'
     },
     { 
       label: 'Cisco tool', 
       href: '#cisco-tool', 
       icon: Network, 
       desc: 'IPv4 & CIDR Subnet Inspector',
-      color: 'text-brutal-yellow'
+      color: 'text-black dark:text-white'
     },
     { 
       label: 'Timeline', 
       href: '#timeline', 
       icon: Clock, 
       desc: 'Academic & Dev Milestones',
-      color: 'text-brutal-pink'
+      color: 'text-black dark:text-white'
     },
     { 
       label: 'Certifications', 
       href: '#certifications', 
       icon: Award, 
       desc: 'Cisco, ALX Honors, C++, ISTA',
-      color: 'text-brutal-cyan'
+      color: 'text-black dark:text-white'
     },
   ];
 

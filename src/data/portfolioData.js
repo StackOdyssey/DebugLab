@@ -35,8 +35,8 @@ export const PORTFOLIO = {
       issuer: "Cisco Networking Academy",
       date: "2025",
       badgeText: "CISCO CERTIFIED",
-      color: "bg-brutal-cyan",
-      textColor: "text-black",
+      color: "bg-white dark:bg-gray-800 border-black",
+      textColor: "text-black dark:text-white",
       icon: "Network",
       description: "Comprehensive mastery of IPv4 addressing, CIDR subnetting, Ethernet switching fundamentals, VLAN configuration, and TCP/IP model protocols.",
       skills: ["IPv4 / CIDR", "Subnetting", "Switching", "VLANs", "TCP/IP", "Routing Protocols"],
@@ -50,8 +50,8 @@ export const PORTFOLIO = {
       issuer: "ALX Africa",
       date: "2025 - 2026",
       badgeText: "ALX AFRICA HONORS",
-      color: "bg-brutal-yellow",
-      textColor: "text-black",
+      color: "bg-white dark:bg-gray-800 border-black",
+      textColor: "text-black dark:text-white",
       icon: "Code2",
       description: "Rigorous full-cycle engineering program focused on semantic HTML5, modern CSS layouts, ES6+ JavaScript, React component state lifecycle, and production workflows.",
       skills: ["React.js", "JavaScript ES6+", "HTML5 / CSS3", "State Management", "Git & Team Workflows"],
@@ -65,8 +65,8 @@ export const PORTFOLIO = {
       issuer: "Programming Academy",
       date: "2024 - 2025",
       badgeText: "C++ CERTIFIED",
-      color: "bg-brutal-pink",
-      textColor: "text-black",
+      color: "bg-white dark:bg-gray-800 border-black",
+      textColor: "text-black dark:text-white",
       icon: "Cpu",
       description: "Deep dive into memory management, pointers, Object-Oriented Programming (OOP) principles, algorithmic problem solving, and data structures.",
       skills: ["C++", "OOP Architecture", "Pointers & Memory", "Data Structures", "Algorithms"],
@@ -80,8 +80,8 @@ export const PORTFOLIO = {
       issuer: "OFPPT / ISTA Morocco",
       date: "In Progress (2025 - Present)",
       badgeText: "ACADEMIC DEGREE",
-      color: "bg-brutal-lime",
-      textColor: "text-black",
+      color: "bg-white dark:bg-gray-800 border-black",
+      textColor: "text-black dark:text-white",
       icon: "GraduationCap",
       description: "Formal full-stack software engineering curriculum covering database architecture (SQL/NoSQL), web frameworks, API design, DevOps fundamentals, and agile project delivery.",
       skills: ["Full Stack Architecture", "Databases (SQL)", "Web Services", "Agile / Scrum", "Full Lifecycle"],
@@ -95,8 +95,8 @@ export const PORTFOLIO = {
       issuer: "freeCodeCamp.org",
       date: "2025 - Present",
       badgeText: "PRACTICAL LABS",
-      color: "bg-brutal-purple",
-      textColor: "text-white",
+      color: "bg-white dark:bg-gray-800 border-black",
+      textColor: "text-black dark:text-white",
       icon: "Flame",
       description: "Continuous hands-on problem solving covering Responsive Web Design, JavaScript Data Structures, Algorithms, and Frontend Libraries.",
       skills: ["DOM Manipulation", "ES6 Algorithms", "Responsive Flexbox/Grid", "Accessibility"],
@@ -132,7 +132,7 @@ export const PORTFOLIO = {
       isPrivateClient: true,
       demoUrl: "https://www.safehandsshippingline.com/ar",
       featured: true,
-      color: "bg-amber-200 border-black"
+      color: "bg-brutal-yellow/30 border-black"
     },
     {
       id: "excellence-warehouse",
@@ -157,7 +157,7 @@ export const PORTFOLIO = {
       isPrivateClient: true,
       demoUrl: "https://excellence-warehouse-1rfub5rrl-stackodysseys-projects.vercel.app/en",
       featured: true,
-      color: "bg-cyan-200 border-black"
+      color: "bg-brutal-yellow/30 border-black"
     },
     {
       id: "alx-fe-reactjs",
@@ -177,7 +177,7 @@ export const PORTFOLIO = {
       github: "https://github.com/StackOdyssey/alx-fe-reactjs",
       demoUrl: "#",
       featured: true,
-      color: "bg-yellow-200 border-black"
+      color: "bg-white dark:bg-gray-800 border-black"
     },
     {
       id: "alx-django-learnlab",
@@ -197,7 +197,7 @@ export const PORTFOLIO = {
       github: "https://github.com/StackOdyssey/Alx_DjangoLearnLab",
       demoUrl: "#",
       featured: true,
-      color: "bg-emerald-200 border-black"
+      color: "bg-white dark:bg-gray-800 border-black"
     },
     {
       id: "cisco-subnet-toolkit",
@@ -217,7 +217,7 @@ export const PORTFOLIO = {
       github: "https://github.com/StackOdyssey",
       demoUrl: "#interactive-subnet-tool",
       featured: true,
-      color: "bg-cyan-200 border-black"
+      color: "bg-white dark:bg-gray-800 border-black"
     },
     {
       id: "dynamic-to-do-list",
@@ -237,7 +237,7 @@ export const PORTFOLIO = {
       github: "https://github.com/StackOdyssey/dynamic-to-do-list-js",
       demoUrl: "#",
       featured: false,
-      color: "bg-purple-200 border-black"
+      color: "bg-white dark:bg-gray-800 border-black"
     },
     {
       id: "alx-simple-quiz",
@@ -257,7 +257,7 @@ export const PORTFOLIO = {
       github: "https://github.com/StackOdyssey/ALX_Simple_Quiz",
       demoUrl: "#",
       featured: false,
-      color: "bg-rose-200 border-black"
+      color: "bg-white dark:bg-gray-800 border-black"
     },
     {
       id: "wordpress-custom-hub",
@@ -277,7 +277,7 @@ export const PORTFOLIO = {
       github: "https://github.com/StackOdyssey",
       demoUrl: "#",
       featured: false,
-      color: "bg-orange-200 border-black"
+      color: "bg-white dark:bg-gray-800 border-black"
     }
   ],
 
@@ -285,7 +285,7 @@ export const PORTFOLIO = {
     {
       category: "Frontend Development",
       icon: "Layout",
-      color: "bg-brutal-yellow",
+      color: "bg-white dark:bg-gray-800",
       skills: [
         { name: "React.js", level: "Intermediate", desc: "Component architecture, hooks (useState, useEffect, useMemo), props & state", tag: "Primary" },
         { name: "JavaScript (ES6+)", level: "Advanced", desc: "Async/Await, DOM manipulation, closures, arrays & object methods", tag: "Core" },
@@ -298,7 +298,7 @@ export const PORTFOLIO = {
     {
       category: "Backend & Systems",
       icon: "Server",
-      color: "bg-brutal-lime",
+      color: "bg-white dark:bg-gray-800",
       skills: [
         { name: "Python", level: "Intermediate", desc: "Data processing, OOP, scripts, automation, backend logic", tag: "Backend" },
         { name: "Django Framework", level: "Intermediate", desc: "MVC/MVT pattern, ORM, REST endpoints, admin dashboard, auth", tag: "Web Engine" },
@@ -309,7 +309,7 @@ export const PORTFOLIO = {
     {
       category: "Networking & Cisco Tech",
       icon: "Network",
-      color: "bg-brutal-cyan",
+      color: "bg-white dark:bg-gray-800",
       skills: [
         { name: "Cisco Switching & Routing", level: "Certified", desc: "VLANs, switchport configurations, routing principles", tag: "Certified" },
         { name: "IPv4 Subnetting & CIDR", level: "Expert", desc: "Variable Length Subnet Masking (VLSM), host ranges, bitwise math", tag: "Networking" },
@@ -319,7 +319,7 @@ export const PORTFOLIO = {
     {
       category: "Google Ads & Growth Marketing",
       icon: "Target",
-      color: "bg-amber-300",
+      color: "bg-brutal-yellow/20 dark:bg-amber-950/40",
       skills: [
         { name: "Google Ads Account Management", level: "Advanced", desc: "Campaign architecture, search & display networks, ROI optimization & full-funnel SEM strategy", tag: "Spotlight" },
         { name: "High-Intent Keyword Sculpting", level: "Advanced", desc: "Broad/Phrase/Exact match grouping, negative keyword scrubbing, search term query analysis", tag: "SEM Core" },
@@ -330,7 +330,7 @@ export const PORTFOLIO = {
     {
       category: "Tools, CMS & Workflow",
       icon: "Wrench",
-      color: "bg-brutal-pink",
+      color: "bg-white dark:bg-gray-800",
       skills: [
         { name: "Git & GitHub", level: "Advanced", desc: "Version control, branching, pull requests, collaboration", tag: "DevOps" },
         { name: "WordPress CMS", level: "Intermediate", desc: "Custom themes, plugins, site architecture, client setups", tag: "CMS" },

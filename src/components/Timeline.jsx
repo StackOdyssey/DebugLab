@@ -10,12 +10,12 @@ export function Timeline() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b-4 border-black gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 bg-brutal-pink text-white px-2.5 py-1 border-2 border-black font-mono text-xs font-black uppercase mb-2 shadow-brutal-sm">
+          <div className="inline-flex items-center gap-1.5 bg-brutal-yellow text-black px-2.5 py-1 border-2 border-black font-mono text-xs font-black uppercase mb-2 shadow-brutal-sm">
             <Compass className="w-4 h-4" />
             <span>Academic & Skill Progression</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase font-sans tracking-tight text-black dark:text-white">
-            THE LEARNING <span className="text-brutal-lime">JOURNEY</span>
+            THE LEARNING <span className="text-brutal-yellow">JOURNEY</span>
           </h2>
         </div>
         <p className="text-sm font-mono font-bold text-gray-700 dark:text-gray-300 max-w-md">
@@ -28,7 +28,7 @@ export function Timeline() {
         {PORTFOLIO.timeline.map((step, idx) => (
           <div key={idx} className="relative group">
             {/* Timeline Pin Indicator */}
-            <div className="absolute -left-[35px] md:-left-[51px] top-1.5 w-6 h-6 bg-brutal-yellow border-3 border-black shadow-brutal-sm flex items-center justify-center font-mono font-black text-xs group-hover:scale-125 transition-transform">
+            <div className="absolute -left-[35px] md:-left-[51px] top-1.5 w-6 h-6 bg-brutal-yellow text-black border-3 border-black shadow-brutal-sm flex items-center justify-center font-mono font-black text-xs group-hover:scale-125 transition-transform">
               ✦
             </div>
 
@@ -44,19 +44,19 @@ export function Timeline() {
               hoverEffect={true}
               header={
                 <div className="flex items-center justify-between w-full font-mono text-xs">
-                  <span className="font-black text-black">{step.role}</span>
-                  <Badge variant={idx % 2 === 0 ? 'yellow' : 'cyan'} size="sm">
+                  <span className="font-black text-black dark:text-white">{step.role}</span>
+                  <Badge variant="yellow" size="sm">
                     {step.badge}
                   </Badge>
                 </div>
               }
-              headerBg={idx % 2 === 0 ? 'bg-yellow-200' : 'bg-cyan-200'}
+              headerBg="bg-gray-100 dark:bg-gray-800 text-black dark:text-white"
               shadow="shadow-brutal-md"
             >
-              <h3 className="text-xl font-black font-sans uppercase tracking-tight text-black mb-2 leading-snug">
+              <h3 className="text-xl font-black font-sans uppercase tracking-tight text-black dark:text-white mb-2 leading-snug">
                 {step.title}
               </h3>
-              <p className="text-xs font-mono font-medium text-gray-700 leading-relaxed">
+              <p className="text-xs font-mono font-medium text-gray-700 dark:text-gray-300 leading-relaxed">
                 {step.description}
               </p>
             </Card>

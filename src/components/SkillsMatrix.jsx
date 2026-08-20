@@ -66,7 +66,7 @@ export function SkillsMatrix() {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b-4 border-black gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 bg-brutal-lime text-black px-2.5 py-1 border-2 border-black font-mono text-xs font-black uppercase mb-2 shadow-brutal-sm">
+          <div className="inline-flex items-center gap-1.5 bg-brutal-yellow text-black px-2.5 py-1 border-2 border-black font-mono text-xs font-black uppercase mb-2 shadow-brutal-sm">
             <Sparkles className="w-4 h-4" />
             <span>Core Competencies & Tooling</span>
           </div>
@@ -82,38 +82,35 @@ export function SkillsMatrix() {
       {/* Prominent Google Ads Spotlight Banner */}
       <div 
         id="google-ads" 
-        className="relative bg-gradient-to-br from-amber-200 via-yellow-100 to-amber-100 dark:from-amber-950/60 dark:via-gray-900 dark:to-yellow-950/40 border-4 border-black shadow-brutal-xl p-6 sm:p-8 font-mono scroll-mt-20 overflow-hidden"
+        className="relative bg-brutal-yellow text-black border-4 border-black shadow-brutal-xl p-6 sm:p-8 font-mono scroll-mt-20 overflow-hidden"
       >
-        {/* Background ambient accents */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-400/20 rounded-full blur-3xl pointer-events-none -z-0" />
-        
         <div className="relative z-10 space-y-6">
           {/* Header Tag */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b-3 border-black pb-4">
-            <div className="flex items-center gap-2">
-              <div className="p-2 bg-black text-amber-300 border-2 border-black shadow-brutal-sm">
-                <Target className="w-5 h-5" />
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 bg-black text-brutal-yellow border-2 border-black shadow-brutal-sm">
+                <Target className="w-6 h-6" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-xs font-black uppercase bg-black text-white px-2 py-0.5">
                     FEATURED EXPERTISE
                   </span>
-                  <span className="text-xs font-black text-amber-800 dark:text-amber-300 uppercase hidden sm:inline">
+                  <span className="text-xs font-black text-black/80 uppercase hidden sm:inline">
                     GROWTH & PAID SEARCH ENGINE
                   </span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-sans uppercase tracking-tight text-black dark:text-white mt-1">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-sans uppercase tracking-tight text-black mt-1">
                   GOOGLE ADS ACCOUNT MANAGEMENT
                 </h3>
               </div>
             </div>
 
             <div className="flex items-center gap-2">
-              <Badge variant="yellow" size="md">
+              <Badge variant="black" size="md">
                 HIGH ROI STRATEGY
               </Badge>
-              <Badge variant="lime" size="md" className="hidden sm:inline-flex">
+              <Badge variant="white" size="md" className="hidden sm:inline-flex">
                 VERIFIED CONVERSIONS
               </Badge>
             </div>
@@ -124,10 +121,10 @@ export function SkillsMatrix() {
             {/* Pillar 1 */}
             <div className="bg-white dark:bg-brutal-darkCard border-3 border-black p-4 shadow-brutal space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-black uppercase bg-brutal-yellow text-black px-1.5 py-0.5 border border-black">
+                <span className="text-[10px] font-black uppercase bg-black text-white px-1.5 py-0.5 border border-black">
                   PILLAR 01
                 </span>
-                <TrendingUp className="w-4 h-4 text-orange-600" />
+                <TrendingUp className="w-4 h-4 text-black dark:text-white" />
               </div>
               <h4 className="font-black text-sm uppercase text-black dark:text-white">
                 Campaign Architecture & STAGs
@@ -140,10 +137,10 @@ export function SkillsMatrix() {
             {/* Pillar 2 */}
             <div className="bg-white dark:bg-brutal-darkCard border-3 border-black p-4 shadow-brutal space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-black uppercase bg-brutal-lime text-black px-1.5 py-0.5 border border-black">
+                <span className="text-[10px] font-black uppercase bg-black text-white px-1.5 py-0.5 border border-black">
                   PILLAR 02
                 </span>
-                <BarChart3 className="w-4 h-4 text-green-600" />
+                <BarChart3 className="w-4 h-4 text-black dark:text-white" />
               </div>
               <h4 className="font-black text-sm uppercase text-black dark:text-white">
                 Smart Bidding & Target ROAS
@@ -156,10 +153,10 @@ export function SkillsMatrix() {
             {/* Pillar 3 */}
             <div className="bg-white dark:bg-brutal-darkCard border-3 border-black p-4 shadow-brutal space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-black uppercase bg-brutal-cyan text-black px-1.5 py-0.5 border border-black">
+                <span className="text-[10px] font-black uppercase bg-black text-white px-1.5 py-0.5 border border-black">
                   PILLAR 03
                 </span>
-                <Zap className="w-4 h-4 text-cyan-600" />
+                <Zap className="w-4 h-4 text-black dark:text-white" />
               </div>
               <h4 className="font-black text-sm uppercase text-black dark:text-white">
                 GTM & Conversion Tracking
@@ -173,8 +170,8 @@ export function SkillsMatrix() {
           {/* Deliverables & Quick CTA */}
           <div className="bg-black text-white p-4 border-3 border-black shadow-brutal flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1">
-              <div className="text-xs font-black uppercase text-amber-300 flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-brutal-lime" />
+              <div className="text-xs font-black uppercase text-brutal-yellow flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-brutal-yellow" />
                 <span>Ready to scale your leads or audit existing campaigns?</span>
               </div>
               <p className="text-xs text-gray-300 font-bold">
@@ -198,10 +195,11 @@ export function SkillsMatrix() {
                 href={PORTFOLIO.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                variant="lime"
+                variant="white"
                 size="sm"
+                className="hover:bg-gray-100"
               >
-                <WhatsApp className="w-4 h-4" />
+                <WhatsApp className="w-4 h-4 text-green-600" />
                 <span>WhatsApp (+212 672)</span>
               </Button>
             </div>
@@ -284,36 +282,32 @@ export function SkillsMatrix() {
                       <Card
                         key={sIdx}
                         hoverEffect={true}
-                        className={`group ${isSpotlight ? 'border-4 border-black ring-2 ring-amber-400 shadow-brutal-lg' : ''}`}
+                        className={`group ${isSpotlight ? 'border-4 border-black ring-2 ring-yellow-400 shadow-brutal-lg' : ''}`}
                         header={
                           <div className="flex items-center justify-between w-full">
-                            <span className="text-black font-black">{skill.name}</span>
+                            <span className="text-black dark:text-white font-black">{skill.name}</span>
                             <span className={`px-1.5 py-0.5 text-[9px] font-mono font-black uppercase ${
-                              isSpotlight ? 'bg-amber-400 text-black border border-black' : 'bg-black text-white'
+                              isSpotlight ? 'bg-brutal-yellow text-black border border-black' : 'bg-black text-white dark:bg-white dark:text-black'
                             }`}>
                               {skill.tag}
                             </span>
                           </div>
                         }
-                        headerBg={`${group.color} text-black`}
+                        headerBg={isSpotlight ? 'bg-brutal-yellow/40 text-black' : 'bg-gray-100 dark:bg-gray-800 text-black dark:text-white'}
                       >
                         <div className="flex items-center justify-between mb-2">
                           <Badge 
-                            variant={
-                              skill.level === 'Expert' ? 'lime' :
-                              skill.level === 'Certified' ? 'cyan' :
-                              skill.level === 'Advanced' ? 'yellow' : 'pink'
-                            }
+                            variant={isSpotlight || skill.level === 'Expert' ? 'yellow' : 'white'}
                             size="sm"
                           >
                             {skill.level}
                           </Badge>
-                          <span className="text-[10px] font-mono text-gray-500 font-bold">
+                          <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400 font-bold">
                             {isSpotlight ? '★ FEATURED' : 'PROVEN'}
                           </span>
                         </div>
 
-                        <p className="text-xs font-mono font-medium text-gray-700 leading-relaxed">
+                        <p className="text-xs font-mono font-medium text-gray-700 dark:text-gray-300 leading-relaxed">
                           {skill.desc}
                         </p>
                       </Card>

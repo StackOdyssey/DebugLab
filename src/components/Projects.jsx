@@ -38,7 +38,7 @@ export function Projects() {
             <span>Commercial Builds & Open-Source Works</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase font-sans tracking-tight text-black dark:text-white">
-            FEATURED <span className="text-brutal-cyan">PROJECTS</span> & <span className="text-amber-400">REPOS</span>
+            FEATURED PROJECTS & <span className="text-brutal-yellow">REPOS</span>
           </h2>
         </div>
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
@@ -70,9 +70,7 @@ export function Projects() {
             }}
             className={`px-4 py-2 text-xs font-black uppercase border-3 border-black transition-all cursor-pointer flex items-center gap-2 ${
               selectedType === tab.id
-                ? tab.id === 'real-project'
-                  ? 'bg-amber-300 text-black shadow-brutal -translate-y-0.5'
-                  : 'bg-brutal-yellow text-black shadow-brutal -translate-y-0.5'
+                ? 'bg-brutal-yellow text-black shadow-brutal -translate-y-0.5'
                 : 'bg-white dark:bg-gray-800 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 shadow-brutal-sm'
             }`}
           >
@@ -99,29 +97,29 @@ export function Projects() {
                 <div className="flex items-center justify-between w-full font-mono text-xs">
                   {/* Window Controls */}
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500 border border-black inline-block"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-400 border border-black inline-block"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-green-500 border border-black inline-block"></span>
-                    <span className="ml-2 font-black text-black">{project.repoName}</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-black/40 border border-black inline-block"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-black/40 border border-black inline-block"></span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-black/40 border border-black inline-block"></span>
+                    <span className="ml-2 font-black text-black dark:text-white">{project.repoName}</span>
                   </div>
                   {isRealProject ? (
                     <Badge variant="yellow" size="sm" className="text-[9px]">
                       ★ REAL CLIENT BUILD
                     </Badge>
                   ) : (
-                    <Badge variant="cyan" size="sm" className="text-[9px]">
+                    <Badge variant="white" size="sm" className="text-[9px]">
                       GITHUB WORK
                     </Badge>
                   )}
                 </div>
               }
-              headerBg={project.color}
+              headerBg={isRealProject ? 'bg-brutal-yellow/40 text-black' : 'bg-gray-100 dark:bg-gray-800 text-black dark:text-white'}
               shadow={isRealProject ? 'shadow-brutal-xl' : 'shadow-brutal-md'}
-              className={`group flex flex-col ${isRealProject ? 'border-4 border-black ring-3 ring-amber-400/80' : ''}`}
+              className={`group flex flex-col ${isRealProject ? 'border-4 border-black ring-2 ring-yellow-400' : ''}`}
             >
               {/* Distinct Classification Strip */}
               <div className={`-mx-4 -mt-4 mb-3 px-3.5 py-1.5 border-b-2 border-black flex items-center justify-between text-[10px] font-mono font-black uppercase ${
-                isRealProject ? 'bg-amber-300 text-black' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'
+                isRealProject ? 'bg-brutal-yellow text-black' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'
               }`}>
                 <span className="flex items-center gap-1.5">
                   {isRealProject ? (
@@ -136,7 +134,7 @@ export function Projects() {
                     </>
                   )}
                 </span>
-                <span className={`text-[9px] px-1 py-0.2 ${isRealProject ? 'bg-black text-amber-300 font-bold' : 'bg-black text-white'}`}>
+                <span className={`text-[9px] px-1 py-0.2 ${isRealProject ? 'bg-black text-white font-bold' : 'bg-black text-white'}`}>
                   {isRealProject ? 'DEPLOYED' : 'OPEN SOURCE'}
                 </span>
               </div>
@@ -164,24 +162,24 @@ export function Projects() {
                 <span className="text-[10px] font-mono font-black uppercase text-gray-500 tracking-wider">
                   {project.category}
                 </span>
-                <h3 className="text-xl font-black font-sans uppercase tracking-tight text-black mt-0.5 leading-snug">
+                <h3 className="text-xl font-black font-sans uppercase tracking-tight text-black dark:text-white mt-0.5 leading-snug">
                   {project.title}
                 </h3>
               </div>
 
-              <p className="text-xs font-mono text-gray-700 mb-4 flex-1">
+              <p className="text-xs font-mono text-gray-700 dark:text-gray-300 mb-4 flex-1">
                 {project.description}
               </p>
 
               {/* Key Highlights */}
               <div className={`border-2 border-black p-2.5 mb-4 space-y-1 ${
-                isRealProject ? 'bg-amber-50' : 'bg-gray-50'
+                isRealProject ? 'bg-yellow-50/50 dark:bg-yellow-950/20' : 'bg-gray-50 dark:bg-gray-800/50'
               }`}>
-                <div className="text-[9px] font-mono font-black uppercase text-gray-600">
+                <div className="text-[9px] font-mono font-black uppercase text-gray-600 dark:text-gray-400">
                   {isRealProject ? 'ENTERPRISE HIGHLIGHTS:' : 'HIGHLIGHTS:'}
                 </div>
                 {project.highlights.slice(0, 2).map((hl, hIdx) => (
-                  <div key={hIdx} className="text-[11px] font-mono font-medium text-black flex items-start gap-1.5">
+                  <div key={hIdx} className="text-[11px] font-mono font-medium text-black dark:text-gray-200 flex items-start gap-1.5">
                     <CheckCircle className="w-3 h-3 text-green-600 shrink-0 mt-0.5" />
                     <span className="line-clamp-1">{hl}</span>
                   </div>
@@ -193,7 +191,7 @@ export function Projects() {
                 {project.tech.map((t, tIdx) => (
                   <span
                     key={tIdx}
-                    className="px-2 py-0.5 bg-yellow-100 border border-black text-[10px] font-mono font-bold text-black"
+                    className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 border border-black text-[10px] font-mono font-bold text-black dark:text-white hover:bg-brutal-yellow hover:text-black transition-colors"
                   >
                     {t}
                   </span>

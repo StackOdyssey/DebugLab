@@ -100,7 +100,7 @@ export function Contact({ onShowToast }) {
             <span>Direct Line & Opportunities</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase font-sans tracking-tight text-black dark:text-white">
-            LET'S WORK <span className="text-brutal-pink">TOGETHER</span>
+            LET'S WORK <span className="text-brutal-yellow">TOGETHER</span>
           </h2>
         </div>
         <p className="text-sm font-mono font-bold text-gray-700 dark:text-gray-300 max-w-md">
@@ -113,24 +113,24 @@ export function Contact({ onShowToast }) {
         <div className="lg:col-span-5 space-y-6">
           <Card
             header="DIRECT CHANNELS & AVAILABILITY"
-            headerBg="bg-brutal-cyan text-black"
+            headerBg="bg-brutal-yellow text-black"
             shadow="shadow-brutal-lg"
           >
             <div className="space-y-4">
               {/* WhatsApp Direct Highlight Box */}
-              <div className="p-3.5 bg-green-100 border-3 border-black shadow-brutal-sm space-y-2">
+              <div className="p-3.5 bg-gray-50 dark:bg-gray-800 border-3 border-black shadow-brutal-sm space-y-2">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-[11px] font-mono font-black uppercase text-green-900">
-                    <WhatsApp className="w-4 h-4 text-green-700" />
+                  <div className="flex items-center gap-1.5 text-[11px] font-mono font-black uppercase text-black dark:text-white">
+                    <WhatsApp className="w-4 h-4 text-green-600" />
                     <span>DIRECT WHATSAPP LINE:</span>
                   </div>
-                  <span className="bg-green-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 uppercase">
+                  <span className="bg-emerald-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 uppercase">
                     FASTEST RESPONSE
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono font-black text-sm sm:text-base text-black tracking-tight">
+                  <span className="font-mono font-black text-sm sm:text-base text-black dark:text-white tracking-tight">
                     {PORTFOLIO.phoneFormatted || '+212 672-779391'}
                   </span>
                   <div className="flex items-center gap-1 shrink-0">
@@ -146,7 +146,7 @@ export function Contact({ onShowToast }) {
                       href={PORTFOLIO.whatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-2.5 py-1 bg-brutal-lime text-black font-mono font-black text-xs uppercase border border-black hover:bg-green-300 transition-colors flex items-center gap-1 cursor-pointer shadow-brutal-sm"
+                      className="px-2.5 py-1 bg-brutal-yellow text-black font-mono font-black text-xs uppercase border border-black hover:bg-yellow-300 transition-colors flex items-center gap-1 cursor-pointer shadow-brutal-sm"
                     >
                       <span>Chat</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -156,12 +156,12 @@ export function Contact({ onShowToast }) {
               </div>
 
               {/* Copy Email Box */}
-              <div className="p-3.5 bg-yellow-100 border-3 border-black shadow-brutal-sm">
-                <div className="text-[10px] font-mono font-black uppercase text-gray-700 mb-1">
+              <div className="p-3.5 bg-brutal-yellow/20 dark:bg-amber-950/30 border-3 border-black shadow-brutal-sm">
+                <div className="text-[10px] font-mono font-black uppercase text-gray-700 dark:text-gray-300 mb-1">
                   OFFICIAL EMAIL:
                 </div>
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono font-black text-xs sm:text-sm text-black truncate">
+                  <span className="font-mono font-black text-xs sm:text-sm text-black dark:text-white truncate">
                     {PORTFOLIO.email}
                   </span>
                   <button
@@ -175,19 +175,19 @@ export function Contact({ onShowToast }) {
               </div>
 
               {/* Status Box */}
-              <div className="p-3.5 bg-cyan-100 border-3 border-black shadow-brutal-sm space-y-2">
+              <div className="p-3.5 bg-gray-100 dark:bg-gray-800 border-3 border-black shadow-brutal-sm space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-green-600 animate-pulse"></span>
-                  <span className="font-mono font-black text-xs text-black uppercase">CURRENT STATUS:</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span className="font-mono font-black text-xs text-black dark:text-white uppercase">CURRENT STATUS:</span>
                 </div>
-                <p className="font-mono text-xs font-bold text-gray-800 leading-relaxed">
-                  🟢 Actively seeking: <strong className="text-black underline">Full-Stack Internships</strong>, <strong className="text-black underline">Front-End Junior Roles</strong>, and <strong className="text-black underline">Freelance Web Builds</strong>.
+                <p className="font-mono text-xs font-bold text-gray-800 dark:text-gray-200 leading-relaxed">
+                  🟢 Actively seeking: <strong className="text-black dark:text-white underline">Full-Stack Internships</strong>, <strong className="text-black dark:text-white underline">Front-End Junior Roles</strong>, and <strong className="text-black dark:text-white underline">Freelance Web Builds</strong>.
                 </p>
               </div>
 
               {/* Social Channels */}
               <div className="space-y-2 pt-2">
-                <div className="text-[11px] font-mono font-black uppercase text-gray-600">
+                <div className="text-[11px] font-mono font-black uppercase text-gray-600 dark:text-gray-400">
                   CONNECT ON PLATFORMS:
                 </div>
 
@@ -197,12 +197,12 @@ export function Contact({ onShowToast }) {
                     href={PORTFOLIO.whatsapp}
                     target="_blank"
                     rel="noopener noreferrer"
-                    variant="lime"
+                    variant="white"
                     size="sm"
-                    className="w-full justify-between"
+                    className="w-full justify-between hover:bg-gray-100"
                   >
                     <span className="flex items-center gap-1.5">
-                      <WhatsApp className="w-4 h-4" /> WhatsApp
+                      <WhatsApp className="w-4 h-4 text-green-600" /> WhatsApp
                     </span>
                     <ArrowUpRight className="w-4 h-4" />
                   </Button>
@@ -230,9 +230,9 @@ export function Contact({ onShowToast }) {
         {/* Right: Message Form */}
         <div className="lg:col-span-7 space-y-4">
           {/* Quick WhatsApp Callout Banner */}
-          <div className="bg-brutal-lime text-black border-3 border-black p-3.5 shadow-brutal flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono">
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 bg-black text-brutal-lime border-2 border-black">
+          <div className="bg-brutal-yellow text-black border-3 border-black p-4 shadow-brutal flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono">
+            <div className="flex items-center gap-3">
+              <div className="p-2.5 bg-black text-brutal-yellow border-2 border-black">
                 <WhatsApp className="w-5 h-5" />
               </div>
               <div>

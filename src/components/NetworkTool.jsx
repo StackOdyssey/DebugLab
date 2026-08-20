@@ -45,7 +45,7 @@ export function NetworkTool({ onShowToast }) {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b-4 border-black gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 bg-brutal-cyan text-black px-2.5 py-1 border-2 border-black font-mono text-xs font-black uppercase mb-2 shadow-brutal-sm">
+          <div className="inline-flex items-center gap-1.5 bg-brutal-yellow text-black px-2.5 py-1 border-2 border-black font-mono text-xs font-black uppercase mb-2 shadow-brutal-sm">
             <Network className="w-4 h-4" />
             <span>Cisco Systems Switching & IP Certification Feature</span>
           </div>
@@ -77,7 +77,7 @@ export function NetworkTool({ onShowToast }) {
           >
             {/* Presets */}
             <div className="mb-4">
-              <label className="block text-[11px] font-mono font-black uppercase text-gray-600 mb-1.5">
+              <label className="block text-[11px] font-mono font-black uppercase text-gray-600 dark:text-gray-400 mb-1.5">
                 Quick Cisco Network Presets:
               </label>
               <div className="flex flex-wrap gap-1.5">
@@ -85,7 +85,7 @@ export function NetworkTool({ onShowToast }) {
                   <button
                     key={idx}
                     onClick={() => applyPreset(p)}
-                    className="px-2 py-1 bg-gray-100 hover:bg-brutal-yellow border-2 border-black text-[11px] font-mono font-extrabold text-black transition-colors cursor-pointer shadow-brutal-sm active:translate-x-0.5 active:translate-y-0.5"
+                    className="px-2 py-1 bg-gray-100 dark:bg-gray-800 hover:bg-brutal-yellow hover:text-black border-2 border-black text-[11px] font-mono font-extrabold text-black dark:text-white transition-colors cursor-pointer shadow-brutal-sm active:translate-x-0.5 active:translate-y-0.5"
                   >
                     {p.label}
                   </button>
@@ -96,7 +96,7 @@ export function NetworkTool({ onShowToast }) {
             {/* Input fields */}
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-mono font-black uppercase text-black mb-1">
+                <label className="block text-xs font-mono font-black uppercase text-black dark:text-white mb-1">
                   IPv4 Host Address
                 </label>
                 <div className="relative">
@@ -105,17 +105,17 @@ export function NetworkTool({ onShowToast }) {
                     value={ipInput}
                     onChange={(e) => setIpInput(e.target.value)}
                     placeholder="e.g. 192.168.1.100"
-                    className="w-full px-3 py-2.5 bg-gray-50 border-3 border-black font-mono font-black text-base text-black focus:outline-none focus:bg-yellow-50 focus:border-brutal-pink shadow-brutal-sm"
+                    className="w-full px-3 py-2.5 bg-gray-50 dark:bg-gray-900 border-3 border-black font-mono font-black text-base text-black dark:text-white focus:outline-none focus:bg-yellow-50 dark:focus:bg-gray-800 shadow-brutal-sm"
                   />
                 </div>
               </div>
 
               <div>
                 <div className="flex items-center justify-between mb-1">
-                  <label className="text-xs font-mono font-black uppercase text-black">
+                  <label className="text-xs font-mono font-black uppercase text-black dark:text-white">
                     Subnet Mask / CIDR Prefix
                   </label>
-                  <span className="text-xs font-mono font-black bg-black text-white px-2 py-0.5">
+                  <span className="text-xs font-mono font-black bg-black text-white dark:bg-white dark:text-black px-2 py-0.5">
                     /{cidrInput}
                   </span>
                 </div>
@@ -129,7 +129,7 @@ export function NetworkTool({ onShowToast }) {
                     sounds.playClick();
                     setCidrInput(e.target.value);
                   }}
-                  className="w-full h-3 bg-gray-200 border-2 border-black accent-brutal-yellow cursor-pointer"
+                  className="w-full h-3 bg-gray-200 dark:bg-gray-700 border-2 border-black accent-brutal-yellow cursor-pointer"
                 />
 
                 <div className="flex justify-between text-[10px] font-mono font-bold text-gray-500 mt-1">
@@ -144,14 +144,14 @@ export function NetworkTool({ onShowToast }) {
 
             {/* Error handling */}
             {subnetResult.error && (
-              <div className="mt-4 p-3 bg-brutal-pink text-white font-mono text-xs font-black border-2 border-black shadow-brutal-sm">
+              <div className="mt-4 p-3 bg-black text-white font-mono text-xs font-black border-2 border-black shadow-brutal-sm">
                 ⚠ {subnetResult.error}
               </div>
             )}
 
             <div className="mt-6 pt-4 border-t-2 border-black flex items-center justify-between text-xs font-mono">
-              <span className="text-gray-600 font-bold">Bitwise Engine:</span>
-              <span className="bg-brutal-lime text-black px-2 py-0.5 border border-black font-black">
+              <span className="text-gray-600 dark:text-gray-400 font-bold">Bitwise Engine:</span>
+              <span className="bg-gray-100 dark:bg-gray-800 text-black dark:text-white px-2 py-0.5 border border-black font-black">
                 CISCO-STANDARDS-RFC1878
               </span>
             </div>
@@ -165,12 +165,12 @@ export function NetworkTool({ onShowToast }) {
               {/* Primary Output Cards Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono">
                 {/* Network Address */}
-                <div className="p-3.5 bg-yellow-100 border-3 border-black shadow-brutal-sm relative group">
-                  <div className="text-[10px] font-black uppercase text-gray-700">Network ID</div>
-                  <div className="text-lg font-black text-black">{subnetResult.netAddress} {subnetResult.cidr}</div>
+                <div className="p-3.5 bg-brutal-yellow/30 dark:bg-amber-950/40 border-3 border-black shadow-brutal-sm relative group">
+                  <div className="text-[10px] font-black uppercase text-gray-700 dark:text-gray-300">Network ID</div>
+                  <div className="text-lg font-black text-black dark:text-white">{subnetResult.netAddress} {subnetResult.cidr}</div>
                   <button
                     onClick={() => copyToClipboard(subnetResult.netAddress, 'Network Address')}
-                    className="absolute top-2 right-2 p-1 bg-white border border-black hover:bg-black hover:text-white transition-colors"
+                    className="absolute top-2 right-2 p-1 bg-white dark:bg-gray-800 border border-black hover:bg-black hover:text-white transition-colors"
                     title="Copy"
                   >
                     <Copy className="w-3.5 h-3.5" />
@@ -178,12 +178,12 @@ export function NetworkTool({ onShowToast }) {
                 </div>
 
                 {/* Subnet Mask */}
-                <div className="p-3.5 bg-cyan-100 border-3 border-black shadow-brutal-sm relative group">
-                  <div className="text-[10px] font-black uppercase text-gray-700">Subnet Mask</div>
-                  <div className="text-lg font-black text-black">{subnetResult.subnetMask}</div>
+                <div className="p-3.5 bg-gray-100 dark:bg-gray-800 border-3 border-black shadow-brutal-sm relative group">
+                  <div className="text-[10px] font-black uppercase text-gray-700 dark:text-gray-300">Subnet Mask</div>
+                  <div className="text-lg font-black text-black dark:text-white">{subnetResult.subnetMask}</div>
                   <button
                     onClick={() => copyToClipboard(subnetResult.subnetMask, 'Subnet Mask')}
-                    className="absolute top-2 right-2 p-1 bg-white border border-black hover:bg-black hover:text-white transition-colors"
+                    className="absolute top-2 right-2 p-1 bg-white dark:bg-gray-800 border border-black hover:bg-black hover:text-white transition-colors"
                     title="Copy"
                   >
                     <Copy className="w-3.5 h-3.5" />
@@ -191,23 +191,23 @@ export function NetworkTool({ onShowToast }) {
                 </div>
 
                 {/* Usable Range */}
-                <div className="p-3.5 bg-green-100 border-3 border-black shadow-brutal-sm sm:col-span-2">
-                  <div className="text-[10px] font-black uppercase text-gray-700">Usable Host Range (First — Last)</div>
-                  <div className="text-base sm:text-lg font-black text-black tracking-tight">
+                <div className="p-3.5 bg-white dark:bg-gray-800 border-3 border-black shadow-brutal-sm sm:col-span-2">
+                  <div className="text-[10px] font-black uppercase text-gray-700 dark:text-gray-300">Usable Host Range (First — Last)</div>
+                  <div className="text-base sm:text-lg font-black text-black dark:text-white tracking-tight">
                     {subnetResult.firstHost} &rarr; {subnetResult.lastHost}
                   </div>
                 </div>
 
                 {/* Broadcast Address */}
-                <div className="p-3.5 bg-rose-100 border-3 border-black shadow-brutal-sm">
-                  <div className="text-[10px] font-black uppercase text-gray-700">Broadcast Address</div>
-                  <div className="text-base font-black text-black">{subnetResult.broadcast}</div>
+                <div className="p-3.5 bg-gray-100 dark:bg-gray-800 border-3 border-black shadow-brutal-sm">
+                  <div className="text-[10px] font-black uppercase text-gray-700 dark:text-gray-300">Broadcast Address</div>
+                  <div className="text-base font-black text-black dark:text-white">{subnetResult.broadcast}</div>
                 </div>
 
                 {/* Usable Hosts Count */}
-                <div className="p-3.5 bg-purple-100 border-3 border-black shadow-brutal-sm">
-                  <div className="text-[10px] font-black uppercase text-gray-700">Usable Hosts Count</div>
-                  <div className="text-base font-black text-black">{subnetResult.usableHosts} / {subnetResult.totalHosts}</div>
+                <div className="p-3.5 bg-gray-100 dark:bg-gray-800 border-3 border-black shadow-brutal-sm">
+                  <div className="text-[10px] font-black uppercase text-gray-700 dark:text-gray-300">Usable Hosts Count</div>
+                  <div className="text-base font-black text-black dark:text-white">{subnetResult.usableHosts} / {subnetResult.totalHosts}</div>
                 </div>
               </div>
 
@@ -219,7 +219,7 @@ export function NetworkTool({ onShowToast }) {
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-gray-500 dark:text-gray-400">Scope:</span>
-                  <Badge variant={subnetResult.scope.includes('Private') ? 'lime' : 'cyan'} size="sm">
+                  <Badge variant="white" size="sm">
                     {subnetResult.scope}
                   </Badge>
                 </div>
@@ -240,14 +240,14 @@ export function NetworkTool({ onShowToast }) {
                   <span className="text-[10px] text-gray-400">IEEE 802.3 / TCP-IP</span>
                 </div>
 
-                <div className="space-y-1 pt-1 text-[11px]">
+                <div className="space-y-1.5 pt-1 text-[11px]">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <span className="text-gray-400 font-bold">IP Binary:</span>
-                    <span className="text-brutal-cyan font-black tracking-wider">{subnetResult.binaryIp}</span>
+                    <span className="text-white font-black tracking-wider">{subnetResult.binaryIp}</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <span className="text-gray-400 font-bold">Mask Binary:</span>
-                    <span className="text-brutal-lime font-black tracking-wider">{subnetResult.binaryMask}</span>
+                    <span className="text-gray-300 font-black tracking-wider">{subnetResult.binaryMask}</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <span className="text-gray-400 font-bold">Net Binary:</span>
