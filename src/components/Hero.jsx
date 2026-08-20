@@ -41,10 +41,15 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
           <span className="uppercase text-black dark:text-white">STATUS: {PORTFOLIO.status}</span>
         </div>
 
-        <Badge variant="lime" rotate="right-1" className="hidden sm:inline-flex">
+        <a href="#google-ads" className="cursor-pointer">
+          <Badge variant="yellow" rotate="right-1" className="inline-flex">
+            🎯 GOOGLE ADS MANAGER
+          </Badge>
+        </a>
+        <Badge variant="lime" rotate="left-1" className="hidden sm:inline-flex">
           ISTA MOROCCO &bull; 2025/2026
         </Badge>
-        <Badge variant="cyan" rotate="left-1" className="hidden md:inline-flex">
+        <Badge variant="cyan" rotate="right-1" className="hidden md:inline-flex">
           ALX AFRICA HONORS
         </Badge>
       </div>
@@ -164,6 +169,11 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
               <div className="absolute top-2 right-2 -rotate-12">
                 <span className="bg-brutal-pink text-white text-[10px] font-mono font-black px-1.5 py-0.5 border border-black shadow-brutal-sm">
                   Cisco
+                </span>
+              </div>
+              <div className="absolute top-2 left-2 rotate-12">
+                <span className="bg-amber-400 text-black text-[10px] font-mono font-black px-1.5 py-0.5 border border-black shadow-brutal-sm">
+                  Google Ads
                 </span>
               </div>
               <div className="absolute bottom-2 left-2 rotate-6">

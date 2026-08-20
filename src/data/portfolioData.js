@@ -22,8 +22,8 @@ export const PORTFOLIO = {
   
   stats: [
     { label: "Public Repos", value: "22+", tag: "GitHub" },
-    { label: "Certificates Earned", value: "4+", tag: "Verified" },
-    { label: "Core Tech Stack", value: "10+", tag: "Skills" },
+    { label: "Google Ads (SEM)", value: "ROI+", tag: "Certified" },
+    { label: "Certifications", value: "4+", tag: "Verified" },
     { label: "Code Commits", value: "350+", tag: "2025/2026" },
   ],
 
@@ -266,12 +266,22 @@ export const PORTFOLIO = {
       ]
     },
     {
+      category: "Google Ads & Growth Marketing",
+      icon: "Target",
+      color: "bg-amber-300",
+      skills: [
+        { name: "Google Ads Account Management", level: "Advanced", desc: "Campaign architecture, search & display networks, ROI optimization & full-funnel SEM strategy", tag: "Spotlight" },
+        { name: "High-Intent Keyword Sculpting", level: "Advanced", desc: "Broad/Phrase/Exact match grouping, negative keyword scrubbing, search term query analysis", tag: "SEM Core" },
+        { name: "Conversion Tracking & GTM", level: "Advanced", desc: "Google Tag Manager custom events, enhanced conversion setup, GA4 revenue attribution", tag: "Analytics" },
+        { name: "Smart Bidding & Target ROAS", level: "Advanced", desc: "Target CPA/ROAS tuning, Performance Max integration, Quality Score elevation (8/10+)", tag: "Scaling" }
+      ]
+    },
+    {
       category: "Tools, CMS & Workflow",
       icon: "Wrench",
       color: "bg-brutal-pink",
       skills: [
         { name: "Git & GitHub", level: "Advanced", desc: "Version control, branching, pull requests, collaboration", tag: "DevOps" },
-        { name: "Google Ads Account Management", level: "Advanced", desc: "Campaign architecture, search/display ads, conversion tracking, ROI optimization & SEM strategy", tag: "Growth" },
         { name: "WordPress CMS", level: "Intermediate", desc: "Custom themes, plugins, site architecture, client setups", tag: "CMS" },
         { name: "Linux / CLI", level: "Intermediate", desc: "Bash commands, shell scripts, environment variables", tag: "Terminal" },
         { name: "Vite / npm", level: "Advanced", desc: "Modern build tooling, package management, hot reloading", tag: "Tooling" }

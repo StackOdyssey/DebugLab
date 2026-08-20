@@ -39,6 +39,7 @@ export function CommandMenu({
 
   const actions = [
     { label: 'Jump to Featured Projects', section: '#projects', icon: FolderGit2, tag: 'Navigation' },
+    { label: 'Explore Google Ads Management & SEM Strategy', section: '#google-ads', icon: Target, tag: 'Spotlight' },
     { label: 'Chat with Mohammed on WhatsApp (+212 672-779391)', action: 'whatsapp', icon: WhatsApp, tag: 'Direct Chat' },
     { label: 'Copy WhatsApp Number (+212 672-779391)', action: 'copy-phone', icon: Phone, tag: 'WhatsApp' },
     { label: 'View Verified Certifications (Cisco, ALX, C++, ISTA)', section: '#certifications', icon: Award, tag: 'Credentials' },

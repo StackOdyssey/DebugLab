@@ -1,5 +1,20 @@
-import React, { useState } from 'react';
-import { Volume2, VolumeX, Sparkles, Terminal as TerminalIcon, Menu, X, Command } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { 
+  Volume2, 
+  VolumeX, 
+  Sparkles, 
+  Terminal as TerminalIcon, 
+  Menu, 
+  X, 
+  Command, 
+  ChevronDown, 
+  Award, 
+  Network, 
+  Clock, 
+  Target, 
+  Layers,
+  ArrowRight
+} from 'lucide-react';
 import { Github } from './ui/GithubIcon';
 import { Button } from './ui/Button';
 import { Badge } from './ui/Badge';
@@ -16,6 +31,26 @@ export function Navbar({
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [themeDropdownOpen, setThemeDropdownOpen] = useState(false);
+  const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(true);
+
+  const moreDropdownRef = useRef(null);
+  const themeDropdownRef = useRef(null);
+
+  // Close dropdowns on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (moreDropdownRef.current && !moreDropdownRef.current.contains(event.target)) {
+        setMoreDropdownOpen(false);
+      }
+      if (themeDropdownRef.current && !themeDropdownRef.current.contains(event.target)) {
+        setThemeDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const toggleSound = () => {
     const next = !soundEnabled;
@@ -24,13 +59,35 @@ export function Navbar({
     if (next) sounds.playBeep();
   };
 
-  const navLinks = [
-    { label: 'Projects', href: '#projects' },
-    { label: 'Certifications', href: '#certifications' },
-    { label: 'Cisco Subnet Tool', href: '#cisco-tool' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Timeline', href: '#timeline' },
-    { label: 'Contact', href: '#contact' },
+  const moreItems = [
+    { 
+      label: 'Certifications', 
+      href: '#certifications', 
+      icon: Award, 
+      desc: 'Cisco, ALX Honors, C++, ISTA',
+      color: 'text-brutal-cyan'
+    },
+    { 
+      label: 'Cisco tool', 
+      href: '#cisco-tool', 
+      icon: Network, 
+      desc: 'IPv4 & CIDR Subnet Inspector',
+      color: 'text-brutal-yellow'
+    },
+    { 
+      label: 'Skills', 
+      href: '#skills', 
+      icon: Sparkles, 
+      desc: 'Tech Stack & Competencies',
+      color: 'text-brutal-lime'
+    },
+    { 
+      label: 'Timeline', 
+      href: '#timeline', 
+      icon: Clock, 
+      desc: 'Academic & Dev Milestones',
+      color: 'text-brutal-pink'
+    },
   ];
 
   return (
@@ -39,7 +96,7 @@ export function Navbar({
       <div className="bg-black text-white px-4 py-1 flex items-center justify-between text-[11px] font-mono font-bold tracking-wider">
         <div className="flex items-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-          <span>DEV ENVIRONMENT: ISTA FULL-STACK &bull; ALX ALUM &bull; CISCO CERTIFIED</span>
+          <span>DEV ENVIRONMENT: ISTA FULL-STACK &bull; GOOGLE ADS &bull; CISCO CERTIFIED</span>
         </div>
         <div className="hidden md:flex items-center gap-4 text-gray-300">
           <button 
@@ -74,17 +131,99 @@ export function Navbar({
         </a>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-1 font-mono text-xs font-bold uppercase">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => sounds.playClick()}
-              className="px-3 py-2 text-black dark:text-white hover:bg-brutal-yellow hover:text-black border-2 border-transparent hover:border-black transition-all"
+        <nav className="hidden lg:flex items-center gap-1.5 font-mono text-xs font-bold uppercase">
+          {/* Projects Link */}
+          <a
+            href="#projects"
+            onClick={() => sounds.playClick()}
+            className="px-3 py-2 text-black dark:text-white hover:bg-brutal-yellow hover:text-black border-2 border-transparent hover:border-black transition-all"
+          >
+            Projects
+          </a>
+
+          {/* Highlighted Google Ads Management Link */}
+          <a
+            href="#google-ads"
+            onClick={() => sounds.playClick()}
+            className="group relative px-3 py-1.5 bg-amber-300 hover:bg-amber-400 text-black border-2 border-black shadow-brutal-sm hover:shadow-brutal hover:-translate-y-0.5 transition-all flex items-center gap-1.5 font-black"
+            title="Google Ads Account Management & ROI Growth"
+          >
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            <span className="w-2 h-2 rounded-full bg-red-600 -ml-3.5"></span>
+            <Target className="w-3.5 h-3.5 text-black" />
+            <span>Google Ads Management</span>
+            <span className="bg-black text-amber-300 text-[9px] px-1 py-0.2 uppercase ml-0.5 font-mono">
+              HOT
+            </span>
+          </a>
+
+          {/* 'More' Dropdown Trigger */}
+          <div className="relative" ref={moreDropdownRef}>
+            <button
+              onClick={() => {
+                sounds.playClick();
+                setMoreDropdownOpen(!moreDropdownOpen);
+              }}
+              className={`px-3 py-2 text-black dark:text-white hover:bg-brutal-yellow hover:text-black border-2 transition-all flex items-center gap-1 cursor-pointer ${
+                moreDropdownOpen 
+                  ? 'bg-brutal-yellow text-black border-black shadow-brutal-sm' 
+                  : 'border-transparent hover:border-black'
+              }`}
+              aria-expanded={moreDropdownOpen}
             >
-              {link.label}
-            </a>
-          ))}
+              <span>More</span>
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-150 ${moreDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {/* 'More' Dropdown Menu Box */}
+            {moreDropdownOpen && (
+              <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-brutal-darkCard border-3 border-black shadow-brutal-lg z-50 p-2 space-y-1 animate-in fade-in zoom-in-95 font-mono">
+                <div className="text-[10px] font-black uppercase text-gray-500 dark:text-gray-400 px-2 py-1 border-b border-black/20 flex items-center justify-between">
+                  <span>Explore Sections</span>
+                  <span className="bg-brutal-yellow text-black px-1 text-[9px] font-black">4 PAGES</span>
+                </div>
+
+                {moreItems.map((item) => {
+                  const IconComp = item.icon;
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => {
+                        sounds.playClick();
+                        setMoreDropdownOpen(false);
+                      }}
+                      className="block p-2 text-black dark:text-white hover:bg-brutal-yellow hover:text-black border border-transparent hover:border-black transition-all group"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <div className="p-1 bg-black text-white group-hover:bg-black group-hover:text-brutal-yellow border border-black">
+                            <IconComp className="w-3.5 h-3.5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-black uppercase">{item.label}</div>
+                            <div className="text-[10px] text-gray-600 dark:text-gray-400 group-hover:text-gray-900 font-bold lowercase">
+                              {item.desc}
+                            </div>
+                          </div>
+                        </div>
+                        <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          {/* Contact Link */}
+          <a
+            href="#contact"
+            onClick={() => sounds.playClick()}
+            className="px-3 py-2 text-black dark:text-white hover:bg-brutal-yellow hover:text-black border-2 border-transparent hover:border-black transition-all"
+          >
+            Contact
+          </a>
         </nav>
 
         {/* Action Controls */}
@@ -114,7 +253,7 @@ export function Navbar({
           </Button>
 
           {/* Theme Dropdown Toggle */}
-          <div className="relative">
+          <div className="relative" ref={themeDropdownRef}>
             <Button
               variant="yellow"
               size="icon"
@@ -129,7 +268,6 @@ export function Navbar({
             {themeDropdownOpen && (
               <div 
                 className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-900 border-3 border-black shadow-brutal-lg z-50 p-2 space-y-1 animate-in fade-in zoom-in-95"
-                onMouseLeave={() => setThemeDropdownOpen(false)}
               >
                 <div className="text-[10px] font-mono font-black uppercase text-gray-500 dark:text-gray-400 px-2 py-1 border-b border-black/20">
                   Select Theme
@@ -162,6 +300,7 @@ export function Navbar({
             as="a"
             href="https://github.com/StackOdyssey"
             target="_blank"
+            rel="noopener noreferrer"
             variant="black"
             size="sm"
             className="hidden sm:inline-flex"
@@ -176,7 +315,7 @@ export function Navbar({
               sounds.playClick();
               setMobileMenuOpen(!mobileMenuOpen);
             }}
-            className="p-2 border-2 border-black bg-brutal-yellow text-black lg:hidden shadow-brutal-sm"
+            className="p-2 border-2 border-black bg-brutal-yellow text-black lg:hidden shadow-brutal-sm cursor-pointer"
             aria-label="Open navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -186,20 +325,86 @@ export function Navbar({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t-3 border-black bg-brutal-yellow p-4 space-y-2 font-mono text-sm font-black">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => {
-                sounds.playClick();
-                setMobileMenuOpen(false);
-              }}
-              className="block p-2 bg-white text-black border-2 border-black shadow-brutal-sm hover:bg-black hover:text-white transition-all uppercase"
+        <div className="lg:hidden border-t-3 border-black bg-brutal-yellow p-4 space-y-3 font-mono text-sm font-black animate-in slide-in-from-top-2">
+          {/* Projects */}
+          <a
+            href="#projects"
+            onClick={() => {
+              sounds.playClick();
+              setMobileMenuOpen(false);
+            }}
+            className="block p-2 bg-white text-black border-2 border-black shadow-brutal-sm hover:bg-black hover:text-white transition-all uppercase"
+          >
+            Projects
+          </a>
+
+          {/* Highlighted Google Ads in Mobile */}
+          <a
+            href="#google-ads"
+            onClick={() => {
+              sounds.playClick();
+              setMobileMenuOpen(false);
+            }}
+            className="block p-2.5 bg-amber-400 text-black border-3 border-black shadow-brutal hover:bg-amber-300 transition-all uppercase"
+          >
+            <div className="flex items-center justify-between">
+              <span className="flex items-center gap-2">
+                <Target className="w-4 h-4 text-black" />
+                <span>🎯 Google Ads Management</span>
+              </span>
+              <span className="bg-black text-amber-300 text-[10px] px-1.5 py-0.5">FEATURED</span>
+            </div>
+          </a>
+
+          {/* More Section in Mobile */}
+          <div className="bg-white text-black border-2 border-black p-3 shadow-brutal-sm space-y-2">
+            <button
+              onClick={() => setMobileMoreOpen(!mobileMoreOpen)}
+              className="w-full flex items-center justify-between text-xs font-black uppercase text-gray-700 cursor-pointer"
             >
-              {link.label}
-            </a>
-          ))}
+              <span>More Sections ({moreItems.length})</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${mobileMoreOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {mobileMoreOpen && (
+              <div className="space-y-1.5 pt-1 border-t border-black/20">
+                {moreItems.map((item) => {
+                  const IconComp = item.icon;
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => {
+                        sounds.playClick();
+                        setMobileMenuOpen(false);
+                      }}
+                      className="p-2 bg-gray-50 hover:bg-brutal-yellow text-black border border-black flex items-center justify-between text-xs font-bold uppercase transition-colors"
+                    >
+                      <span className="flex items-center gap-2">
+                        <IconComp className="w-4 h-4" />
+                        <span>{item.label}</span>
+                      </span>
+                      <span className="text-[10px] text-gray-600 font-normal lowercase">{item.desc}</span>
+                    </a>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+          {/* Contact */}
+          <a
+            href="#contact"
+            onClick={() => {
+              sounds.playClick();
+              setMobileMenuOpen(false);
+            }}
+            className="block p-2 bg-white text-black border-2 border-black shadow-brutal-sm hover:bg-black hover:text-white transition-all uppercase"
+          >
+            Contact / Direct Line
+          </a>
+
+          {/* Mobile Buttons */}
           <div className="pt-2 flex gap-2">
             <Button
               variant="cyan"
@@ -216,6 +421,7 @@ export function Navbar({
               as="a"
               href="https://github.com/StackOdyssey"
               target="_blank"
+              rel="noopener noreferrer"
               variant="black"
               size="sm"
               className="flex-1"
@@ -228,3 +434,4 @@ export function Navbar({
     </header>
   );
 }
+

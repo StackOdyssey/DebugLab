@@ -1,8 +1,24 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Wrench, Layout, Server, Network, Check, Sparkles, Filter } from 'lucide-react';
+import { 
+  Search, 
+  Wrench, 
+  Layout, 
+  Server, 
+  Network, 
+  Check, 
+  Sparkles, 
+  Filter, 
+  Target, 
+  TrendingUp, 
+  BarChart3, 
+  CheckCircle2, 
+  ArrowUpRight, 
+  Zap 
+} from 'lucide-react';
 import { Card } from './ui/Card';
 import { Badge } from './ui/Badge';
 import { Button } from './ui/Button';
+import { WhatsApp } from './ui/WhatsAppIcon';
 import { PORTFOLIO } from '../data/portfolioData';
 import { sounds } from '../utils/soundEffects';
 
@@ -11,6 +27,7 @@ const ICON_MAP = {
   Server: Server,
   Network: Network,
   Wrench: Wrench,
+  Target: Target,
 };
 
 export function SkillsMatrix() {
@@ -45,9 +62,9 @@ export function SkillsMatrix() {
   }, [searchQuery, activeCategory]);
 
   return (
-    <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b-4 border-black gap-4">
+      <div className="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b-4 border-black gap-4">
         <div>
           <div className="inline-flex items-center gap-1.5 bg-brutal-lime text-black px-2.5 py-1 border-2 border-black font-mono text-xs font-black uppercase mb-2 shadow-brutal-sm">
             <Sparkles className="w-4 h-4" />
@@ -58,12 +75,142 @@ export function SkillsMatrix() {
           </h2>
         </div>
         <p className="text-sm font-mono font-bold text-gray-700 dark:text-gray-300 max-w-md">
-          A granular breakdown of languages, frameworks, networking fundamentals, and development workflows mastered across ISTA, ALX, and open-source labs.
+          A granular breakdown of languages, frameworks, Google Ads growth management, networking fundamentals, and full-stack engineering tools.
         </p>
       </div>
 
+      {/* Prominent Google Ads Spotlight Banner */}
+      <div 
+        id="google-ads" 
+        className="relative bg-gradient-to-br from-amber-200 via-yellow-100 to-amber-100 dark:from-amber-950/60 dark:via-gray-900 dark:to-yellow-950/40 border-4 border-black shadow-brutal-xl p-6 sm:p-8 font-mono scroll-mt-20 overflow-hidden"
+      >
+        {/* Background ambient accents */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-400/20 rounded-full blur-3xl pointer-events-none -z-0" />
+        
+        <div className="relative z-10 space-y-6">
+          {/* Header Tag */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b-3 border-black pb-4">
+            <div className="flex items-center gap-2">
+              <div className="p-2 bg-black text-amber-300 border-2 border-black shadow-brutal-sm">
+                <Target className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-black uppercase bg-black text-white px-2 py-0.5">
+                    FEATURED EXPERTISE
+                  </span>
+                  <span className="text-xs font-black text-amber-800 dark:text-amber-300 uppercase hidden sm:inline">
+                    GROWTH & PAID SEARCH ENGINE
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-sans uppercase tracking-tight text-black dark:text-white mt-1">
+                  GOOGLE ADS ACCOUNT MANAGEMENT
+                </h3>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Badge variant="yellow" size="md">
+                HIGH ROI STRATEGY
+              </Badge>
+              <Badge variant="lime" size="md" className="hidden sm:inline-flex">
+                VERIFIED CONVERSIONS
+              </Badge>
+            </div>
+          </div>
+
+          {/* Core Strategy Pillars Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Pillar 1 */}
+            <div className="bg-white dark:bg-brutal-darkCard border-3 border-black p-4 shadow-brutal space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-black uppercase bg-brutal-yellow text-black px-1.5 py-0.5 border border-black">
+                  PILLAR 01
+                </span>
+                <TrendingUp className="w-4 h-4 text-orange-600" />
+              </div>
+              <h4 className="font-black text-sm uppercase text-black dark:text-white">
+                Campaign Architecture & STAGs
+              </h4>
+              <p className="text-xs text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                Structured Single-Theme Ad Groups (STAGs), intent-driven keyword segmentation (Exact, Phrase, Broad match modifiers), and responsive search ad copywriting that maximizes Quality Score.
+              </p>
+            </div>
+
+            {/* Pillar 2 */}
+            <div className="bg-white dark:bg-brutal-darkCard border-3 border-black p-4 shadow-brutal space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-black uppercase bg-brutal-lime text-black px-1.5 py-0.5 border border-black">
+                  PILLAR 02
+                </span>
+                <BarChart3 className="w-4 h-4 text-green-600" />
+              </div>
+              <h4 className="font-black text-sm uppercase text-black dark:text-white">
+                Smart Bidding & Target ROAS
+              </h4>
+              <p className="text-xs text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                Target CPA and Target ROAS algorithmic bidding calibration, audience exclusion lists, budget allocation tuning, and continuous search query term audits to eliminate ad spend waste.
+              </p>
+            </div>
+
+            {/* Pillar 3 */}
+            <div className="bg-white dark:bg-brutal-darkCard border-3 border-black p-4 shadow-brutal space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-black uppercase bg-brutal-cyan text-black px-1.5 py-0.5 border border-black">
+                  PILLAR 03
+                </span>
+                <Zap className="w-4 h-4 text-cyan-600" />
+              </div>
+              <h4 className="font-black text-sm uppercase text-black dark:text-white">
+                GTM & Conversion Tracking
+              </h4>
+              <p className="text-xs text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                Full-funnel Google Tag Manager (GTM) event triggers, enhanced conversions, GA4 attribution modeling, and high-speed landing page conversion rate optimization (CRO).
+              </p>
+            </div>
+          </div>
+
+          {/* Deliverables & Quick CTA */}
+          <div className="bg-black text-white p-4 border-3 border-black shadow-brutal flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="text-xs font-black uppercase text-amber-300 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-brutal-lime" />
+                <span>Ready to scale your leads or audit existing campaigns?</span>
+              </div>
+              <p className="text-xs text-gray-300 font-bold">
+                Available for Google Ads account audits, new campaign builds, and monthly performance optimization.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 shrink-0">
+              <Button
+                as="a"
+                href="#contact"
+                variant="yellow"
+                size="sm"
+              >
+                <span>Book Campaign Audit</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Button>
+
+              <Button
+                as="a"
+                href={PORTFOLIO.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="lime"
+                size="sm"
+              >
+                <WhatsApp className="w-4 h-4" />
+                <span>WhatsApp (+212 672)</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Filter & Search Bar */}
-      <div className="bg-white dark:bg-brutal-darkCard border-4 border-black shadow-brutal-lg p-4 mb-8 space-y-4">
+      <div className="bg-white dark:bg-brutal-darkCard border-4 border-black shadow-brutal-lg p-4 space-y-4">
         <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
           {/* Search Box */}
           <div className="relative w-full md:w-80">
@@ -72,13 +219,13 @@ export function SkillsMatrix() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search skill (e.g. React, Cisco, Django)..."
+              placeholder="Search skill (e.g. Google Ads, React, Cisco)..."
               className="w-full pl-9 pr-3 py-2 bg-gray-50 border-2 border-black font-mono text-xs font-bold text-black focus:outline-none focus:bg-yellow-50 focus:border-brutal-pink shadow-brutal-sm"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono font-black text-gray-500 hover:text-black"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono font-black text-gray-500 hover:text-black cursor-pointer"
               >
                 ✕
               </button>
@@ -130,50 +277,59 @@ export function SkillsMatrix() {
 
                 {/* Skills Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {group.skills.map((skill, sIdx) => (
-                    <Card
-                      key={sIdx}
-                      hoverEffect={true}
-                      className="group"
-                      header={
-                        <div className="flex items-center justify-between w-full">
-                          <span className="text-black">{skill.name}</span>
-                          <span className="bg-black text-white px-1.5 py-0.5 text-[9px] font-mono font-bold">
-                            {skill.tag}
+                  {group.skills.map((skill, sIdx) => {
+                    const isSpotlight = skill.tag === 'Spotlight' || skill.name.includes('Google Ads');
+
+                    return (
+                      <Card
+                        key={sIdx}
+                        hoverEffect={true}
+                        className={`group ${isSpotlight ? 'border-4 border-black ring-2 ring-amber-400 shadow-brutal-lg' : ''}`}
+                        header={
+                          <div className="flex items-center justify-between w-full">
+                            <span className="text-black font-black">{skill.name}</span>
+                            <span className={`px-1.5 py-0.5 text-[9px] font-mono font-black uppercase ${
+                              isSpotlight ? 'bg-amber-400 text-black border border-black' : 'bg-black text-white'
+                            }`}>
+                              {skill.tag}
+                            </span>
+                          </div>
+                        }
+                        headerBg={`${group.color} text-black`}
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <Badge 
+                            variant={
+                              skill.level === 'Expert' ? 'lime' :
+                              skill.level === 'Certified' ? 'cyan' :
+                              skill.level === 'Advanced' ? 'yellow' : 'pink'
+                            }
+                            size="sm"
+                          >
+                            {skill.level}
+                          </Badge>
+                          <span className="text-[10px] font-mono text-gray-500 font-bold">
+                            {isSpotlight ? '★ FEATURED' : 'PROVEN'}
                           </span>
                         </div>
-                      }
-                      headerBg={`${group.color} text-black`}
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <Badge 
-                          variant={
-                            skill.level === 'Expert' ? 'lime' :
-                            skill.level === 'Certified' ? 'cyan' :
-                            skill.level === 'Advanced' ? 'yellow' : 'pink'
-                          }
-                          size="sm"
-                        >
-                          {skill.level}
-                        </Badge>
-                        <span className="text-[10px] font-mono text-gray-500 font-bold">PROVEN</span>
-                      </div>
 
-                      <p className="text-xs font-mono font-medium text-gray-700 leading-relaxed">
-                        {skill.desc}
-                      </p>
-                    </Card>
-                  ))}
+                        <p className="text-xs font-mono font-medium text-gray-700 leading-relaxed">
+                          {skill.desc}
+                        </p>
+                      </Card>
+                    );
+                  })}
                 </div>
               </div>
             );
           })
         ) : (
           <div className="p-12 bg-white dark:bg-brutal-darkCard border-4 border-black shadow-brutal-lg text-center font-mono font-black text-gray-600">
-            No skills found matching "{searchQuery}". Try searching for React, C++, Cisco, or Django!
+            No skills found matching "{searchQuery}". Try searching for Google Ads, React, C++, Cisco, or Django!
           </div>
         )}
       </div>
     </section>
   );
 }
+
