@@ -47,7 +47,7 @@ export function CommandMenu({
     { label: 'Explore Skills Matrix & Tech Stack', section: '#skills', icon: Sparkles, tag: 'Skills' },
     { label: 'View Learning Journey & Timeline', section: '#timeline', icon: Award, tag: 'History' },
     { label: 'Open Interactive CLI Sandbox', action: 'terminal', icon: Terminal, tag: 'CLI App' },
-    { label: 'Copy Mohammed\'s Email Address', action: 'copy-email', icon: Mail, tag: 'Contact' },
+    { label: 'Copy Mohammed\'s Email (davidsmithny01@gmail.com)', action: 'copy-email', icon: Mail, tag: 'Contact' },
     { label: 'Visit GitHub Profile (@StackOdyssey)', action: 'github', icon: Github, tag: 'External' },
   ];
 
