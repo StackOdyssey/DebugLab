@@ -116,20 +116,20 @@ export function App() {
           ]}
         />
 
+        {/* Skills & Tech Matrix */}
+        <SkillsMatrix />
+
         {/* Featured Projects Showcase */}
         <Projects />
-
-        {/* Verified Certifications Hub */}
-        <Certifications />
 
         {/* Cisco IPv4 Subnet & CIDR Inspector (Interactive Tool) */}
         <NetworkTool onShowToast={showToast} />
 
-        {/* Skills & Tech Matrix */}
-        <SkillsMatrix />
-
         {/* Learning Journey & Academic Progression Timeline */}
         <Timeline />
+
+        {/* Verified Certifications Hub */}
+        <Certifications />
 
         {/* Contact & Dispatch Message Zone */}
         <Contact onShowToast={showToast} />

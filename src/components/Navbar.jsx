@@ -61,11 +61,11 @@ export function Navbar({
 
   const moreItems = [
     { 
-      label: 'Certifications', 
-      href: '#certifications', 
-      icon: Award, 
-      desc: 'Cisco, ALX Honors, C++, ISTA',
-      color: 'text-brutal-cyan'
+      label: 'Skills', 
+      href: '#skills', 
+      icon: Sparkles, 
+      desc: 'Tech Stack & Competencies',
+      color: 'text-brutal-lime'
     },
     { 
       label: 'Cisco tool', 
@@ -75,18 +75,18 @@ export function Navbar({
       color: 'text-brutal-yellow'
     },
     { 
-      label: 'Skills', 
-      href: '#skills', 
-      icon: Sparkles, 
-      desc: 'Tech Stack & Competencies',
-      color: 'text-brutal-lime'
-    },
-    { 
       label: 'Timeline', 
       href: '#timeline', 
       icon: Clock, 
       desc: 'Academic & Dev Milestones',
       color: 'text-brutal-pink'
+    },
+    { 
+      label: 'Certifications', 
+      href: '#certifications', 
+      icon: Award, 
+      desc: 'Cisco, ALX Honors, C++, ISTA',
+      color: 'text-brutal-cyan'
     },
   ];
 

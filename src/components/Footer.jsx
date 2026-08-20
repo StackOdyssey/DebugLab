@@ -85,13 +85,13 @@ export function Footer({ onOpenTerminal }) {
             </div>
             <ul className="space-y-1 text-xs font-bold">
               <li>
-                <a href="#projects" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
-                  &rarr; Featured Projects
+                <a href="#skills" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                  &rarr; Skills Matrix
                 </a>
               </li>
               <li>
-                <a href="#certifications" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
-                  &rarr; Certifications
+                <a href="#projects" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                  &rarr; Featured Projects
                 </a>
               </li>
               <li>
@@ -100,8 +100,13 @@ export function Footer({ onOpenTerminal }) {
                 </a>
               </li>
               <li>
-                <a href="#skills" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
-                  &rarr; Skills Matrix
+                <a href="#timeline" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                  &rarr; Journey & Milestones
+                </a>
+              </li>
+              <li>
+                <a href="#certifications" className="hover:bg-brutal-yellow hover:text-black px-1 py-0.5 inline-block text-black dark:text-gray-300">
+                  &rarr; Verified Certifications
                 </a>
               </li>
               <li>
