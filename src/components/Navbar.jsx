@@ -20,6 +20,7 @@ import { Button } from './ui/Button';
 import { Badge } from './ui/Badge';
 import { sounds } from '../utils/soundEffects';
 import { THEMES } from '../data/themeConfig';
+import { PORTFOLIO } from '../data/portfolioData';
 
 export function Navbar({
   currentTheme,
@@ -114,11 +115,15 @@ export function Navbar({
         {/* Brand Logo */}
         <a 
           href="#"
-          className="flex items-center gap-2 group"
+          className="flex items-center gap-2.5 group"
           onClick={() => sounds.playClick()}
         >
-          <div className="bg-brutal-yellow text-black font-black font-mono text-xl px-2.5 py-1 border-3 border-black shadow-brutal-sm group-hover:rotate-2 transition-transform">
-            M//S
+          <div className="w-10 h-10 border-3 border-black shadow-brutal-sm group-hover:rotate-2 transition-transform overflow-hidden bg-brutal-yellow shrink-0">
+            <img 
+              src={PORTFOLIO.avatar || "/mohammed-profile.png"} 
+              alt="Mohammed" 
+              className="w-full h-full object-cover object-top"
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-black text-base tracking-tight font-sans uppercase dark:text-white leading-none">

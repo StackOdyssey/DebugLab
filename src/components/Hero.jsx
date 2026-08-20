@@ -181,8 +181,12 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
               {/* Retro background grid inside avatar */}
               <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 
-              <div className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 bg-black text-brutal-yellow border-4 border-black shadow-brutal flex items-center justify-center font-mono font-black text-4xl mb-3 group-hover:scale-105 transition-transform">
-                M//S
+              <div className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 bg-black border-4 border-black shadow-brutal flex items-center justify-center overflow-hidden mb-3 group-hover:scale-105 transition-transform">
+                <img 
+                  src={PORTFOLIO.avatar || "/mohammed-profile.png"} 
+                  alt="Mohammed (StackOdyssey)" 
+                  className="w-full h-full object-cover object-center"
+                />
               </div>
 
               <div className="relative z-10 font-sans font-black text-lg uppercase tracking-tight text-black dark:text-white">

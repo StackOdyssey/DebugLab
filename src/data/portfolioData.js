@@ -6,6 +6,7 @@ export const PORTFOLIO = {
   status: "Available for Internships & Projects",
   statusColor: "bg-green-500",
   location: "Morocco / Remote",
+  avatar: "/mohammed-profile.png",
   bio: "Student full-stack developer passionate about building resilient, high-speed, and visually electric web applications. Honing skills across modern JavaScript, React.js, Django, C++, and Cisco network architecture.",
   taglines: [
     "Turning coffee & React components into sleek digital products.",

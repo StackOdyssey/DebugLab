@@ -50,9 +50,13 @@ export function Footer({ onOpenTerminal }) {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 pb-8 border-b-3 border-black">
           {/* Col 1: Brand & Tagline */}
           <div className="space-y-3 md:col-span-2">
-            <div className="flex items-center gap-2">
-              <div className="bg-brutal-yellow text-black font-black text-lg px-2.5 py-0.5 border-2 border-black shadow-brutal-sm">
-                M//S
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 border-2 border-black shadow-brutal-sm overflow-hidden bg-brutal-yellow shrink-0">
+                <img 
+                  src={PORTFOLIO.avatar || "/mohammed-profile.png"} 
+                  alt="Mohammed" 
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <span className="font-sans font-black text-xl text-black dark:text-white uppercase">
                 MOHAMMED (STACKODYSSEY)
