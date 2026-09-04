@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, ShieldCheck, ExternalLink, Network, Code2, Cpu, GraduationCap, Flame, CheckCircle, Sparkles } from 'lucide-react';
+import { Award, ShieldCheck, ExternalLink, Network, Code2, Cpu, GraduationCap, Flame, CheckCircle, Sparkles, Database } from 'lucide-react';
 import { Card } from './ui/Card';
 import { Badge } from './ui/Badge';
 import { Button } from './ui/Button';
@@ -14,6 +14,7 @@ const ICON_MAP = {
   Cpu: Cpu,
   GraduationCap: GraduationCap,
   Flame: Flame,
+  Database: Database,
 };
 
 export function Certifications() {
@@ -45,7 +46,7 @@ export function Certifications() {
           </h2>
         </div>
         <p className="text-sm font-mono font-bold text-gray-700 dark:text-gray-300 max-w-md">
-          Verified credentials spanning Cisco networking systems, ALX Africa front-end engineering, C++ programming, and ISTA full-stack development.
+          Verified credentials spanning Cisco CCNA networking, ALX Africa front-end & back-end specializations, C++ programming, and ISTA full-stack development.
         </p>
       </div>
 

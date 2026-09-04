@@ -19,7 +19,7 @@ export function Timeline() {
           </h2>
         </div>
         <p className="text-sm font-mono font-bold text-gray-700 dark:text-gray-300 max-w-md">
-          A chronological timeline documenting Mohammed's technical education from C++ algorithms to Cisco enterprise networking, ALX engineering, and ISTA full-stack mastery.
+          A chronological journey documenting Mohammed's technical milestones from ISTA full-stack diploma and Cisco CCNA to C++ algorithms and modern ALX front-end & back-end specializations.
         </p>
       </div>
 

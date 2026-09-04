@@ -7,12 +7,12 @@ export const PORTFOLIO = {
   statusColor: "bg-green-500",
   location: "Morocco / Remote",
   avatar: "/mohammed-profile.png",
-  bio: "Student full-stack developer passionate about building resilient, high-speed, and visually electric web applications. Honing skills across modern JavaScript, React.js, Django, C++, and Cisco network architecture.",
+  bio: "Full-stack developer passionate about building resilient, high-speed, and visually electric web applications. Honing skills across modern JavaScript, React.js, Node.js, MongoDB, Django, C++, and Cisco network architecture.",
   taglines: [
     "Turning coffee & React components into sleek digital products.",
     "Bridging the gap between front-end aesthetics and backend logic.",
-    "Certified in Cisco networking, C++ basics, and ALX front-end engineering.",
-    "Currently building the future at ISTA & FreeCodeCamp."
+    "Certified in Cisco CCNA (2007-2009), C++ Basic (2024), and ALX Front-End & Back-End (2025).",
+    "ISTA Morocco Full-Stack Graduate (2007-2009) & FreeCodeCamp builder."
   ],
   githubUrl: "https://github.com/StackOdyssey",
   linkedinUrl: "https://linkedin.com/in/stackodyssey",
@@ -24,70 +24,85 @@ export const PORTFOLIO = {
   stats: [
     { label: "Public Repos", value: "22+", tag: "GitHub" },
     { label: "Google Ads (SEM)", value: "ROI+", tag: "Certified" },
-    { label: "Certifications", value: "4+", tag: "Verified" },
+    { label: "Certifications", value: "5+", tag: "Verified" },
     { label: "Code Commits", value: "350+", tag: "2025/2026" },
   ],
 
   certifications: [
     {
-      id: "cisco-network",
-      title: "Cisco Systems: Switching & IP Addressing",
-      issuer: "Cisco Networking Academy",
-      date: "2025",
-      badgeText: "CISCO CERTIFIED",
-      color: "bg-white dark:bg-gray-800 border-black",
-      textColor: "text-black dark:text-white",
-      icon: "Network",
-      description: "Comprehensive mastery of IPv4 addressing, CIDR subnetting, Ethernet switching fundamentals, VLAN configuration, and TCP/IP model protocols.",
-      skills: ["IPv4 / CIDR", "Subnetting", "Switching", "VLANs", "TCP/IP", "Routing Protocols"],
-      credentialUrl: "https://www.netacad.com/",
-      verified: true,
-      codeStamp: "CISCO-CCNA-IP-2025"
-    },
-    {
       id: "alx-frontend",
-      title: "Front-End Web Development Specialization",
+      title: "ALX Front-End Web Development Specialization (JS & React)",
       issuer: "ALX Africa",
-      date: "2025 - 2026",
-      badgeText: "ALX AFRICA HONORS",
+      date: "2025",
+      badgeText: "ALX FRONT-END (2025)",
       color: "bg-white dark:bg-gray-800 border-black",
       textColor: "text-black dark:text-white",
       icon: "Code2",
-      description: "Rigorous full-cycle engineering program focused on semantic HTML5, modern CSS layouts, ES6+ JavaScript, React component state lifecycle, and production workflows.",
-      skills: ["React.js", "JavaScript ES6+", "HTML5 / CSS3", "State Management", "Git & Team Workflows"],
+      description: "Rigorous front-end engineering specialization covering modern JavaScript (ES6+), React component ecosystem, state lifecycles, semantic UI/UX, and production deployments.",
+      skills: ["React.js", "JavaScript (ES6+)", "Component Architecture", "Tailwind CSS", "Git & GitHub"],
       credentialUrl: "https://www.alxafrica.com/",
       verified: true,
-      codeStamp: "ALX-FE-2025-089"
+      codeStamp: "ALX-FE-REACT-2025"
+    },
+    {
+      id: "alx-backend",
+      title: "ALX Back-End Specialization (Node.js & MongoDB)",
+      issuer: "ALX Africa",
+      date: "2025",
+      badgeText: "ALX BACK-END (2025)",
+      color: "bg-white dark:bg-gray-800 border-black",
+      textColor: "text-black dark:text-white",
+      icon: "Database",
+      description: "Advanced backend engineering covering Node.js server runtimes, RESTful API design, MongoDB NoSQL database architecture, and asynchronous data pipelines.",
+      skills: ["MongoDB", "Node.js", "REST APIs", "NoSQL Architecture", "Express.js", "Data Validation"],
+      credentialUrl: "https://www.alxafrica.com/",
+      verified: true,
+      codeStamp: "ALX-BE-MONGO-2025"
     },
     {
       id: "cpp-basics",
-      title: "C++ Fundamentals & Algorithmic Foundations",
+      title: "C++ Basic & Algorithmic Foundations",
       issuer: "Programming Academy",
-      date: "2024 - 2025",
-      badgeText: "C++ CERTIFIED",
+      date: "2024",
+      badgeText: "C++ BASIC (2024)",
       color: "bg-white dark:bg-gray-800 border-black",
       textColor: "text-black dark:text-white",
       icon: "Cpu",
-      description: "Deep dive into memory management, pointers, Object-Oriented Programming (OOP) principles, algorithmic problem solving, and data structures.",
-      skills: ["C++", "OOP Architecture", "Pointers & Memory", "Data Structures", "Algorithms"],
+      description: "Deep dive into memory management, pointer arithmetic, Object-Oriented Programming (OOP) principles, algorithmic problem solving, and computational complexity in C++.",
+      skills: ["C++ Basics", "OOP Architecture", "Pointers & Memory", "Data Structures", "Algorithms"],
       credentialUrl: "https://github.com/StackOdyssey",
       verified: true,
-      codeStamp: "CPP-CORE-2024"
+      codeStamp: "CPP-BASIC-2024"
+    },
+    {
+      id: "cisco-network",
+      title: "Cisco Systems: CCNA All Certifications (Switching & Routing)",
+      issuer: "Cisco Networking Academy",
+      date: "2007 - 2009",
+      badgeText: "CCNA ALL CERTIFICATES (2007-2009)",
+      color: "bg-white dark:bg-gray-800 border-black",
+      textColor: "text-black dark:text-white",
+      icon: "Network",
+      description: "Complete CCNA certification curriculum (CCNA 1-4): Routing & Switching, LAN/WAN architecture, IPv4 addressing, CIDR subnetting, VLANs, and enterprise troubleshooting.",
+      skills: ["CCNA 1-4", "IPv4 / CIDR", "Routing & Switching", "VLANs", "TCP/IP Protocols", "Network Architecture"],
+      credentialUrl: "https://www.netacad.com/",
+      verified: true,
+      codeStamp: "CISCO-CCNA-2007-2009"
     },
     {
       id: "ista-fullstack",
       title: "ISTA: Développement Digital (Full Stack)",
       issuer: "OFPPT / ISTA Morocco",
-      date: "In Progress (2025 - Present)",
-      badgeText: "ACADEMIC DEGREE",
+      date: "2007 - 2009",
+      badgeText: "ACADEMIC DIPLOMA (2007-2009)",
       color: "bg-white dark:bg-gray-800 border-black",
       textColor: "text-black dark:text-white",
       icon: "GraduationCap",
-      description: "Formal full-stack software engineering curriculum covering database architecture (SQL/NoSQL), web frameworks, API design, DevOps fundamentals, and agile project delivery.",
-      skills: ["Full Stack Architecture", "Databases (SQL)", "Web Services", "Agile / Scrum", "Full Lifecycle"],
+      description: "Comprehensive software engineering curriculum covering systems analysis, relational database architecture (SQL), web frameworks, and the full software engineering lifecycle.",
+      skills: ["Full Stack Architecture", "Databases (SQL)", "Systems Analysis", "Software Engineering", "Web Services"],
       credentialUrl: "https://www.ofppt.ma/",
       verified: true,
-      codeStamp: "ISTA-DEV-DIGITAL-2026"
+      codeStamp: "ISTA-DEV-2009"
     },
     {
       id: "freecodecamp-full",
@@ -351,6 +366,8 @@ export const PORTFOLIO = {
       icon: "Server",
       color: "bg-white dark:bg-gray-800",
       skills: [
+        { name: "Node.js & Express", level: "Intermediate", desc: "RESTful API services, middleware, asynchronous event loops", tag: "Runtime" },
+        { name: "MongoDB & NoSQL", level: "Intermediate", desc: "Document modeling, collections, Mongoose ODM, aggregation pipelines", tag: "Database" },
         { name: "Python", level: "Intermediate", desc: "Data processing, OOP, scripts, automation, backend logic", tag: "Backend" },
         { name: "Django Framework", level: "Intermediate", desc: "MVC/MVT pattern, ORM, REST endpoints, admin dashboard, auth", tag: "Web Engine" },
         { name: "C++ Programming", level: "Foundational", desc: "Pointers, memory management, OOP classes, problem solving", tag: "Systems" },
@@ -393,28 +410,20 @@ export const PORTFOLIO = {
 
   timeline: [
     {
-      year: "2025 - 2026",
-      title: "ISTA (OFPPT) — Full-Stack Digital Development",
-      role: "Digital Development Student",
-      type: "Academic",
-      description: "Engaged in intensive full-stack training: database modeling, backend frameworks, software engineering lifecycle, and agile teamwork.",
-      badge: "Degree in Progress"
-    },
-    {
-      year: "2025 - 2026",
-      title: "ALX Africa — Front-End Web Development Specialization",
-      role: "Graduate & Certified Developer",
+      year: "2025",
+      title: "ALX Africa — Front-End Web Development (JS & React)",
+      role: "Certified Front-End Developer",
       type: "Certification",
-      description: "Completed rigorous ALX engineering curriculum covering modern JavaScript, React ecosystem, collaborative Git workflows, and production deployments.",
-      badge: "ALX Certified"
+      description: "Rigorous specialization covering modern JavaScript (ES6+), React component ecosystem, state lifecycles, collaborative Git workflows, and production deployments.",
+      badge: "ALX Certified (2025)"
     },
     {
       year: "2025",
-      title: "Cisco Systems Certification — Switching & IP Addressing",
-      role: "Cisco Academy Scholar",
+      title: "ALX Africa — Back-End Specialization (Node.js & MongoDB)",
+      role: "Certified Back-End Developer",
       type: "Certification",
-      description: "Mastered enterprise network routing, CIDR subnet design, VLAN segmentation, and network troubleshooting.",
-      badge: "Cisco Certified"
+      description: "Mastered server-side architecture, Node.js runtimes, Express RESTful APIs, and MongoDB NoSQL schema modeling & database pipelines.",
+      badge: "ALX Certified (2025)"
     },
     {
       year: "2025 - Present",
@@ -426,19 +435,35 @@ export const PORTFOLIO = {
     },
     {
       year: "2024",
-      title: "C++ Fundamentals & Computer Science Basics",
+      title: "C++ Basic & Algorithmic Foundations",
       role: "Algorithmic Foundation",
       type: "Foundation",
-      description: "Established core understanding of memory management, pointer arithmetic, object-oriented concepts, and algorithmic computational complexity.",
-      badge: "C++ Certified"
+      description: "Established core understanding of memory management, pointer arithmetic, Object-Oriented Programming (OOP) concepts, and algorithmic computational complexity.",
+      badge: "C++ Basic (2024)"
+    },
+    {
+      year: "2007 - 2009",
+      title: "Cisco Systems — CCNA All Certificates (Switching & Routing)",
+      role: "Cisco Academy Scholar",
+      type: "Certification",
+      description: "Completed full CCNA modules (1-4): enterprise network routing, CIDR subnet design, VLAN segmentation, and network troubleshooting.",
+      badge: "CCNA Certified (2007-2009)"
+    },
+    {
+      year: "2007 - 2009",
+      title: "ISTA (OFPPT) — Développement Digital (Full Stack)",
+      role: "Full-Stack Development Graduate",
+      type: "Academic",
+      description: "2-year academic diploma in software engineering: relational database modeling (SQL), systems analysis, backend logic, and full software lifecycle.",
+      badge: "Academic Diploma (2007-2009)"
     }
   ],
 
   terminalCommands: {
     help: "Available commands:\n  • about      - Learn more about Mohammed (StackOdyssey)\n  • skills     - Display full tech stack breakdown\n  • certs      - View verified certifications (Cisco, ALX, C++, ISTA)\n  • projects   - List GitHub repositories and live tools\n  • pricing    - View services & pricing tiers overview\n  • ipcalc     - Quick subnet calculation demo\n  • contact    - Get email, socials, and contact links\n  • whoami     - Check who you are connected to\n  • matrix     - Enter the hacker matrix rain effect\n  • theme      - List available brutalist themes\n  • clear      - Clear terminal screen",
-    about: "MOHAMMED (STACKODYSSEY)\nRole: Full-Stack Web Developer & Digital Craftsman\nEducation: ISTA Full-Stack + ALX Africa + FreeCodeCamp\nFocus: High-performance React apps, Django backends, and rock-solid network logic.\nGitHub: https://github.com/StackOdyssey",
-    certs: "VERIFIED CERTIFICATIONS:\n1. [CISCO] Switching & IP Addressing / Network Architecture (2025)\n2. [ALX AFRICA] Front-End Web Development Specialization (2025/2026)\n3. [C++] Fundamentals & Algorithmic Foundations (2024)\n4. [ISTA] Développement Digital Full Stack (In Progress)\n5. [FREECODECAMP] Responsive Design & JS Algorithms",
-    skills: "CORE TECH STACK:\n• Frontend: React.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Next.js basics\n• Backend: Python, Django, C++, RESTful APIs, JSON\n• Networking: Cisco Switching, IPv4 Subnetting, CIDR, TCP/IP Protocols\n• Marketing & Tools: Google Ads Account Management, Git/GitHub, WordPress, Linux CLI, Vite, npm",
+    about: "MOHAMMED (STACKODYSSEY)\nRole: Full-Stack Web Developer & Digital Craftsman\nEducation: ISTA Full-Stack (2007-2009) + Cisco CCNA (2007-2009) + ALX Africa (2025)\nFocus: High-performance React apps, MongoDB/Django backends, and rock-solid network logic.\nGitHub: https://github.com/StackOdyssey",
+    certs: "VERIFIED CERTIFICATIONS:\n1. [ALX AFRICA] Front-End Web Development Specialization (JS & React - 2025)\n2. [ALX AFRICA] Back-End Specialization (Node.js & MongoDB - 2025)\n3. [C++] Basic & Algorithmic Foundations (2024)\n4. [CISCO] CCNA All Certificates (Switching & Routing - 2007-2009)\n5. [ISTA] Diplôme en Développement Digital Full Stack (2007-2009)\n6. [FREECODECAMP] Responsive Design & JS Algorithms",
+    skills: "CORE TECH STACK:\n• Frontend: React.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Next.js basics\n• Backend: Node.js, MongoDB, Python, Django, C++, RESTful APIs, JSON\n• Networking: Cisco CCNA (All Certs), IPv4 Subnetting, CIDR, TCP/IP Protocols\n• Marketing & Tools: Google Ads Account Management, Git/GitHub, WordPress, Linux CLI, Vite, npm",
     projects: "FEATURED PROJECTS & REPOSITORIES:\n1. Safe Hands Logistics   -> Next.js Enterprise CRM & Freight Platform (Saudi Arabia)\n2. Excellence Logistics   -> Multi-Lingual Warehouse & Logistics Hub (Vercel Edge)\n3. Atlas Lux Travel       -> Next.js 16 Luxury Travel & VIP Chauffeur Platform (atlasluxtravel.ma)\n4. alx-fe-reactjs        -> React Odyssey modular component ecosystem\n5. Alx_DjangoLearnLab    -> Django backend & REST API engine\n6. cisco-subnet-toolkit  -> Interactive IPv4 bitwise calculator",
     pricing: "SERVICES & PRICING PLANS (CALIBRATED 2026 RATES):\n1. Web Development              -> Landing (2,500 MAD) | Business (6,500 MAD) | Custom App (Quote)\n2. Google Ads Management        -> Starter (1,800 MAD/mo) | Growth (4,200 MAD/mo) | Scale (Quote)\n3. WordPress & Elementor         -> Basic (2,000 MAD) | Pro (4,800 MAD) | E-Com (Quote)\n4. Automation Workflows (Make)   -> Starter (1,200 MAD) | Business (3,200 MAD) | Enterprise (Quote)\n5. Custom Web Solutions         -> Consultation (400 MAD) | Custom Build (Quote)\n6. Codebase Security Checks      -> Quick (900 MAD) | Deep Scan (2,800 MAD) | Retainer (Quote)\n\n👉 View dedicated package pages with multi-currency toggle (MAD / USD / EUR) at #/pricing",
     contact: "CONNECT WITH MOHAMMED (STACKODYSSEY):\n• WhatsApp: https://wa.me/212672779391 (+212 672-779391)\n• Email:    davidsmithny01@gmail.com\n• GitHub:   https://github.com/StackOdyssey\n• Status:   Open for Internships, Freelance, & Full-Time Junior roles!",

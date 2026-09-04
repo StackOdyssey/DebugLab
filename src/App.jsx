@@ -187,14 +187,14 @@ export function App() {
               bg="bg-black"
               text="text-brutal-yellow"
               items={[
-                "OPEN FOR FULL-STACK INTERNSHIPS",
-                "REACT.JS",
-                "NEXT.JS BASICS",
-                "CISCO SWITCHING & IP",
-                "ISTA DÉVELOPPEMENT DIGITAL",
-                "ALX AFRICA HONORS",
+                "OPEN FOR FULL-STACK & FREELANCE",
+                "REACT.JS & NODE.JS",
+                "ALX FRONT-END & BACK-END (2025)",
+                "CISCO CCNA (2007-2009)",
+                "ISTA DÉVELOPPEMENT DIGITAL (2007-2009)",
+                "C++ BASIC (2024)",
+                "MONGODB & DJANGO REST",
                 "GOOGLE ADS MANAGER",
-                "DJANGO REST APIs",
                 "GITHUB: @StackOdyssey"
               ]}
             />

@@ -113,7 +113,7 @@ export function Navbar({
       label: 'Certifications', 
       href: '#/certifications', 
       icon: Award, 
-      desc: 'Cisco, ALX Honors, C++, ISTA',
+      desc: 'Cisco CCNA, ALX, C++, ISTA',
       color: 'text-black dark:text-white'
     },
   ];
@@ -127,7 +127,7 @@ export function Navbar({
       <div className="bg-black text-white px-4 py-1 flex items-center justify-between text-[11px] font-mono font-bold tracking-wider">
         <div className="flex items-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-          <span>DEV ENVIRONMENT: ISTA FULL-STACK &bull; GOOGLE ADS &bull; CISCO CERTIFIED</span>
+          <span>DEV ENVIRONMENT: ISTA (2007-2009) &bull; ALX AFRICA (2025) &bull; CISCO CCNA</span>
         </div>
         <div className="hidden md:flex items-center gap-4 text-gray-300">
           <button 

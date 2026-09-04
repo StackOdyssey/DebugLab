@@ -46,7 +46,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
           </Badge>
         </a>
         <Badge variant="white" rotate="left-1" className="hidden sm:inline-flex">
-          ISTA MOROCCO &bull; 2025/2026
+          ISTA MOROCCO &bull; 2007-2009
         </Badge>
         <Badge variant="white" rotate="right-1" className="hidden md:inline-flex">
           ALX AFRICA HONORS
@@ -73,7 +73,7 @@ export function Hero({ onOpenTerminal, onOpenCertModal }) {
 
           <div className="text-base sm:text-lg font-mono font-bold text-gray-900 dark:text-gray-200 leading-relaxed">
             <p className="bg-white dark:bg-brutal-darkCard border-3 border-black p-4 shadow-brutal text-black dark:text-white">
-              🚀 Full-Stack Digital Developer in training at <span className="underline font-black">ISTA</span> & <span className="underline font-black">FreeCodeCamp</span>. Specialized in <span className="bg-brutal-yellow font-black text-black px-1.5 py-0.5 border border-black inline-block">🎯 Google Ads Management</span>, and certified in Cisco Switching & IP, C++ Basics, and ALX Africa Front-End.
+              🚀 Full-Stack Digital Developer graduated from <span className="underline font-black">ISTA</span> (2007-2009). Specialized in <span className="bg-brutal-yellow font-black text-black px-1.5 py-0.5 border border-black inline-block">🎯 Google Ads Management</span>, and certified in Cisco CCNA (2007-2009), C++ Basic (2024), and ALX Africa Front-End & Back-End (2025).
             </p>
           </div>
 

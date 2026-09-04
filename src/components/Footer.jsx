@@ -63,7 +63,7 @@ export function Footer({ onOpenTerminal }) {
               </span>
             </div>
             <p className="text-xs font-bold text-gray-700 dark:text-gray-300 max-w-md leading-relaxed">
-              Full-Stack Developer in training at ISTA & FreeCodeCamp. Building fast, resilient web systems from React components down to Cisco networking layers.
+              Full-Stack Developer graduated from ISTA (2007-2009) & ALX Africa (2025). Building fast, resilient web systems from modern React & MongoDB down to Cisco networking layers.
             </p>
             <div className="flex flex-wrap items-center gap-2">
               <div className="inline-flex items-center gap-2 bg-gray-100 dark:bg-gray-800 border-2 border-black px-2.5 py-1 text-xs font-black text-black dark:text-white shadow-brutal-sm">
