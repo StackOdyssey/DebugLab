@@ -43,7 +43,7 @@ export function Projects() {
         </div>
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <p className="text-xs font-mono font-bold text-gray-700 dark:text-gray-300 max-w-xs">
-            Distinguishing <strong>Commercial Production Projects</strong> (Safe Hands, Excellence Warehouse) from <strong>GitHub personal works</strong>.
+            Distinguishing <strong>Commercial Production Projects</strong> (Safe Hands, Excellence Warehouse, Atlas Lux Travel) from <strong>GitHub personal works</strong>.
           </p>
           <Button
             as="a"
@@ -85,7 +85,7 @@ export function Projects() {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         {filteredProjects.map((project) => {
           const isRealProject = project.projectType === 'real-project';
 
@@ -100,7 +100,7 @@ export function Projects() {
                     <span className="w-2.5 h-2.5 rounded-full bg-black/40 border border-black inline-block"></span>
                     <span className="w-2.5 h-2.5 rounded-full bg-black/40 border border-black inline-block"></span>
                     <span className="w-2.5 h-2.5 rounded-full bg-black/40 border border-black inline-block"></span>
-                    <span className="ml-2 font-black text-black dark:text-white">{project.repoName}</span>
+                    <span className="ml-2 font-black text-black dark:text-white truncate max-w-[140px]">{project.repoName}</span>
                   </div>
                   {isRealProject ? (
                     <Badge variant="yellow" size="sm" className="text-[9px]">
@@ -115,26 +115,26 @@ export function Projects() {
               }
               headerBg={isRealProject ? 'bg-brutal-yellow/40 text-black' : 'bg-gray-100 dark:bg-gray-800 text-black dark:text-white'}
               shadow={isRealProject ? 'shadow-brutal-xl' : 'shadow-brutal-md'}
-              className={`group flex flex-col ${isRealProject ? 'border-4 border-black ring-2 ring-yellow-400' : ''}`}
+              className={`group flex flex-col h-full ${isRealProject ? 'border-4 border-black ring-2 ring-yellow-400' : ''}`}
             >
               {/* Distinct Classification Strip */}
-              <div className={`-mx-4 -mt-4 mb-3 px-3.5 py-1.5 border-b-2 border-black flex items-center justify-between text-[10px] font-mono font-black uppercase ${
+              <div className={`-mx-5 -mt-5 mb-3 px-3.5 py-1.5 border-b-2 border-black flex items-center justify-between text-[10px] font-mono font-black uppercase ${
                 isRealProject ? 'bg-brutal-yellow text-black' : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300'
               }`}>
-                <span className="flex items-center gap-1.5">
+                <span className="flex items-center gap-1.5 truncate mr-2">
                   {isRealProject ? (
                     <>
-                      <Building2 className="w-3.5 h-3.5 text-black" />
-                      <span>REAL COMMERCIAL CLIENT PROJECT</span>
+                      <Building2 className="w-3.5 h-3.5 text-black shrink-0" />
+                      <span className="truncate">AGENCY: {project.agency || project.clientName}</span>
                     </>
                   ) : (
                     <>
-                      <Github className="w-3.5 h-3.5 text-black dark:text-white" />
-                      <span>GITHUB PERSONAL WORK</span>
+                      <Github className="w-3.5 h-3.5 text-black dark:text-white shrink-0" />
+                      <span className="truncate">GITHUB PERSONAL WORK</span>
                     </>
                   )}
                 </span>
-                <span className={`text-[9px] px-1 py-0.2 ${isRealProject ? 'bg-black text-white font-bold' : 'bg-black text-white'}`}>
+                <span className={`text-[9px] px-1.5 py-0.2 shrink-0 ${isRealProject ? 'bg-black text-white font-bold' : 'bg-black text-white'}`}>
                   {isRealProject ? 'DEPLOYED' : 'OPEN SOURCE'}
                 </span>
               </div>
@@ -142,17 +142,17 @@ export function Projects() {
               {/* Project Visual Image / Preview (if available) */}
               {project.image && (
                 <div 
-                  className="relative border-2 border-black mb-3 overflow-hidden bg-gray-900 aspect-video group-hover:scale-[1.01] transition-transform cursor-pointer"
+                  className="relative border-2 border-black mb-3 overflow-hidden bg-neutral-950 aspect-[16/9] group-hover:scale-[1.01] transition-transform cursor-pointer flex items-center justify-center p-3 shadow-inner"
                   onClick={() => handleInspect(project)}
                 >
                   <img 
                     src={project.image} 
                     alt={project.title} 
-                    className="w-full h-full object-cover object-top"
+                    className="max-h-full max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]"
                     loading="lazy"
                   />
-                  <div className="absolute top-2 right-2 bg-black text-white text-[9px] font-mono font-bold px-2 py-0.5 border border-white/40 shadow-sm flex items-center gap-1">
-                    <Globe className="w-3 h-3 text-green-400" />
+                  <div className="absolute top-2 right-2 bg-black/90 text-white text-[9px] font-mono font-bold px-2 py-0.5 border border-white/40 shadow-sm flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
                     <span>LIVE PORTAL</span>
                   </div>
                 </div>
@@ -167,35 +167,55 @@ export function Projects() {
                 </h3>
               </div>
 
-              <p className="text-xs font-mono text-gray-700 dark:text-gray-300 mb-4 flex-1">
+              <p className="text-xs font-mono text-gray-700 dark:text-gray-300 mb-3 flex-1 line-clamp-3">
                 {project.description}
               </p>
 
+              {/* Stack Overview Box for Commercial Projects */}
+              {isRealProject && (
+                <div className="border-2 border-black p-2 mb-3 bg-cyan-50/80 dark:bg-cyan-950/40 text-left">
+                  <div className="text-[9px] font-mono font-black uppercase text-cyan-900 dark:text-cyan-300 flex items-center gap-1 mb-1">
+                    <Layers className="w-3 h-3 text-cyan-700 dark:text-cyan-400" />
+                    <span>STACK OVERVIEW:</span>
+                  </div>
+                  <div className="text-[10px] font-mono font-bold text-gray-800 dark:text-gray-200 leading-tight">
+                    {project.id === 'atlas-lux-travel' && 'Next.js 16 • React 19 • Drizzle ORM • Neon Postgres • Upstash Redis • OpenAI • Stripe'}
+                    {project.id === 'safe-hands-logistics' && 'Next.js • TypeScript • Prisma ORM • PostgreSQL • Tailwind CSS • i18n Localization'}
+                    {project.id === 'excellence-warehouse' && 'Next.js • TypeScript • Tailwind CSS • i18n • Vercel Edge • Responsive UI'}
+                  </div>
+                </div>
+              )}
+
               {/* Key Highlights */}
-              <div className={`border-2 border-black p-2.5 mb-4 space-y-1 ${
+              <div className={`border-2 border-black p-2.5 mb-3 space-y-1 ${
                 isRealProject ? 'bg-yellow-50/50 dark:bg-yellow-950/20' : 'bg-gray-50 dark:bg-gray-800/50'
               }`}>
                 <div className="text-[9px] font-mono font-black uppercase text-gray-600 dark:text-gray-400">
                   {isRealProject ? 'ENTERPRISE HIGHLIGHTS:' : 'HIGHLIGHTS:'}
                 </div>
                 {project.highlights.slice(0, 2).map((hl, hIdx) => (
-                  <div key={hIdx} className="text-[11px] font-mono font-medium text-black dark:text-gray-200 flex items-start gap-1.5">
-                    <CheckCircle className="w-3 h-3 text-green-600 shrink-0 mt-0.5" />
+                  <div key={hIdx} className="text-[10.5px] font-mono font-medium text-black dark:text-gray-200 flex items-start gap-1.5">
+                    <CheckCircle className="w-3.5 h-3.5 text-green-600 shrink-0 mt-0.5" />
                     <span className="line-clamp-1">{hl}</span>
                   </div>
                 ))}
               </div>
 
               {/* Tech Badges */}
-              <div className="flex flex-wrap gap-1 mb-5">
-                {project.tech.map((t, tIdx) => (
+              <div className="flex flex-wrap gap-1 mb-4">
+                {project.tech.slice(0, 5).map((t, tIdx) => (
                   <span
                     key={tIdx}
-                    className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 border border-black text-[10px] font-mono font-bold text-black dark:text-white hover:bg-brutal-yellow hover:text-black transition-colors"
+                    className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 border border-black text-[9.5px] font-mono font-bold text-black dark:text-white hover:bg-brutal-yellow hover:text-black transition-colors"
                   >
                     {t}
                   </span>
                 ))}
+                {project.tech.length > 5 && (
+                  <span className="px-1.5 py-0.5 bg-brutal-yellow/40 border border-black text-[9.5px] font-mono font-bold text-black dark:text-white">
+                    +{project.tech.length - 5}
+                  </span>
+                )}
               </div>
 
               {/* Actions */}
@@ -257,7 +277,7 @@ export function Projects() {
               <div className="p-3.5 bg-amber-100 border-3 border-black shadow-brutal-sm flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-black text-black">
                 <div className="flex items-center gap-2">
                   <Building2 className="w-4 h-4 text-amber-900 shrink-0" />
-                  <span>CLIENT: {selectedProject.clientName}</span>
+                  <span>AGENCY / CLIENT: {selectedProject.agency || selectedProject.clientName}</span>
                 </div>
                 <span className="bg-black text-amber-300 px-2 py-0.5 text-[10px] uppercase font-mono self-start sm:self-auto">
                   LIVE COMMERCIAL PRODUCTION BUILD
@@ -275,29 +295,51 @@ export function Projects() {
               </div>
             )}
 
-            {/* Modal Image Preview */}
+            {/* Modal Image / Logo Banner */}
             {selectedProject.image && (
-              <div className="border-3 border-black shadow-brutal-sm overflow-hidden bg-black">
+              <div className="border-3 border-black shadow-brutal-sm overflow-hidden bg-neutral-950 p-6 flex items-center justify-center max-h-56">
                 <img 
                   src={selectedProject.image} 
                   alt={selectedProject.title} 
-                  className="w-full max-h-72 object-cover object-top"
+                  className="max-h-44 max-w-full object-contain filter drop-shadow-[0_4px_12px_rgba(255,255,255,0.2)]"
                 />
               </div>
             )}
 
-            <div className="p-4 bg-gray-50 border-3 border-black shadow-brutal-sm">
-              <div className="text-xs font-black uppercase text-gray-600 mb-1">PROJECT SUMMARY:</div>
-              <p className="text-sm font-sans font-medium text-black leading-relaxed">
+            <div className="p-4 bg-gray-50 dark:bg-gray-800 border-3 border-black shadow-brutal-sm">
+              <div className="text-xs font-black uppercase text-gray-600 dark:text-gray-400 mb-1">PROJECT SUMMARY:</div>
+              <p className="text-sm font-sans font-medium text-black dark:text-white leading-relaxed">
                 {selectedProject.description}
               </p>
             </div>
 
+            {/* Deep Stack Architecture Breakdown */}
+            {selectedProject.stackOverview && (
+              <div className="border-3 border-black p-4 bg-cyan-50/70 dark:bg-cyan-950/30 shadow-brutal-sm space-y-2.5">
+                <div className="text-xs font-mono font-black uppercase text-cyan-900 dark:text-cyan-300 flex items-center gap-1.5">
+                  <Layers className="w-4 h-4 text-cyan-700 dark:text-cyan-400" />
+                  <span>ARCHITECTURE & STACK BREAKDOWN</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+                  {Object.entries(selectedProject.stackOverview).map(([key, val]) => (
+                    <div key={key} className="p-2 bg-white dark:bg-gray-900 border border-black shadow-brutal-xs">
+                      <div className="text-[10px] font-black uppercase text-gray-500 dark:text-gray-400 mb-0.5">
+                        {key}:
+                      </div>
+                      <div className="font-bold text-black dark:text-gray-200">
+                        {val}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div>
-              <div className="text-xs font-black uppercase text-black mb-2">KEY ENGINEERING HIGHLIGHTS:</div>
+              <div className="text-xs font-black uppercase text-black dark:text-white mb-2">KEY ENGINEERING HIGHLIGHTS:</div>
               <div className="space-y-2">
                 {selectedProject.highlights.map((item, idx) => (
-                  <div key={idx} className="p-2.5 bg-yellow-50 border-2 border-black flex items-start gap-2 text-xs font-bold text-black">
+                  <div key={idx} className="p-2.5 bg-yellow-50 dark:bg-yellow-950/30 border-2 border-black flex items-start gap-2 text-xs font-bold text-black dark:text-white">
                     <CheckCircle className="w-4 h-4 text-green-600 shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
@@ -306,7 +348,7 @@ export function Projects() {
             </div>
 
             <div>
-              <div className="text-xs font-black uppercase text-black mb-2">TECHNOLOGY ECOSYSTEM:</div>
+              <div className="text-xs font-black uppercase text-black dark:text-white mb-2">TECHNOLOGY ECOSYSTEM:</div>
               <div className="flex flex-wrap gap-2">
                 {selectedProject.tech.map((t, idx) => (
                   <Badge key={idx} variant="cyan" size="md">
@@ -330,7 +372,7 @@ export function Projects() {
                       className="w-full sm:w-auto flex-1"
                     >
                       <Globe className="w-4 h-4" />
-                      <span>Visit Live Website</span>
+                      <span>Visit Live Website ({selectedProject.liveUrl.replace('https://', '')})</span>
                       <ExternalLink className="w-4 h-4" />
                     </Button>
                   )}
@@ -368,4 +410,3 @@ export function Projects() {
     </section>
   );
 }
-

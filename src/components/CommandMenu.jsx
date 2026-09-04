@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Terminal, Award, FolderGit2, Mail, Sparkles, Network, X, Command, Phone, Target, Home } from 'lucide-react';
+import { Search, Terminal, Award, FolderGit2, Mail, Sparkles, Network, X, Command, Phone, Target, Home, CreditCard } from 'lucide-react';
 import { Github } from './ui/GithubIcon';
 import { WhatsApp } from './ui/WhatsAppIcon';
 import { PORTFOLIO } from '../data/portfolioData';
@@ -41,6 +41,13 @@ export function CommandMenu({
     { label: 'Go to Homepage', route: '#/', icon: Home, tag: 'Page' },
     { label: 'View All Projects & GitHub Works', route: '#/projects', icon: FolderGit2, tag: 'Page' },
     { label: 'Explore Google Ads Management & SEM Strategy', route: '#/google-ads', icon: Target, tag: 'Page' },
+    { label: 'Pricing: All 6 Packages Overview (MAD / USD / EUR)', route: '#/pricing', icon: CreditCard, tag: 'Pricing' },
+    { label: 'Pricing: Web Development Package', route: '#/pricing/web-development', icon: CreditCard, tag: 'Package' },
+    { label: 'Pricing: Google Ads Management Package', route: '#/pricing/google-ads', icon: CreditCard, tag: 'Package' },
+    { label: 'Pricing: WordPress & Elementor Package', route: '#/pricing/wordpress-elementor', icon: CreditCard, tag: 'Package' },
+    { label: 'Pricing: Automation Workflows (Make.com + Webhooks)', route: '#/pricing/make-automations', icon: CreditCard, tag: 'Package' },
+    { label: 'Pricing: Custom Web Solutions Package', route: '#/pricing/custom-web-solutions', icon: CreditCard, tag: 'Package' },
+    { label: 'Pricing: Codebase Security Checks & Revisions', route: '#/pricing/security-checks', icon: CreditCard, tag: 'Package' },
     { label: 'Explore Skills Matrix & Tech Stack', route: '#/skills', icon: Sparkles, tag: 'Page' },
     { label: 'Open Cisco IPv4 Subnet Tool', route: '#/cisco-tool', icon: Network, tag: 'Tool' },
     { label: 'View Verified Certifications (Cisco, ALX, C++, ISTA)', route: '#/certifications', icon: Award, tag: 'Credentials' },

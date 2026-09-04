@@ -115,12 +115,20 @@ export const PORTFOLIO = {
       typeLabel: "Real-World Commercial Project",
       repoName: "safe-hands-shipping-line",
       badgeText: "REAL PRODUCTION PROJECT",
-      clientName: "Safe Hands Shipping Line (Saudi Arabia)",
+      clientName: "Safe Hands Shipping Line",
+      agency: "Safe Hands Shipping Line (Saudi Arabia)",
       image: "/projects/safe-hands-shipping-line.png",
       liveUrl: "https://www.safehandsshippingline.com/ar",
       liveUrlEn: "https://www.safehandsshippingline.com/en",
       description: "A production-grade Next.js enterprise web portal and logistics management platform featuring Prisma ORM database models, multi-lingual internationalization (Arabic/English), dynamic freight quotation calculators, and technical SEO architecture built for a real commercial client.",
       tech: ["Next.js", "TypeScript", "Prisma ORM", "PostgreSQL", "Tailwind CSS", "i18n Localization", "SEO Systems"],
+      stackOverview: {
+        frontend: "Next.js App Router, TypeScript, Tailwind CSS, Responsive Enterprise Layouts",
+        backend: "Next.js Server API Routes, Dynamic Quotation Engine, Role-Based CRM",
+        database: "PostgreSQL with Prisma ORM relational modeling for container tracking",
+        localization: "Automated multi-lingual internationalization (Arabic / English i18n)",
+        seo: "Elite Semrush technical SEO score, structured JSON-LD schemas, Core Web Vitals"
+      },
       highlights: [
         "Real-world enterprise system deployed for commercial logistics operations (Saudi Arabia)",
         "Architected relational database schema with Prisma ORM for container tracking and quote requests",
@@ -143,10 +151,17 @@ export const PORTFOLIO = {
       repoName: "excellence-logistics-hub",
       badgeText: "REAL PRODUCTION PROJECT",
       clientName: "Excellence Logistics & Warehousing",
+      agency: "Excellence Logistics & Warehousing",
       image: "/projects/excellence-logistics.jpeg",
       liveUrl: "https://excellence-warehouse-1rfub5rrl-stackodysseys-projects.vercel.app/en",
       description: "A modern, full-scale enterprise logistics and warehouse management web application featuring automated multi-lingual language routing, freight quotation forms, real-time cargo operations tracking, and responsive UI styling.",
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "i18n Localization", "Vercel Edge", "Responsive UI"],
+      stackOverview: {
+        frontend: "Next.js, TypeScript, Tailwind CSS, High-Speed Responsive UI",
+        backend: "Vercel Edge Functions, Supply Chain Inquiry Dispatch Engine",
+        localization: "Dynamic Multi-Lingual Language Routing (i18n)",
+        performance: "Optimized asset bundling, sub-second latency on Vercel Global Edge"
+      },
       highlights: [
         "Production-deployed multi-lingual logistics and warehouse web portal",
         "Interactive quotation and supply chain cargo inquiry dispatch engine",
@@ -156,6 +171,42 @@ export const PORTFOLIO = {
       github: "https://github.com/StackOdyssey",
       isPrivateClient: true,
       demoUrl: "https://excellence-warehouse-1rfub5rrl-stackodysseys-projects.vercel.app/en",
+      featured: true,
+      color: "bg-brutal-yellow/30 border-black"
+    },
+    {
+      id: "atlas-lux-travel",
+      title: "Atlas Lux Travel - VIP Transfers & Luxury Tours",
+      category: "Luxury Travel / Next.js",
+      projectType: "real-project",
+      typeLabel: "Real-World Commercial Project",
+      repoName: "atlas-lux-travel",
+      badgeText: "REAL PRODUCTION PROJECT",
+      clientName: "Atlas Lux Travel",
+      agency: "Atlas Lux Travel",
+      image: "/projects/atlas-lux-travel.webp",
+      liveUrl: "https://atlasluxtravel.ma",
+      liveUrlEn: "https://atlasluxtravel.ma/en",
+      description: "A premier luxury travel & VIP private transfer web platform built for Atlas Lux Travel agency. Engineered with Next.js 16 (App Router), React 19, TypeScript, PostgreSQL (Neon) with Drizzle ORM, multi-language internationalization (English/French/Arabic), dynamic booking engines, AI Concierge Assistant, Upstash Redis caching, and Stripe payments.",
+      tech: ["Next.js 16", "React 19", "TypeScript", "Drizzle ORM", "PostgreSQL (Neon)", "Upstash Redis", "Stripe", "OpenAI Concierge", "Tailwind CSS v4", "i18n Localization"],
+      stackOverview: {
+        frontend: "Next.js 16 App Router, React 19, Tailwind CSS v4, Framer Motion, GSAP animations",
+        backend: "Next.js Server Actions & APIs, NextAuth.js, Resend Transactional Emails, jsPDF",
+        database: "Neon Serverless PostgreSQL with Drizzle ORM schemas and automated migrations",
+        caching: "Upstash Redis distributed caching and rate limiting for high-traffic resilience",
+        ai: "OpenAI GPT-4 powered Luxury Concierge AI assistant with domain knowledge retrieval",
+        payments: "Stripe payment intents, secure checkout sessions, and webhook processing"
+      },
+      highlights: [
+        "Full-scale production Next.js 16 & React 19 luxury travel platform deployed live at atlasluxtravel.ma",
+        "Architected Drizzle ORM database schemas for excursions, private chauffeur bookings, and customer profiles on Neon PostgreSQL",
+        "Engineered multi-currency dynamic pricing engine and automated booking token security checks",
+        "Built AI-powered luxury concierge chat assistant with structured knowledge-base retrieval",
+        "Implemented high-performance Upstash Redis caching, rate limiting, and automated email dispatches via Resend"
+      ],
+      github: "https://github.com/StackOdyssey",
+      isPrivateClient: true,
+      demoUrl: "https://atlasluxtravel.ma",
       featured: true,
       color: "bg-brutal-yellow/30 border-black"
     },
@@ -384,12 +435,490 @@ export const PORTFOLIO = {
   ],
 
   terminalCommands: {
-    help: "Available commands:\n  • about      - Learn more about Mohammed (StackOdyssey)\n  • skills     - Display full tech stack breakdown\n  • certs      - View verified certifications (Cisco, ALX, C++, ISTA)\n  • projects   - List GitHub repositories and live tools\n  • ipcalc     - Quick subnet calculation demo\n  • contact    - Get email, socials, and contact links\n  • whoami     - Check who you are connected to\n  • matrix     - Enter the hacker matrix rain effect\n  • theme      - List available brutalist themes\n  • clear      - Clear terminal screen",
+    help: "Available commands:\n  • about      - Learn more about Mohammed (StackOdyssey)\n  • skills     - Display full tech stack breakdown\n  • certs      - View verified certifications (Cisco, ALX, C++, ISTA)\n  • projects   - List GitHub repositories and live tools\n  • pricing    - View services & pricing tiers overview\n  • ipcalc     - Quick subnet calculation demo\n  • contact    - Get email, socials, and contact links\n  • whoami     - Check who you are connected to\n  • matrix     - Enter the hacker matrix rain effect\n  • theme      - List available brutalist themes\n  • clear      - Clear terminal screen",
     about: "MOHAMMED (STACKODYSSEY)\nRole: Full-Stack Web Developer & Digital Craftsman\nEducation: ISTA Full-Stack + ALX Africa + FreeCodeCamp\nFocus: High-performance React apps, Django backends, and rock-solid network logic.\nGitHub: https://github.com/StackOdyssey",
     certs: "VERIFIED CERTIFICATIONS:\n1. [CISCO] Switching & IP Addressing / Network Architecture (2025)\n2. [ALX AFRICA] Front-End Web Development Specialization (2025/2026)\n3. [C++] Fundamentals & Algorithmic Foundations (2024)\n4. [ISTA] Développement Digital Full Stack (In Progress)\n5. [FREECODECAMP] Responsive Design & JS Algorithms",
     skills: "CORE TECH STACK:\n• Frontend: React.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Next.js basics\n• Backend: Python, Django, C++, RESTful APIs, JSON\n• Networking: Cisco Switching, IPv4 Subnetting, CIDR, TCP/IP Protocols\n• Marketing & Tools: Google Ads Account Management, Git/GitHub, WordPress, Linux CLI, Vite, npm",
-    projects: "FEATURED PROJECTS & REPOSITORIES:\n1. Safe Hands Logistics   -> Next.js Enterprise CRM & Freight Platform (Client Case Study)\n2. alx-fe-reactjs        -> React Odyssey modular component ecosystem\n3. Alx_DjangoLearnLab    -> Django backend & REST API engine\n4. dynamic-to-do-list-js -> Pure JS productivity manager\n5. ALX_Simple_Quiz       -> Timed JS knowledge quiz\n6. cisco-subnet-toolkit  -> Interactive IPv4 bitwise calculator",
+    projects: "FEATURED PROJECTS & REPOSITORIES:\n1. Safe Hands Logistics   -> Next.js Enterprise CRM & Freight Platform (Saudi Arabia)\n2. Excellence Logistics   -> Multi-Lingual Warehouse & Logistics Hub (Vercel Edge)\n3. Atlas Lux Travel       -> Next.js 16 Luxury Travel & VIP Chauffeur Platform (atlasluxtravel.ma)\n4. alx-fe-reactjs        -> React Odyssey modular component ecosystem\n5. Alx_DjangoLearnLab    -> Django backend & REST API engine\n6. cisco-subnet-toolkit  -> Interactive IPv4 bitwise calculator",
+    pricing: "SERVICES & PRICING PLANS (CALIBRATED 2026 RATES):\n1. Web Development              -> Landing (2,500 MAD) | Business (6,500 MAD) | Custom App (Quote)\n2. Google Ads Management        -> Starter (1,800 MAD/mo) | Growth (4,200 MAD/mo) | Scale (Quote)\n3. WordPress & Elementor         -> Basic (2,000 MAD) | Pro (4,800 MAD) | E-Com (Quote)\n4. Automation Workflows (Make)   -> Starter (1,200 MAD) | Business (3,200 MAD) | Enterprise (Quote)\n5. Custom Web Solutions         -> Consultation (400 MAD) | Custom Build (Quote)\n6. Codebase Security Checks      -> Quick (900 MAD) | Deep Scan (2,800 MAD) | Retainer (Quote)\n\n👉 View dedicated package pages with multi-currency toggle (MAD / USD / EUR) at #/pricing",
     contact: "CONNECT WITH MOHAMMED (STACKODYSSEY):\n• WhatsApp: https://wa.me/212672779391 (+212 672-779391)\n• Email:    davidsmithny01@gmail.com\n• GitHub:   https://github.com/StackOdyssey\n• Status:   Open for Internships, Freelance, & Full-Time Junior roles!",
     whoami: "guest@debuglab-terminal (Visitor looking at Mohammed's Portfolio 🚀)"
+  },
+
+  pricing: {
+    currencyRates: { MAD: 1, USD: 0.098, EUR: 0.091 },
+    currencySymbols: { MAD: "MAD", USD: "$", EUR: "€" },
+    defaultCurrency: "MAD",
+    serviceCategories: [
+      {
+        id: "web-development",
+        slug: "web-development",
+        title: "Web Development",
+        shortTitle: "Web Dev",
+        icon: "Code2",
+        tagline: "High-speed, conversion-focused websites & custom applications built with modern frameworks.",
+        idealFor: "Startups, brands, and businesses seeking modern UI/UX, top-tier performance, and custom logic.",
+        description: "From single-page landing engines to scalable full-stack web platforms using React, Next.js, and Django. Built with mobile responsiveness, SEO best practices, and clean architecture.",
+        deliverables: [
+          "Production-ready Next.js / React application with zero lag",
+          "Full mobile & tablet responsive layout with micro-interactions",
+          "Structured schema metadata and on-page technical SEO",
+          "Secure contact form and lead capture wiring",
+          "Fast asset delivery and Core Web Vitals optimization",
+          "Source code handover with documentation"
+        ],
+        faqs: [
+          {
+            question: "How long does a web development project take?",
+            answer: "A landing page is typically completed in 3 to 7 business days. A multi-page business website takes 2 to 3 weeks, and custom web applications vary based on scope."
+          },
+          {
+            question: "Do you supply hosting and domain setup?",
+            answer: "Yes, I configure DNS records, domain linking, SSL certificates, and deploy onto high-performance platforms like Vercel or cloud hosts."
+          },
+          {
+            question: "Can I manage the website content myself after delivery?",
+            answer: "Yes! Depending on your chosen tier, we integrate headless CMS options, dynamic markdown collections, or admin dashboards so you can update text and images effortlessly."
+          }
+        ],
+        tiers: [
+          {
+            name: "Landing Page",
+            priceMAD: 2500,
+            period: "one-time",
+            features: [
+              "Responsive single-page design",
+              "SEO fundamentals & meta tags",
+              "Contact form integration",
+              "Mobile-first responsive layout",
+              "1 revision round included"
+            ],
+            highlighted: false,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Business Website",
+            priceMAD: 6500,
+            period: "one-time",
+            features: [
+              "Up to 5 custom designed pages",
+              "CMS or admin panel integration",
+              "Full technical SEO optimization",
+              "Core Web Vitals & speed tuning",
+              "Google Analytics / Tag Manager",
+              "3 revision rounds included"
+            ],
+            highlighted: true,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Enterprise / Custom App",
+            priceMAD: null,
+            period: "project",
+            features: [
+              "Full-stack architecture (Next.js / Django)",
+              "Database design & ORM data modeling",
+              "Custom admin dashboard & CRM",
+              "REST API development & third-party hooks",
+              "Payment gateway integration (Stripe / CMI)",
+              "Role-based authentication & permissions",
+              "Priority support & unlimited revisions"
+            ],
+            highlighted: false,
+            cta: "Request Custom Quote",
+            isCustomQuote: true
+          }
+        ]
+      },
+      {
+        id: "google-ads",
+        slug: "google-ads",
+        title: "Google Ads Management",
+        shortTitle: "Google Ads",
+        icon: "Target",
+        tagline: "High-intent search engine acquisition engineered for measurable conversions and ROI.",
+        idealFor: "Businesses looking to capture customers actively searching for their services on Google Search.",
+        description: "Full-funnel Google Ads campaign setup and continuous weekly optimization. Focused on low acquisition costs, high Quality Scores, negative keyword hygiene, and transparent tracking.",
+        deliverables: [
+          "Complete Google Ads account & conversion tracking architecture",
+          "Comprehensive high-intent keyword & search term audit",
+          "Compelling ad copy with all relevant extensions and callouts",
+          "Negative keyword lists to prevent wasted budget ad spend",
+          "Weekly bid adjustments and search term report mining",
+          "Bi-weekly or monthly performance KPI reports"
+        ],
+        faqs: [
+          {
+            question: "Is the Google Ads ad spend included in these fees?",
+            answer: "No. The ad budget is paid directly to Google from your credit card. My fee covers professional campaign strategy, setup, continuous monitoring, and optimization."
+          },
+          {
+            question: "What is the recommended minimum ad budget?",
+            answer: "For Moroccan and regional campaigns, a budget of 2,000 to 5,000 MAD/month gives the algorithm enough data to test, optimize, and generate predictable inquiries."
+          },
+          {
+            question: "Are there long-term lock-in contracts?",
+            answer: "No long-term contracts. Services operate month-to-month with complete transparency and client ownership of all campaign assets."
+          }
+        ],
+        tiers: [
+          {
+            name: "Starter Setup & Manage",
+            priceMAD: 1800,
+            period: "/month",
+            features: [
+              "1 targeted search campaign",
+              "Keyword research & match-type strategy",
+              "Ad copy writing & asset extensions",
+              "Negative keyword list curation",
+              "Monthly performance report"
+            ],
+            highlighted: false,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Growth Engine",
+            priceMAD: 4200,
+            period: "/month",
+            features: [
+              "Up to 3 campaigns (Search + Display)",
+              "Conversion tracking & GA4 integration",
+              "A/B split testing on ad copy & headlines",
+              "Bi-weekly optimization sprints",
+              "Landing page CRO recommendations",
+              "Competitor auction insights report"
+            ],
+            highlighted: true,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Scale & Enterprise",
+            priceMAD: null,
+            period: "/month",
+            features: [
+              "Unlimited campaigns & ad groups",
+              "Multi-channel strategy (Search, Display, YouTube)",
+              "Advanced analytics & attribution modeling",
+              "Weekly optimization & budget rebalancing",
+              "Dedicated Slack / WhatsApp VIP channel",
+              "Custom real-time reporting dashboards"
+            ],
+            highlighted: false,
+            cta: "Request Custom Quote",
+            isCustomQuote: true
+          }
+        ]
+      },
+      {
+        id: "wordpress-elementor",
+        slug: "wordpress-elementor",
+        title: "WordPress & Elementor",
+        shortTitle: "WordPress",
+        icon: "Layout",
+        tagline: "Visually polished, easily manageable WordPress websites built with Elementor.",
+        idealFor: "Agencies, consultants, and companies who need full autonomous control over page editing.",
+        description: "Custom Elementor page building backed by lightweight performance tweaks, responsive styling, and necessary plugin integrations without bloated overhead.",
+        deliverables: [
+          "WordPress CMS installation, security setup, and database optimization",
+          "Custom Elementor template kit styled to your brand guidelines",
+          "Clean responsive design tested across mobile, tablet, and desktop",
+          "Contact form, lead capture, and WhatsApp chat widget",
+          "Speed optimization, caching configuration, and image compression",
+          "1-on-1 video walkthrough tutorial showing how to edit content"
+        ],
+        faqs: [
+          {
+            question: "Do I need to buy Elementor Pro?",
+            answer: "For basic sites, free Elementor is often sufficient. For custom headers, popups, and advanced themes, I will advise you on whether an Elementor Pro license is recommended."
+          },
+          {
+            question: "Can I edit text and images after you build it?",
+            answer: "Yes! Elementor is a drag-and-drop visual editor. I provide a personalized video walkthrough showing you exactly how to edit any section."
+          },
+          {
+            question: "Will the WordPress site be fast?",
+            answer: "Yes. I avoid plugin bloat, install Redis/caching modules, optimize images into WebP, and ensure clean DOM output for rapid load speeds."
+          }
+        ],
+        tiers: [
+          {
+            name: "Basic Site",
+            priceMAD: 2000,
+            period: "one-time",
+            features: [
+              "WordPress setup & security hardening",
+              "Elementor visual builder configured",
+              "Responsive layout up to 3 pages",
+              "Contact form & social links",
+              "Basic SEO & meta tags",
+              "1 revision round included"
+            ],
+            highlighted: false,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Professional Site",
+            priceMAD: 4800,
+            period: "one-time",
+            features: [
+              "Custom Elementor Pro visual design",
+              "Up to 8 tailored pages & sections",
+              "Booking form or catalog setup",
+              "Speed optimization & asset caching",
+              "RankMath / Yoast SEO configuration",
+              "Handover video tutorial & 3 revisions"
+            ],
+            highlighted: true,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Advanced / E-Commerce",
+            priceMAD: null,
+            period: "project",
+            features: [
+              "Full WooCommerce store architecture",
+              "Custom Elementor single product & archive templates",
+              "Payment gateway integration (CMI, PayPal, Stripe)",
+              "Multi-lingual configuration (WPML / Polylang)",
+              "Automated transactional emails",
+              "Priority maintenance & unlimited revisions"
+            ],
+            highlighted: false,
+            cta: "Request Custom Quote",
+            isCustomQuote: true
+          }
+        ]
+      },
+      {
+        id: "make-automations",
+        slug: "make-automations",
+        title: "Automation Workflows (Make + Webhooks)",
+        shortTitle: "Make Automations",
+        icon: "Zap",
+        tagline: "Eliminate repetitive manual tasks by connecting your tools with Make.com & webhooks.",
+        idealFor: "Businesses losing time on manual data entry, lead forwarding, invoicing, or CRM syncing.",
+        description: "Smart automation scenarios built with Make.com (Integromat), custom REST webhooks, and third-party APIs. Includes error catching, data formatting, and reliable execution.",
+        deliverables: [
+          "Architecture blueprint mapping triggers, filters, and actions",
+          "Configured Make.com scenarios with robust data validation",
+          "Custom webhook endpoints for instant real-time event processing",
+          "Automated error routing and Slack/email notifications on failure",
+          "Data transformation and cleanup between platforms",
+          "Handoff documentation explaining each node in the scenario"
+        ],
+        faqs: [
+          {
+            question: "Why Make.com instead of Zapier?",
+            answer: "Make.com offers visual node-based branching, handles complex data arrays with ease, and is typically 50% to 80% more cost-effective than Zapier at scale."
+          },
+          {
+            question: "What tools can you connect?",
+            answer: "Virtually any platform with an API or webhook: Google Sheets, Notion, Airtable, HubSpot, WordPress, Stripe, Slack, WhatsApp, Telegram, and custom databases."
+          },
+          {
+            question: "What happens if a webhook or API temporarily fails?",
+            answer: "All scenarios are built with error-handling directives and fallback routes so failed payloads are saved and retried without data loss."
+          }
+        ],
+        tiers: [
+          {
+            name: "Starter Automation",
+            priceMAD: 1200,
+            period: "one-time",
+            features: [
+              "1 targeted automation scenario",
+              "Connect up to 3 apps (e.g. Form -> Sheet -> Email)",
+              "Instant webhook trigger setup",
+              "Basic error handling & alert",
+              "Execution testing & handoff note"
+            ],
+            highlighted: false,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Business Automation",
+            priceMAD: 3200,
+            period: "one-time",
+            features: [
+              "Up to 4 interconnected scenarios",
+              "Multi-step branching & filtering logic",
+              "CRM, WhatsApp, or Slack alert pipelines",
+              "Data normalization & transformation formulas",
+              "Automated retry routers & failure logging",
+              "Walkthrough review session included"
+            ],
+            highlighted: true,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Enterprise Automation",
+            priceMAD: null,
+            period: "project",
+            features: [
+              "End-to-end business operations automation",
+              "Custom API connector & JSON payload parsers",
+              "Bi-directional database sync & webhook listeners",
+              "Advanced scheduling, queuing & rate limiting",
+              "Scenario performance monitoring setup",
+              "Ongoing workflow retainer & priority fixes"
+            ],
+            highlighted: false,
+            cta: "Request Custom Quote",
+            isCustomQuote: true
+          }
+        ]
+      },
+      {
+        id: "custom-web-solutions",
+        slug: "custom-web-solutions",
+        title: "Custom Web Solutions",
+        shortTitle: "Custom Solutions",
+        icon: "Sparkles",
+        tagline: "Tailor-made digital tools, internal dashboards, and unique technical builds.",
+        idealFor: "Projects with unique requirements that off-the-shelf templates cannot satisfy.",
+        description: "When template solutions hit a wall, I design and develop custom web tools, client portals, internal utilities, and custom integrations engineered specifically for your workflow.",
+        deliverables: [
+          "Technical requirement specification & architecture design",
+          "Custom user interface wireframing and frontend development",
+          "Backend API endpoints, database schemas, and authentication",
+          "Third-party system integrations and bespoke data flows",
+          "Comprehensive unit & integration testing before launch",
+          "Deployment, server configuration, and post-launch maintenance"
+        ],
+        faqs: [
+          {
+            question: "How does the Discovery & Consultation session work?",
+            answer: "We spend 1 hour reviewing your technical needs, feasibility, and architecture. You receive a written technical brief and roadmap regardless of whether we build together."
+          },
+          {
+            question: "What tech stack do you recommend for custom builds?",
+            answer: "Typically Next.js or React on the frontend paired with Node.js or Django on the backend, depending on your scalability and data requirements."
+          }
+        ],
+        tiers: [
+          {
+            name: "Discovery & Architecture Session",
+            priceMAD: 400,
+            period: "session",
+            features: [
+              "1-hour deep-dive technical consultation",
+              "Business requirements analysis",
+              "Feasibility assessment & stack recommendation",
+              "Architecture blueprint & cost breakdown",
+              "Written summary roadmap provided"
+            ],
+            highlighted: false,
+            cta: "Book Session",
+            isCustomQuote: false
+          },
+          {
+            name: "Custom Web Build",
+            priceMAD: null,
+            period: "project",
+            features: [
+              "Fully custom UI/UX design & frontend logic",
+              "Bespoke backend APIs & relational database",
+              "Authentication, role permissions & security",
+              "Custom integrations (payments, webhooks, CRMs)",
+              "Full end-to-end automated testing & QA",
+              "Cloud deployment & post-launch warranty period"
+            ],
+            highlighted: true,
+            cta: "Request Custom Quote",
+            isCustomQuote: true
+          }
+        ]
+      },
+      {
+        id: "security-checks",
+        slug: "security-checks",
+        title: "Codebase Security Checks & Revisions",
+        shortTitle: "Security Checks",
+        icon: "ShieldCheck",
+        tagline: "Vulnerability audits, dependency scanning, code reviews, and defensive hardening.",
+        idealFor: "Companies seeking peace of mind before launch or verifying existing codebase integrity.",
+        description: "Thorough security inspections targeting OWASP Top 10 vulnerabilities, leaked secrets, outdated dependencies, permission flaws, and insecure HTTP configurations.",
+        deliverables: [
+          "Automated & manual source code security audit report",
+          "Dependency vulnerability (CVE) scanning and outdated package triage",
+          "Secrets & API keys leakage check across git history",
+          "HTTP security headers & Content Security Policy (CSP) checklist",
+          "Direct code patch pull requests resolving identified critical items",
+          "Post-audit verification scan confirming fixes"
+        ],
+        faqs: [
+          {
+            question: "How do you access our codebase safely?",
+            answer: "Access is granted via read-only GitHub repository invites or localized tarball archives under strict confidentiality agreements."
+          },
+          {
+            question: "Do you only provide a report, or do you fix the issues?",
+            answer: "The 'Deep Scan & Fix' tier includes both the comprehensive audit report and hands-on code patches/pull requests to remediate the vulnerabilities."
+          },
+          {
+            question: "Can you help protect against DDoS attacks?",
+            answer: "Yes, I configure rate limiters, reverse proxy caching, Cloudflare / Cloud Armor rules, and defensive HTTP security headers."
+          }
+        ],
+        tiers: [
+          {
+            name: "Quick Security Audit",
+            priceMAD: 900,
+            period: "one-time",
+            features: [
+              "Dependency CVE vulnerability scan",
+              "OWASP Top 10 critical checklist review",
+              "Environment & secrets leakage audit",
+              "Severity-ranked issue summary report",
+              "Actionable developer remediation checklist"
+            ],
+            highlighted: false,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Deep Scan & Fix",
+            priceMAD: 2800,
+            period: "one-time",
+            features: [
+              "Comprehensive manual + automated code review",
+              "Auth, session & token validation audit",
+              "SQL injection, XSS & CSRF prevention review",
+              "Security patches implementation (PRs)",
+              "HTTP security headers & CSP hardening",
+              "Detailed remediation report & verification scan"
+            ],
+            highlighted: true,
+            cta: "Get Started",
+            isCustomQuote: false
+          },
+          {
+            name: "Ongoing Security Retainer",
+            priceMAD: null,
+            period: "/month",
+            features: [
+              "Continuous automated dependency alerts",
+              "Monthly deep security re-scans",
+              "Priority zero-day vulnerability patching",
+              "Compliance & secure coding advisory",
+              "Direct emergency security hotline",
+              "Quarterly executive security summary"
+            ],
+            highlighted: false,
+            cta: "Request Custom Quote",
+            isCustomQuote: true
+          }
+        ]
+      }
+    ]
   }
 };
+

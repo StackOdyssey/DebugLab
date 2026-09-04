@@ -9,6 +9,7 @@ import { SkillsMatrix } from './components/SkillsMatrix';
 import { Projects } from './components/Projects';
 import { Timeline } from './components/Timeline';
 import { Contact } from './components/Contact';
+import { Pricing } from './components/Pricing';
 import { Footer } from './components/Footer';
 import { TerminalModal } from './components/Terminal';
 import { CommandMenu } from './components/CommandMenu';
@@ -20,13 +21,17 @@ import { sounds } from './utils/soundEffects';
 import confetti from 'canvas-confetti';
 import { ArrowLeft, Home } from 'lucide-react';
 
-function getRouteFromHash() {
-  const hash = window.location.hash.replace(/^#\/?/, '').split('?')[0].split('/')[0].trim().toLowerCase();
-  const validRoutes = ['projects', 'google-ads', 'skills', 'cisco-tool', 'timeline', 'certifications', 'contact'];
-  if (validRoutes.includes(hash)) {
-    return hash;
+function getRouteInfoFromHash() {
+  const raw = window.location.hash.replace(/^#\/?/, '').split('?')[0].trim();
+  const parts = raw.split('/').filter(Boolean);
+  const main = (parts[0] || '').toLowerCase();
+  const sub = parts[1] ? parts[1].toLowerCase() : null;
+
+  const validRoutes = ['projects', 'google-ads', 'pricing', 'skills', 'cisco-tool', 'timeline', 'certifications', 'contact'];
+  if (validRoutes.includes(main)) {
+    return { page: main, subRoute: sub };
   }
-  return 'home';
+  return { page: 'home', subRoute: null };
 }
 
 export function App() {
@@ -35,15 +40,19 @@ export function App() {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isCommandMenuOpen, setIsCommandMenuOpen] = useState(false);
   const [toast, setToast] = useState(null);
-  const [currentPage, setCurrentPage] = useState(getRouteFromHash());
+  
+  const initialRoute = getRouteInfoFromHash();
+  const [currentPage, setCurrentPage] = useState(initialRoute.page);
+  const [currentSubRoute, setCurrentSubRoute] = useState(initialRoute.subRoute);
 
   const themeObj = THEMES[currentTheme] || THEMES['neo-volt'];
 
   // Listen to hash change for zero-latency multi-page routing
   useEffect(() => {
     const handleHashChange = () => {
-      const newRoute = getRouteFromHash();
-      setCurrentPage(newRoute);
+      const routeInfo = getRouteInfoFromHash();
+      setCurrentPage(routeInfo.page);
+      setCurrentSubRoute(routeInfo.subRoute);
       window.scrollTo({ top: 0, behavior: 'instant' });
     };
 
@@ -117,13 +126,14 @@ export function App() {
         onOpenCommandPalette={() => setIsCommandMenuOpen(true)}
         onOpenTerminal={() => setIsTerminalOpen(true)}
         currentPage={currentPage}
+        currentSubRoute={currentSubRoute}
       />
 
       {/* Breadcrumb Navigation on Dedicated Subpages */}
       {currentPage !== 'home' && (
         <div className="bg-gray-100 dark:bg-gray-800 border-b-3 border-black py-2.5 px-4 sm:px-6 lg:px-8 font-mono text-xs">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <a 
                 href="#/" 
                 className="font-black text-black dark:text-white hover:bg-brutal-yellow hover:text-black px-2 py-0.5 border border-black inline-flex items-center gap-1 shadow-brutal-sm transition-colors"
@@ -132,9 +142,25 @@ export function App() {
                 <span>Home</span>
               </a>
               <span className="text-gray-500 dark:text-gray-400 font-black">/</span>
-              <span className="bg-brutal-yellow text-black font-black px-2 py-0.5 border border-black uppercase shadow-brutal-sm">
-                {currentPage === 'cisco-tool' ? 'Cisco Subnet Tool' : currentPage.replace('-', ' ')}
-              </span>
+
+              {currentPage === 'pricing' && currentSubRoute ? (
+                <>
+                  <a
+                    href="#/pricing"
+                    className="font-black text-black dark:text-white hover:bg-brutal-yellow hover:text-black px-2 py-0.5 border border-black inline-flex items-center gap-1 shadow-brutal-sm transition-colors uppercase"
+                  >
+                    Pricing
+                  </a>
+                  <span className="text-gray-500 dark:text-gray-400 font-black">/</span>
+                  <span className="bg-brutal-yellow text-black font-black px-2 py-0.5 border border-black uppercase shadow-brutal-sm">
+                    {PORTFOLIO.pricing.serviceCategories.find(c => c.slug === currentSubRoute)?.title || currentSubRoute.replace('-', ' ')}
+                  </span>
+                </>
+              ) : (
+                <span className="bg-brutal-yellow text-black font-black px-2 py-0.5 border border-black uppercase shadow-brutal-sm">
+                  {currentPage === 'cisco-tool' ? 'Cisco Subnet Tool' : currentPage.replace('-', ' ')}
+                </span>
+              )}
             </div>
             <a 
               href="#/"
@@ -207,6 +233,10 @@ export function App() {
 
         {currentPage === 'contact' && (
           <Contact onShowToast={showToast} />
+        )}
+
+        {currentPage === 'pricing' && (
+          <Pricing packageSlug={currentSubRoute} />
         )}
       </main>
 

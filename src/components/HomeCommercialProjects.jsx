@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2, Globe, ArrowUpRight, ArrowRight, CheckCircle, ExternalLink } from 'lucide-react';
+import { Building2, Globe, ArrowUpRight, ArrowRight, CheckCircle, ExternalLink, Layers, Sparkles, Database, Cpu, Zap, ShieldCheck } from 'lucide-react';
 import { Card } from './ui/Card';
 import { Badge } from './ui/Badge';
 import { Button } from './ui/Button';
@@ -10,7 +10,7 @@ import { sounds } from '../utils/soundEffects';
 export function HomeCommercialProjects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // Filter only real commercial production projects
+  // Filter only real commercial production projects (Safe Hands, Excellence Warehouse, Atlas Lux Travel)
   const commercialProjects = PORTFOLIO.projects.filter(p => p.projectType === 'real-project');
 
   const handleInspect = (proj) => {
@@ -33,7 +33,7 @@ export function HomeCommercialProjects() {
         </div>
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <p className="text-xs font-mono font-bold text-gray-700 dark:text-gray-300 max-w-xs">
-            Real enterprise web applications built and deployed for corporate clients.
+            Real enterprise web applications built and deployed for corporate clients & travel agencies.
           </p>
           <Button
             as="a"
@@ -41,14 +41,14 @@ export function HomeCommercialProjects() {
             variant="yellow"
             size="sm"
           >
-            <span>View All Works (8)</span>
+            <span>View All Works ({PORTFOLIO.projects.length})</span>
             <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
       </div>
 
-      {/* Grid of Commercial Projects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Grid of Commercial Projects - Card boxes style, all 3 in same row on desktop */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         {commercialProjects.map((project) => (
           <Card
             key={project.id}
@@ -68,78 +68,102 @@ export function HomeCommercialProjects() {
             }
             headerBg="bg-brutal-yellow text-black"
             shadow="shadow-brutal-xl"
-            className="group flex flex-col border-4 border-black ring-2 ring-yellow-400"
+            className="group flex flex-col border-4 border-black ring-2 ring-yellow-400 h-full"
           >
-            {/* Classification Strip */}
-            <div className="-mx-4 -mt-4 mb-3 px-3.5 py-1.5 border-b-2 border-black flex items-center justify-between text-[10px] font-mono font-black uppercase bg-brutal-yellow text-black">
-              <span className="flex items-center gap-1.5">
-                <Building2 className="w-3.5 h-3.5 text-black" />
-                <span>REAL COMMERCIAL CLIENT PROJECT</span>
+            {/* Agency / Classification Strip */}
+            <div className="-mx-5 -mt-5 mb-3 px-3.5 py-1.5 border-b-2 border-black flex items-center justify-between text-[10px] font-mono font-black uppercase bg-brutal-yellow text-black">
+              <span className="flex items-center gap-1.5 truncate mr-2">
+                <Building2 className="w-3.5 h-3.5 shrink-0 text-black" />
+                <span className="truncate">AGENCY: {project.agency || project.clientName}</span>
               </span>
-              <span className="text-[9px] px-1.5 py-0.2 bg-black text-white font-bold">
+              <span className="text-[9px] px-1.5 py-0.2 bg-black text-white font-bold shrink-0">
                 DEPLOYED
               </span>
             </div>
 
-            {/* Project Image Preview */}
+            {/* Project Image / Logo Box */}
             {project.image && (
               <div 
-                className="relative border-2 border-black mb-4 overflow-hidden bg-gray-900 aspect-video group-hover:scale-[1.01] transition-transform cursor-pointer"
+                className="relative border-2 border-black mb-3 overflow-hidden bg-neutral-950 aspect-[16/9] group-hover:scale-[1.01] transition-transform cursor-pointer flex items-center justify-center p-3 shadow-inner"
                 onClick={() => handleInspect(project)}
               >
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover object-top"
+                  className="max-h-full max-w-full object-contain filter drop-shadow-[0_2px_8px_rgba(255,255,255,0.15)]"
                   loading="lazy"
                 />
-                <div className="absolute top-2 right-2 bg-black text-white text-[9px] font-mono font-bold px-2 py-0.5 border border-white/40 shadow-sm flex items-center gap-1">
-                  <Globe className="w-3 h-3 text-green-400" />
+                <div className="absolute top-2 right-2 bg-black/90 text-white text-[9px] font-mono font-bold px-2 py-0.5 border border-white/40 shadow-sm flex items-center gap-1 backdrop-blur-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
                   <span>LIVE PORTAL</span>
                 </div>
               </div>
             )}
 
             <div className="mb-2">
-              <span className="text-[10px] font-mono font-black uppercase text-gray-500 tracking-wider">
+              <span className="text-[10px] font-mono font-black uppercase text-gray-500 dark:text-gray-400 tracking-wider">
                 {project.category}
               </span>
-              <h3 className="text-2xl font-black font-sans uppercase tracking-tight text-black dark:text-white mt-0.5 leading-snug">
+              <h3 className="text-xl font-black font-sans uppercase tracking-tight text-black dark:text-white mt-0.5 leading-snug">
                 {project.title}
               </h3>
             </div>
 
-            <p className="text-xs font-mono text-gray-700 dark:text-gray-300 mb-4 flex-1">
+            <p className="text-xs font-mono text-gray-700 dark:text-gray-300 mb-3 flex-1 line-clamp-3">
               {project.description}
             </p>
 
-            {/* Enterprise Highlights */}
-            <div className="border-2 border-black p-3 mb-4 space-y-1.5 bg-yellow-50/50 dark:bg-yellow-950/20">
-              <div className="text-[9px] font-mono font-black uppercase text-gray-600 dark:text-gray-400">
-                ENTERPRISE HIGHLIGHTS:
+            {/* Tech Stack & Architecture Overview Box */}
+            <div className="border-2 border-black p-2.5 mb-3 bg-cyan-50/80 dark:bg-cyan-950/40 text-left">
+              <div className="text-[9px] font-mono font-black uppercase text-cyan-900 dark:text-cyan-300 flex items-center gap-1 mb-1">
+                <Layers className="w-3 h-3 text-cyan-700 dark:text-cyan-400" />
+                <span>STACK & ARCHITECTURE OVERVIEW:</span>
               </div>
-              {project.highlights.slice(0, 3).map((hl, hIdx) => (
-                <div key={hIdx} className="text-[11px] font-mono font-medium text-black dark:text-gray-200 flex items-start gap-1.5">
+              <div className="text-[10.5px] font-mono font-bold text-gray-800 dark:text-gray-200 leading-tight">
+                {project.id === 'atlas-lux-travel' && (
+                  <span>Next.js 16 (App Router) • React 19 • Drizzle ORM • Neon Postgres • Upstash Redis • OpenAI Concierge • Stripe</span>
+                )}
+                {project.id === 'safe-hands-logistics' && (
+                  <span>Next.js • TypeScript • Prisma ORM • PostgreSQL • Tailwind CSS • i18n Localization • SEO Systems</span>
+                )}
+                {project.id === 'excellence-warehouse' && (
+                  <span>Next.js • TypeScript • Tailwind CSS • i18n Localization • Vercel Edge • Dynamic Inquiries</span>
+                )}
+              </div>
+            </div>
+
+            {/* Enterprise Highlights */}
+            <div className="border-2 border-black p-2.5 mb-3 space-y-1 bg-yellow-50/50 dark:bg-yellow-950/20">
+              <div className="text-[9px] font-mono font-black uppercase text-gray-600 dark:text-gray-400">
+                KEY DELIVERABLES:
+              </div>
+              {project.highlights.slice(0, 2).map((hl, hIdx) => (
+                <div key={hIdx} className="text-[10.5px] font-mono font-medium text-black dark:text-gray-200 flex items-start gap-1.5">
                   <CheckCircle className="w-3.5 h-3.5 text-green-600 shrink-0 mt-0.5" />
-                  <span>{hl}</span>
+                  <span className="line-clamp-1">{hl}</span>
                 </div>
               ))}
             </div>
 
             {/* Tech Badges */}
-            <div className="flex flex-wrap gap-1 mb-5">
-              {project.tech.map((t, tIdx) => (
+            <div className="flex flex-wrap gap-1 mb-4">
+              {project.tech.slice(0, 5).map((t, tIdx) => (
                 <span
                   key={tIdx}
-                  className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 border border-black text-[10px] font-mono font-bold text-black dark:text-white hover:bg-brutal-yellow hover:text-black transition-colors"
+                  className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 border border-black text-[9.5px] font-mono font-bold text-black dark:text-white hover:bg-brutal-yellow hover:text-black transition-colors"
                 >
                   {t}
                 </span>
               ))}
+              {project.tech.length > 5 && (
+                <span className="px-1.5 py-0.5 bg-brutal-yellow/40 border border-black text-[9.5px] font-mono font-bold text-black dark:text-white">
+                  +{project.tech.length - 5}
+                </span>
+              )}
             </div>
 
             {/* Action Buttons */}
-            <div className="grid grid-cols-2 gap-3 mt-auto">
+            <div className="grid grid-cols-2 gap-2 mt-auto">
               <Button
                 variant="white"
                 size="sm"
@@ -186,7 +210,7 @@ export function HomeCommercialProjects() {
           size="md"
           className="shrink-0"
         >
-          <span>Explore All 8 Projects</span>
+          <span>Explore All {PORTFOLIO.projects.length} Projects</span>
           <ArrowRight className="w-4 h-4" />
         </Button>
       </div>
@@ -196,31 +220,54 @@ export function HomeCommercialProjects() {
         isOpen={!!selectedProject}
         onClose={() => setSelectedProject(null)}
         title={selectedProject?.title || 'Project Case Study'}
-        subtitle={`CLIENT / CATEGORY: ${selectedProject?.clientName || selectedProject?.category}`}
+        subtitle={`AGENCY / CLIENT: ${selectedProject?.agency || selectedProject?.clientName || selectedProject?.category}`}
         headerBg="bg-brutal-yellow text-black"
       >
         {selectedProject && (
           <div className="space-y-6">
-            {/* Modal Image */}
+            {/* Modal Image / Logo Banner */}
             {selectedProject.image && (
-              <div className="border-3 border-black overflow-hidden aspect-video bg-gray-900 shadow-brutal-sm">
+              <div className="border-3 border-black overflow-hidden bg-neutral-950 p-6 shadow-brutal-sm flex items-center justify-center max-h-56">
                 <img 
                   src={selectedProject.image} 
                   alt={selectedProject.title} 
-                  className="w-full h-full object-cover object-top"
+                  className="max-h-44 max-w-full object-contain filter drop-shadow-[0_4px_12px_rgba(255,255,255,0.2)]"
                 />
               </div>
             )}
 
             {/* Overview */}
             <div className="p-4 bg-gray-50 dark:bg-gray-800 border-3 border-black shadow-brutal-sm space-y-2">
-              <div className="text-xs font-mono font-black uppercase text-gray-500 dark:text-gray-400">
-                SYSTEM ARCHITECTURE & CLIENT OVERVIEW
+              <div className="text-xs font-mono font-black uppercase text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+                <Building2 className="w-4 h-4 text-black dark:text-white" />
+                <span>SYSTEM ARCHITECTURE & AGENCY OVERVIEW</span>
               </div>
               <p className="text-sm font-sans font-medium text-black dark:text-white leading-relaxed">
                 {selectedProject.description}
               </p>
             </div>
+
+            {/* Deep Stack Architecture Breakdown */}
+            {selectedProject.stackOverview && (
+              <div className="border-3 border-black p-4 bg-cyan-50/70 dark:bg-cyan-950/30 shadow-brutal-sm space-y-2.5">
+                <div className="text-xs font-mono font-black uppercase text-cyan-900 dark:text-cyan-300 flex items-center gap-1.5">
+                  <Layers className="w-4 h-4 text-cyan-700 dark:text-cyan-400" />
+                  <span>ARCHITECTURE & STACK BREAKDOWN</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+                  {Object.entries(selectedProject.stackOverview).map(([key, val]) => (
+                    <div key={key} className="p-2 bg-white dark:bg-gray-900 border border-black shadow-brutal-xs">
+                      <div className="text-[10px] font-black uppercase text-gray-500 dark:text-gray-400 mb-0.5">
+                        {key}:
+                      </div>
+                      <div className="font-bold text-black dark:text-gray-200">
+                        {val}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Engineering Highlights */}
             <div className="space-y-2">
@@ -240,10 +287,10 @@ export function HomeCommercialProjects() {
               </div>
             </div>
 
-            {/* Tech Stack */}
+            {/* Tech Stack Badges */}
             <div>
               <h4 className="text-xs font-mono font-black uppercase text-black dark:text-white mb-2">
-                TECHNOLOGY STACK:
+                TECHNOLOGY ECOSYSTEM:
               </h4>
               <div className="flex flex-wrap gap-1.5">
                 {selectedProject.tech.map((t, idx) => (
@@ -260,7 +307,7 @@ export function HomeCommercialProjects() {
             {/* Live Website Actions */}
             <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t-2 border-black">
               <div className="text-xs font-mono font-bold text-gray-600 dark:text-gray-400">
-                Client Status: <strong className="text-black dark:text-white">Verified Commercial Deployment</strong>
+                Agency Status: <strong className="text-black dark:text-white">Verified Production Deployment</strong>
               </div>
               {selectedProject.liveUrl && (
                 <Button
@@ -272,7 +319,7 @@ export function HomeCommercialProjects() {
                   size="sm"
                 >
                   <Globe className="w-4 h-4" />
-                  <span>Visit Production Site</span>
+                  <span>Visit Production Site ({selectedProject.liveUrl.replace('https://', '')})</span>
                   <ExternalLink className="w-4 h-4" />
                 </Button>
               )}
